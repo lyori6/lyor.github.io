@@ -72,8 +72,10 @@ accordions.forEach((accordion) => {
         accordion.classList.toggle("open");
         if (accordion.classList.contains("open")) {
             content.style.display = "block";
+            icon.style.transform = "rotate(180deg)";
         } else {
             content.style.display = "none";
+            icon.style.transform = "rotate(0deg)";
         }
     });
 });

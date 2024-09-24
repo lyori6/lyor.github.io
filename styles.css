@@ -38,7 +38,7 @@ nav .logo {
 
 nav .logo a {
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.8em; /* Increased font size for better visibility */
     color: #000;
 }
 
@@ -50,13 +50,14 @@ nav .nav-links {
 
 nav .nav-links li {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 25px; /* Increased margin for better spacing */
 }
 
 nav .nav-links a {
     text-decoration: none;
     color: #333;
-    font-weight: 500;
+    font-weight: 600; /* Increased font weight for prominence */
+    font-size: 1em;
 }
 
 nav .nav-links a:hover {
@@ -65,7 +66,7 @@ nav .nav-links a:hover {
 
 /* Section Styles */
 section {
-    padding: 100px 15%;
+    padding: 120px 15%; /* Increased top padding for better spacing */
     margin-top: 60px;
 }
 
@@ -76,22 +77,23 @@ section {
 }
 
 .home-content h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 3em; /* Increased font size for landing page feel */
+    margin-bottom: 25px; /* More space after title */
 }
 
 .home-content p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+    font-size: 1.3em; /* Slightly larger text for readability */
+    margin-bottom: 35px;
 }
 
 .home-content .btn {
     text-decoration: none;
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     color: #fff;
-    padding: 15px 30px;
+    padding: 15px 35px; /* Increased padding for better click area */
     border-radius: 8px;
     transition: background-color 0.3s;
+    font-size: 1em;
 }
 
 .home-content .btn:hover {
@@ -99,103 +101,123 @@ section {
 }
 
 /* About Section */
+#about h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
 #about p {
     font-size: 1.1em;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    line-height: 1.8; /* Improved readability */
 }
 
 /* Experience Section */
-#experience .job {
+#experience h2 {
+    font-size: 2.5em;
     margin-bottom: 40px;
+    text-align: center;
 }
 
-#experience h3 {
-    font-size: 1.5em;
-    margin-bottom: 5px;
+#experience .job {
+    margin-bottom: 50px;
 }
 
-#experience h3 span {
-    font-weight: normal;
-    font-size: 0.8em;
-    color: #666;
-}
-
-#experience h4 {
-    font-size: 0.9em;
-    color: #999;
+#experience .accordion-header h3 {
+    font-size: 1.8em; /* Increased title size */
     margin-bottom: 10px;
 }
 
-.company-logo {
-    width: 150px;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+#experience .accordion-header {
+    padding: 20px 0; /* Increased padding for more space */
 }
 
-/* Accordion Styles */
-.accordion-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    padding: 15px 0;
-    border-bottom: 1px solid #eaeaea;
+#experience .accordion-header h3 span {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #666;
 }
 
-.accordion-header h3 {
-    margin: 0;
-}
-
-.accordion-content {
+#experience .accordion-content {
     display: none;
     padding: 15px 0;
 }
 
-.accordion .fa-chevron-down {
-    transition: transform 0.3s ease;
+#experience .accordion-content h4 {
+    font-size: 1em;
+    color: #999;
+    margin-bottom: 15px;
 }
 
-.accordion.open .fa-chevron-down {
-    transform: rotate(180deg);
-}
-
-#experience ul {
+#experience .accordion-content ul {
     list-style-type: disc;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
-#experience ul li {
+#experience .accordion-content ul li {
     margin-bottom: 10px;
+}
+
+/* Company Logos */
+.company-logo {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0 20px 0; /* Added top margin for spacing */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Projects Section */
-#projects .project {
+#projects h2 {
+    font-size: 2.5em;
     margin-bottom: 40px;
+    text-align: center;
+}
+
+#projects .project {
+    margin-bottom: 50px;
+    text-align: center; /* Center align for landing page feel */
 }
 
 #projects h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-bottom: 15px;
 }
 
 #projects p {
     font-size: 1.1em;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    line-height: 1.8;
 }
 
-#projects .btn {
+.project-logo {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Primary Button Style */
+.btn {
     text-decoration: none;
-    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 35px;
     border-radius: 8px;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
+    font-size: 1em;
 }
 
-#projects .btn:hover {
+.btn:hover {
     background-color: var(--button-hover-color);
-    color: #fff;
 }
 
 /* Secondary Button Style */
@@ -203,10 +225,11 @@ section {
     background-color: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 8px;
     transition: all 0.3s;
     text-decoration: none;
+    font-size: 1em;
 }
 
 .secondary-btn:hover {
@@ -215,8 +238,30 @@ section {
     text-decoration: none;
 }
 
+/* Disabled Button Style */
+.disabled-btn {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.disabled-btn:hover {
+    background-color: #ccc;
+    color: #666;
+}
+
 /* Testimonials Section */
-#testimonials .testimonial-carousel {
+#testimonials h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.testimonial-carousel {
     position: relative;
     overflow: hidden;
 }
@@ -226,7 +271,7 @@ section {
     font-size: 1.1em;
     color: #555;
     text-align: center;
-    padding: 0 20%;
+    padding: 0 10%;
     position: relative;
 }
 
@@ -238,13 +283,16 @@ section {
     font-style: italic;
     margin-bottom: 15px;
     position: relative;
+    line-height: 1.8;
 }
 
-.testimonial .read-more-link {
+.read-more-link {
     color: var(--primary-color);
     text-decoration: underline;
     cursor: pointer;
     margin-left: 5px;
+    font-size: 0.9em; /* Reduced font size */
+    font-weight: normal; /* Less prominent */
 }
 
 .testimonial .more-text {
@@ -274,6 +322,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    transform: translateY(-50%);
 }
 
 .carousel-controls .prev,
@@ -283,6 +332,7 @@ section {
     cursor: pointer;
     user-select: none;
     padding: 0 20px;
+    transition: color 0.3s;
 }
 
 .carousel-controls .prev:hover,
@@ -291,29 +341,43 @@ section {
 }
 
 /* Contact Section */
+#contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
 #contact p {
     font-size: 1.1em;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    line-height: 1.8;
 }
 
 .contact-links {
     list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .contact-links li {
-    margin-bottom: 10px;
+    margin: 10px 20px;
 }
 
 .contact-links a {
     color: #333;
     text-decoration: none;
     font-size: 1.1em;
+    display: flex;
+    align-items: center;
 }
 
 .contact-links a i {
     margin-right: 10px;
     color: var(--primary-color);
+    font-size: 1.2em;
 }
 
 .contact-links a:hover {
@@ -325,11 +389,13 @@ footer {
     background-color: #fff;
     border-top: 1px solid #eaeaea;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
+    margin-top: 50px;
 }
 
 footer p {
     color: #999;
+    font-size: 1em;
 }
 
 /* Responsive Styles */
@@ -353,5 +419,14 @@ footer p {
 
     .testimonial {
         padding: 0 5%;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-links li {
+        margin: 10px 0;
     }
 }
