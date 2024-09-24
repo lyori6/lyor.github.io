@@ -18,6 +18,7 @@ body {
     --primary-color: #0077B5; /* LinkedIn Blue */
     --accent-color: #008CFF;  /* Lighter, brighter blue */
     --button-hover-color: #005a9e; /* Darker shade on hover */
+    --secondary-color: #0077B5;
 }
 
 /* Navigation Styles */
@@ -128,7 +129,36 @@ section {
 
 .company-logo {
     width: 150px;
+    max-width: 100%;
+    height: auto;
     margin-bottom: 15px;
+}
+
+/* Accordion Styles */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.accordion-header h3 {
+    margin: 0;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px 0;
+}
+
+.accordion .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.accordion.open .fa-chevron-down {
+    transform: rotate(180deg);
 }
 
 #experience ul {
@@ -169,6 +199,18 @@ section {
     background-color: var(--button-hover-color);
 }
 
+/* Secondary Button Style */
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
 /* Testimonials Section */
 #testimonials .testimonial-carousel {
     position: relative;
@@ -191,43 +233,43 @@ section {
 .testimonial p {
     font-style: italic;
     margin-bottom: 15px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Number of lines to show */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
     position: relative;
 }
 
-.testimonial p.expanded {
-    -webkit-line-clamp: unset;
-    overflow: visible;
+.testimonial .ellipsis {
+    display: inline;
 }
 
-.testimonial cite {
-    display: block;
-    color: #999;
-    margin-top: 10px;
+.testimonial .more-text {
+    display: none;
+}
+
+.testimonial.expanded .more-text {
+    display: inline;
+}
+
+.testimonial.expanded .ellipsis,
+.testimonial.expanded .read-more-btn {
+    display: none;
 }
 
 .avatar {
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 15px;
 }
 
-/* Read All Button */
-.read-all-btn {
+.read-more-btn {
     background: none;
     border: none;
     color: var(--primary-color);
     cursor: pointer;
     font-weight: bold;
-    margin-top: 10px;
 }
 
-.read-all-btn:hover {
+.read-more-btn:hover {
     text-decoration: underline;
 }
 
