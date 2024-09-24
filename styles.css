@@ -16,7 +16,7 @@ body {
 /* Color Variables */
 :root {
     --primary-color: #0077B5; /* LinkedIn Blue */
-    --accent-color: #F9A825;  /* Yellow/Orange Accent */
+    --accent-color: #008CFF;  /* Lighter, brighter blue */
 }
 
 /* Navigation Styles */
@@ -93,7 +93,7 @@ section {
 }
 
 .home-content .btn:hover {
-    background-color: #d48806;
+    background-color: #0077B5; /* Darker shade on hover */
 }
 
 /* About Section */
@@ -165,7 +165,7 @@ section {
 }
 
 #projects .btn:hover {
-    background-color: #d48806;
+    background-color: #0077B5; /* Darker shade on hover */
 }
 
 /* Testimonials Section */
