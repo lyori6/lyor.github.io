@@ -49,19 +49,14 @@ function resetAutoScroll() {
 startAutoScroll();
 
 // Read more functionality for testimonials
-const readMoreButtons = document.querySelectorAll(".read-more-btn");
+const readMoreLinks = document.querySelectorAll(".read-more-link");
 
-readMoreButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
+readMoreLinks.forEach((link, index) => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
         const testimonial = slides[index];
-        testimonial.classList.toggle("expanded");
-        if (testimonial.classList.contains("expanded")) {
-            button.textContent = "Read less";
-            clearInterval(autoScrollInterval);
-        } else {
-            button.textContent = "Read more";
-            startAutoScroll();
-        }
+        testimonial.classList.add("expanded");
+        clearInterval(autoScrollInterval);
     });
 });
 
