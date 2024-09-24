@@ -13,6 +13,12 @@ body {
     background-color: #fafafa;
 }
 
+/* Color Variables */
+:root {
+    --primary-color: #0077B5; /* LinkedIn Blue */
+    --accent-color: #F9A825;  /* Yellow/Orange Accent */
+}
+
 /* Navigation Styles */
 nav {
     width: 100%;
@@ -52,7 +58,7 @@ nav .nav-links a {
 }
 
 nav .nav-links a:hover {
-    color: #007aff;
+    color: var(--primary-color);
 }
 
 /* Section Styles */
@@ -79,20 +85,22 @@ section {
 
 .home-content .btn {
     text-decoration: none;
-    background-color: #007aff;
+    background-color: var(--accent-color);
     color: #fff;
     padding: 15px 30px;
     border-radius: 8px;
+    transition: background-color 0.3s;
 }
 
 .home-content .btn:hover {
-    background-color: #005bb5;
+    background-color: #d48806;
 }
 
 /* About Section */
 #about p {
     font-size: 1.1em;
     color: #555;
+    margin-bottom: 20px;
 }
 
 /* Experience Section */
@@ -117,6 +125,11 @@ section {
     margin-bottom: 10px;
 }
 
+.company-logo {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
 #experience ul {
     list-style-type: disc;
     margin-left: 20px;
@@ -139,40 +152,70 @@ section {
 #projects p {
     font-size: 1.1em;
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-#projects a {
+#projects .btn {
     text-decoration: none;
-    color: #007aff;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
 }
 
-#projects a:hover {
-    text-decoration: underline;
+#projects .btn:hover {
+    background-color: #d48806;
 }
 
 /* Testimonials Section */
-#testimonials blockquote {
-    font-style: italic;
-    color: #555;
-    margin: 20px 0;
+#testimonials .testimonial-carousel {
     position: relative;
+    overflow: hidden;
 }
 
-#testimonials blockquote::before {
-    content: open-quote;
-    font-size: 2em;
-    color: #eaeaea;
-    position: absolute;
-    left: -20px;
-    top: -10px;
+.testimonial {
+    display: none;
+    font-size: 1.1em;
+    color: #555;
+    text-align: center;
+    padding: 0 20%;
 }
 
-#testimonials cite {
+.testimonial.active {
     display: block;
-    text-align: right;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.testimonial cite {
+    display: block;
     color: #999;
-    margin-top: 10px;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel-controls .prev,
+.carousel-controls .next {
+    font-size: 2em;
+    color: #ccc;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 20px;
+}
+
+.carousel-controls .prev:hover,
+.carousel-controls .next:hover {
+    color: var(--primary-color);
 }
 
 /* Contact Section */
@@ -191,8 +234,14 @@ section {
 }
 
 .contact-links a {
-    color: #007aff;
+    color: #333;
     text-decoration: none;
+    font-size: 1.1em;
+}
+
+.contact-links a i {
+    margin-right: 10px;
+    color: var(--primary-color);
 }
 
 .contact-links a:hover {
@@ -205,7 +254,6 @@ footer {
     border-top: 1px solid #eaeaea;
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
 }
 
 footer p {
@@ -229,5 +277,9 @@ footer p {
 
     #home {
         padding-top: 100px;
+    }
+
+    .testimonial {
+        padding: 0 5%;
     }
 }
