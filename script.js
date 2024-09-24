@@ -1,10 +1,16 @@
 // script.js
 
 let slideIndex = 0;
+let autoScrollInterval;
+const slides = document.getElementsByClassName("testimonial");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+// Initialize the first slide
 showSlides(slideIndex);
 
+// Function to show slides
 function showSlides(n) {
-    let slides = document.getElementsByClassName("testimonial");
     if (n >= slides.length) { slideIndex = 0; }
     if (n < 0) { slideIndex = slides.length - 1; }
     for (let i = 0; i < slides.length; i++) {
@@ -14,18 +20,47 @@ function showSlides(n) {
 }
 
 // Next/previous controls
-document.querySelector(".next").addEventListener("click", () => {
+nextBtn.addEventListener("click", () => {
     slideIndex++;
     showSlides(slideIndex);
+    resetAutoScroll();
 });
 
-document.querySelector(".prev").addEventListener("click", () => {
+prevBtn.addEventListener("click", () => {
     slideIndex--;
     showSlides(slideIndex);
+    resetAutoScroll();
 });
 
 // Auto-scroll every 5 seconds
-setInterval(() => {
-    slideIndex++;
-    showSlides(slideIndex);
-}, 5000);
+function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+        slideIndex++;
+        showSlides(slideIndex);
+    }, 5000);
+}
+
+function resetAutoScroll() {
+    clearInterval(autoScrollInterval);
+    startAutoScroll();
+}
+
+startAutoScroll();
+
+// Read All functionality
+const readAllButtons = document.querySelectorAll(".read-all-btn");
+
+readAllButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+        const testimonial = slides[index];
+        const text = testimonial.querySelector(".testimonial-text");
+        text.classList.toggle("expanded");
+        if (text.classList.contains("expanded")) {
+            button.textContent = "Read Less";
+            clearInterval(autoScrollInterval);
+        } else {
+            button.textContent = "Read All";
+            startAutoScroll();
+        }
+    });
+});
