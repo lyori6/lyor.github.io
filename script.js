@@ -54,7 +54,7 @@ const readMoreLinks = document.querySelectorAll(".read-more-link");
 readMoreLinks.forEach((link, index) => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
-        const testimonial = slides[index];
+        const testimonial = link.closest('.testimonial');
         testimonial.classList.add("expanded");
         clearInterval(autoScrollInterval);
     });
@@ -66,7 +66,7 @@ const accordions = document.querySelectorAll(".accordion");
 accordions.forEach((accordion) => {
     const header = accordion.querySelector(".accordion-header");
     const content = accordion.querySelector(".accordion-content");
-    const icon = accordion.querySelector(".fas");
+    const icon = accordion.querySelector(".accordion-icon");
 
     header.addEventListener("click", () => {
         accordion.classList.toggle("open");
