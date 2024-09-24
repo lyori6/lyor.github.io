@@ -7,9 +7,6 @@ const slides = document.getElementsByClassName("testimonial");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 
-// Initialize the first slide
-showSlides(slideIndex);
-
 // Function to show slides
 function showSlides(n) {
     if (n >= slides.length) { slideIndex = 0; }
@@ -62,6 +59,16 @@ readMoreLinks.forEach((link, index) => {
 
 // Accordion Functionality
 const accordions = document.querySelectorAll(".accordion");
+
+// Open the first accordion on load
+if (accordions.length > 0) {
+    const firstAccordion = accordions[0];
+    firstAccordion.classList.add("open");
+    const content = firstAccordion.querySelector(".accordion-content");
+    const icon = firstAccordion.querySelector(".accordion-icon");
+    content.style.display = "block";
+    icon.style.transform = "rotate(180deg)";
+}
 
 accordions.forEach((accordion) => {
     const header = accordion.querySelector(".accordion-header");

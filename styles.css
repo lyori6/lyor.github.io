@@ -135,9 +135,14 @@ section {
     border-bottom: 1px solid #eaeaea;
 }
 
+.accordion-header img.company-logo {
+    width: 50px; /* Adjusted logo size */
+    height: auto;
+    margin-right: 15px;
+}
+
 .accordion-header h3 {
     font-size: 1.5em; /* Adjusted title size */
-    margin-left: 15px;
     flex: 1;
 }
 
@@ -188,14 +193,34 @@ section {
 
 .project {
     margin-bottom: 40px;
-    text-align: center;
+    text-align: left; /* Align projects to the left */
 }
 
-.project-logo {
-    width: 100px;
-    max-width: 100%;
+.project-header {
+    display: flex;
+    align-items: flex-start;
+}
+
+.project-header img.project-logo {
+    width: 80px; /* Scaled down project logo */
     height: auto;
+    margin-right: 20px;
+}
+
+.project-content {
+    flex: 1;
+}
+
+.project-content h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    font-size: 1.1em;
+    color: #555;
     margin-bottom: 15px;
+    line-height: 1.6;
 }
 
 /* Primary Button Style */
@@ -375,8 +400,8 @@ section {
 }
 
 .contact-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px; /* Scaled down icon size */
+    height: 20px; /* Scaled down icon size */
     margin-right: 10px;
 }
 
@@ -427,5 +452,23 @@ footer p {
 
     .contact-links li {
         margin: 10px 0;
+    }
+
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-header img.project-logo {
+        margin-bottom: 15px;
+    }
+
+    .project-content {
+        text-align: center;
     }
 }
