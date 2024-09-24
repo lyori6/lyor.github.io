@@ -1,0 +1,233 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fafafa;
+}
+
+/* Navigation Styles */
+nav {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+nav .logo {
+    float: left;
+    padding: 15px 30px;
+}
+
+nav .logo a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #000;
+}
+
+nav .nav-links {
+    list-style: none;
+    float: right;
+    padding: 15px 30px;
+}
+
+nav .nav-links li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav .nav-links a:hover {
+    color: #007aff;
+}
+
+/* Section Styles */
+section {
+    padding: 100px 15%;
+    margin-top: 60px;
+}
+
+#home {
+    background-color: #fff;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.home-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.home-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.home-content .btn {
+    text-decoration: none;
+    background-color: #007aff;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+}
+
+.home-content .btn:hover {
+    background-color: #005bb5;
+}
+
+/* About Section */
+#about p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Experience Section */
+#experience .job {
+    margin-bottom: 40px;
+}
+
+#experience h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+#experience h3 span {
+    font-weight: normal;
+    font-size: 0.8em;
+    color: #666;
+}
+
+#experience h4 {
+    font-size: 0.9em;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+#experience ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+#experience ul li {
+    margin-bottom: 10px;
+}
+
+/* Projects Section */
+#projects .project {
+    margin-bottom: 40px;
+}
+
+#projects h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#projects p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#projects a {
+    text-decoration: none;
+    color: #007aff;
+}
+
+#projects a:hover {
+    text-decoration: underline;
+}
+
+/* Testimonials Section */
+#testimonials blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 20px 0;
+    position: relative;
+}
+
+#testimonials blockquote::before {
+    content: open-quote;
+    font-size: 2em;
+    color: #eaeaea;
+    position: absolute;
+    left: -20px;
+    top: -10px;
+}
+
+#testimonials cite {
+    display: block;
+    text-align: right;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* Contact Section */
+#contact p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.contact-links {
+    list-style-type: none;
+}
+
+.contact-links li {
+    margin-bottom: 10px;
+}
+
+.contact-links a {
+    color: #007aff;
+    text-decoration: none;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #eaeaea;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    color: #999;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav .nav-links {
+        display: none;
+    }
+
+    nav .logo {
+        float: none;
+        text-align: center;
+    }
+
+    section {
+        padding: 100px 5%;
+    }
+
+    #home {
+        padding-top: 100px;
+    }
+}
