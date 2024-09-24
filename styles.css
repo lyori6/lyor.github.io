@@ -17,6 +17,7 @@ body {
 :root {
     --primary-color: #0077B5; /* LinkedIn Blue */
     --accent-color: #008CFF;  /* Lighter, brighter blue */
+    --button-hover-color: #005a9e; /* Darker shade on hover */
 }
 
 /* Navigation Styles */
@@ -93,7 +94,7 @@ section {
 }
 
 .home-content .btn:hover {
-    background-color: #0077B5; /* Darker shade on hover */
+    background-color: var(--button-hover-color);
 }
 
 /* About Section */
@@ -165,7 +166,7 @@ section {
 }
 
 #projects .btn:hover {
-    background-color: #0077B5; /* Darker shade on hover */
+    background-color: var(--button-hover-color);
 }
 
 /* Testimonials Section */
@@ -180,6 +181,7 @@ section {
     color: #555;
     text-align: center;
     padding: 0 20%;
+    position: relative;
 }
 
 .testimonial.active {
@@ -189,13 +191,47 @@ section {
 .testimonial p {
     font-style: italic;
     margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+}
+
+.testimonial p.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
 }
 
 .testimonial cite {
     display: block;
     color: #999;
+    margin-top: 10px;
 }
 
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Read All Button */
+.read-all-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.read-all-btn:hover {
+    text-decoration: underline;
+}
+
+/* Carousel Controls */
 .carousel-controls {
     position: absolute;
     top: 50%;
