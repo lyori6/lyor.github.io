@@ -1,5 +1,6 @@
 // script.js
 
+// Carousel Functionality
 let slideIndex = 0;
 let autoScrollInterval;
 const slides = document.getElementsByClassName("testimonial");
@@ -47,20 +48,37 @@ function resetAutoScroll() {
 
 startAutoScroll();
 
-// Read All functionality
-const readAllButtons = document.querySelectorAll(".read-all-btn");
+// Read more functionality for testimonials
+const readMoreButtons = document.querySelectorAll(".read-more-btn");
 
-readAllButtons.forEach((button, index) => {
+readMoreButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
         const testimonial = slides[index];
-        const text = testimonial.querySelector(".testimonial-text");
-        text.classList.toggle("expanded");
-        if (text.classList.contains("expanded")) {
-            button.textContent = "Read Less";
+        testimonial.classList.toggle("expanded");
+        if (testimonial.classList.contains("expanded")) {
+            button.textContent = "Read less";
             clearInterval(autoScrollInterval);
         } else {
-            button.textContent = "Read All";
+            button.textContent = "Read more";
             startAutoScroll();
+        }
+    });
+});
+
+// Accordion Functionality
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach((accordion) => {
+    const header = accordion.querySelector(".accordion-header");
+    const content = accordion.querySelector(".accordion-content");
+    const icon = accordion.querySelector(".fas");
+
+    header.addEventListener("click", () => {
+        accordion.classList.toggle("open");
+        if (accordion.classList.contains("open")) {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
         }
     });
 });
