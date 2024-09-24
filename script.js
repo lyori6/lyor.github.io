@@ -1,3 +1,5 @@
+// script.js
+
 let slideIndex = 0;
 showSlides(slideIndex);
 
