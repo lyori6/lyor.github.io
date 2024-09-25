@@ -1,5 +1,3 @@
-// script.js
-
 // Carousel Functionality
 let slideIndex = 0;
 let autoScrollInterval;
@@ -48,7 +46,7 @@ startAutoScroll();
 // Read more functionality for testimonials
 const readMoreLinks = document.querySelectorAll(".read-more-link");
 
-readMoreLinks.forEach((link, index) => {
+readMoreLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
         const testimonial = link.closest('.testimonial');
@@ -60,6 +58,8 @@ readMoreLinks.forEach((link, index) => {
 // Accordion Functionality
 const accordions = document.querySelectorAll(".accordion");
 
+// Remove the code that opens the first accordion on load
+// Ensure all accordions are closed initially
 
 accordions.forEach((accordion) => {
     const header = accordion.querySelector(".accordion-header");

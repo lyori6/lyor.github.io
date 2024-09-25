@@ -185,9 +185,8 @@ section {
     height: auto;
 }
 
-
 /* Hover state for collapsed accordion headers */
-.accordion:not(.open) .accordion-header:hover {
+.job:not(.open) .accordion-header:hover {
     color: var(--primary-color);
 }
 
@@ -196,7 +195,7 @@ section {
     transition: transform 0.3s; /* Smooth animation */
 }
 
-.accordion:not(.open) .accordion-header:hover .company-logo {
+.job:not(.open) .accordion-header:hover .company-logo {
     transform: scale(1.05); /* Slightly enlarge logo on hover */
 }
 
@@ -329,14 +328,21 @@ section {
     margin-left: 5px;
     font-size: 0.9em; /* Reduced font size */
     font-weight: normal; /* Less prominent */
+    display: inline-block;
+    word-break: break-word;
 }
 
 .testimonial .more-text {
     display: none;
 }
 
-.testimonial.expanded .more-text {
+.testimonial.expanded .more-text,
+.testimonial.expanded .end-quote {
     display: inline;
+}
+
+.testimonial.expanded .ellipsis {
+    display: none;
 }
 
 .testimonial.expanded .read-more-link {
