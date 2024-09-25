@@ -1,5 +1,3 @@
-// script.js
-
 // Carousel Functionality
 let slideIndex = 0;
 let autoScrollInterval;
@@ -52,9 +50,19 @@ readMoreLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
         const testimonial = link.closest('.testimonial');
-        testimonial.classList.add("expanded");
-        // Remove the active class to stop auto-scroll
-        clearInterval(autoScrollInterval);
+        const moreText = link.nextElementSibling;
+
+        if (testimonial.classList.contains("expanded")) {
+            testimonial.classList.remove("expanded");
+            link.textContent = "Read more";
+            moreText.style.display = "none";
+        } else {
+            testimonial.classList.add("expanded");
+            link.textContent = "Read less";
+            moreText.style.display = "inline";
+            // Optionally, pause auto-scroll when expanded
+            clearInterval(autoScrollInterval);
+        }
     });
 });
 
@@ -68,6 +76,16 @@ accordions.forEach((accordion) => {
     const icon = accordion.querySelector(".accordion-icon");
 
     header.addEventListener("click", () => {
+        // Close all other accordions
+        accordions.forEach((acc) => {
+            if (acc !== accordion) {
+                acc.classList.remove("open");
+                acc.querySelector(".accordion-content").style.display = "none";
+                acc.querySelector(".accordion-icon").style.transform = "rotate(0deg)";
+            }
+        });
+
+        // Toggle current accordion
         accordion.classList.toggle("open");
         if (accordion.classList.contains("open")) {
             content.style.display = "block";
@@ -80,7 +98,7 @@ accordions.forEach((accordion) => {
 });
 
 // Button Hover Functionality for Disabled Buttons
-const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
+const disabledButtons = document.querySelectorAll(".disabled-btn");
 
 disabledButtons.forEach((button) => {
     const originalText = button.getAttribute('data-original-text');
