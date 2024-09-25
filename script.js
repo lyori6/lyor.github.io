@@ -1,3 +1,5 @@
+// script.js
+
 // Carousel Functionality
 let slideIndex = 0;
 let autoScrollInterval;
@@ -51,6 +53,7 @@ readMoreLinks.forEach((link) => {
         e.preventDefault();
         const testimonial = link.closest('.testimonial');
         testimonial.classList.add("expanded");
+        // Remove the active class to stop auto-scroll
         clearInterval(autoScrollInterval);
     });
 });
@@ -58,7 +61,6 @@ readMoreLinks.forEach((link) => {
 // Accordion Functionality
 const accordions = document.querySelectorAll(".accordion");
 
-// Remove the code that opens the first accordion on load
 // Ensure all accordions are closed initially
 
 accordions.forEach((accordion) => {
@@ -75,5 +77,20 @@ accordions.forEach((accordion) => {
             content.style.display = "none";
             icon.style.transform = "rotate(0deg)";
         }
+    });
+});
+
+// Button Hover Functionality for Disabled Buttons
+const disabledButtons = document.querySelectorAll(".disabled-btn");
+
+disabledButtons.forEach((button) => {
+    const originalText = button.getAttribute('data-original-text');
+
+    button.addEventListener("mouseenter", () => {
+        button.textContent = "COMING SOON!";
+    });
+
+    button.addEventListener("mouseleave", () => {
+        button.textContent = originalText;
     });
 });

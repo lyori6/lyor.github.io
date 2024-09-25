@@ -77,6 +77,15 @@ section {
     padding-top: 150px;
 }
 
+.intro-text {
+    font-size: 2.5em; /* Larger font size */
+    color: var(--primary-color);
+    font-weight: 700; /* Bolder */
+    margin-bottom: 20px; /* More space below */
+    letter-spacing: 1px; /* Slight letter spacing */
+    text-transform: uppercase; /* Uppercase for modern feel */
+}
+
 .home-content h1 {
     font-size: 3em; /* Increased font size for landing page feel */
     margin-bottom: 25px; /* More space after title */
@@ -186,7 +195,7 @@ section {
 }
 
 /* Hover state for collapsed accordion headers */
-.job:not(.open) .accordion-header:hover {
+.job:not(.open) .accordion-header:hover h3 {
     color: var(--primary-color);
 }
 
@@ -238,6 +247,14 @@ section {
     line-height: 1.6;
 }
 
+.accordion-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px; /* Space above */
+    margin-bottom: 30px; /* Space below */
+    line-height: 1.8; /* Improved readability */
+}
+
 /* Primary Button Style */
 .btn {
     text-decoration: none;
@@ -280,6 +297,7 @@ section {
     font-size: 1em;
     opacity: 0.6;
     cursor: not-allowed;
+    pointer-events: none; /* Prevent clicking */
 }
 
 .disabled-btn:hover {
@@ -332,7 +350,11 @@ section {
     word-break: break-word;
 }
 
-.testimonial .more-text {
+.testimonial .ellipsis {
+    display: none;
+}
+
+.testimonial .end-quote {
     display: none;
 }
 
@@ -350,8 +372,8 @@ section {
 }
 
 .avatar {
-    width: 60px;
-    height: 60px;
+    width: 80px; /* Increased avatar size */
+    height: 80px; /* Increased avatar size */
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
@@ -372,6 +394,12 @@ section {
     cursor: pointer;
     user-select: none;
     padding: 0 20px;
+    transition: transform 0.3s;
+}
+
+.carousel-controls .prev:hover,
+.carousel-controls .next:hover {
+    transform: scale(1.1); /* Grow a little bigger on hover */
 }
 
 .carousel-controls img {
@@ -422,8 +450,8 @@ section {
 }
 
 .contact-icon {
-    width: 20px; /* Scaled down icon size */
-    height: 20px; /* Scaled down icon size */
+    width: 25px; /* Increased icon size */
+    height: 25px; /* Increased icon size */
     margin-right: 10px;
 }
 
