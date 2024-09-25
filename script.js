@@ -49,19 +49,17 @@ const readMoreLinks = document.querySelectorAll(".read-more-link");
 readMoreLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
-        const testimonial = link.closest('.testimonial');
-        const moreText = link.nextElementSibling;
-
-        if (testimonial.classList.contains("expanded")) {
-            testimonial.classList.remove("expanded");
-            link.textContent = "Read more";
-            moreText.style.display = "none";
-        } else {
-            testimonial.classList.add("expanded");
-            link.textContent = "Read less";
+        const testimonialText = link.parentElement;
+        const moreText = testimonialText.querySelector('.more-text');
+        const ellipsis = testimonialText.querySelector('.ellipsis');
+        if (moreText.style.display === "none" || !moreText.style.display) {
             moreText.style.display = "inline";
-            // Optionally, pause auto-scroll when expanded
-            clearInterval(autoScrollInterval);
+            ellipsis.style.display = "none";
+            link.textContent = "Read less";
+        } else {
+            moreText.style.display = "none";
+            ellipsis.style.display = "inline";
+            link.textContent = "Read more";
         }
     });
 });
@@ -76,16 +74,6 @@ accordions.forEach((accordion) => {
     const icon = accordion.querySelector(".accordion-icon");
 
     header.addEventListener("click", () => {
-        // Close all other accordions
-        accordions.forEach((acc) => {
-            if (acc !== accordion) {
-                acc.classList.remove("open");
-                acc.querySelector(".accordion-content").style.display = "none";
-                acc.querySelector(".accordion-icon").style.transform = "rotate(0deg)";
-            }
-        });
-
-        // Toggle current accordion
         accordion.classList.toggle("open");
         if (accordion.classList.contains("open")) {
             content.style.display = "block";
@@ -98,7 +86,7 @@ accordions.forEach((accordion) => {
 });
 
 // Button Hover Functionality for Disabled Buttons
-const disabledButtons = document.querySelectorAll(".disabled-btn");
+const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
 
 disabledButtons.forEach((button) => {
     const originalText = button.getAttribute('data-original-text');
