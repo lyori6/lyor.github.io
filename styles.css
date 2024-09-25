@@ -133,6 +133,7 @@ section {
     cursor: pointer;
     padding: 10px 0; /* Reduced padding for compactness */
     border-bottom: 1px solid #eaeaea;
+    transition: color 0.3s;
 }
 
 .accordion-header img.company-logo {
@@ -182,6 +183,21 @@ section {
 .company-logo {
     width: 50px;
     height: auto;
+}
+
+
+/* Hover state for collapsed accordion headers */
+.accordion:not(.open) .accordion-header:hover {
+    color: var(--primary-color);
+}
+
+/* Subtle animation for the company logo */
+.accordion-header .company-logo {
+    transition: transform 0.3s; /* Smooth animation */
+}
+
+.accordion:not(.open) .accordion-header:hover .company-logo {
+    transform: scale(1.05); /* Slightly enlarge logo on hover */
 }
 
 /* Projects Section */
