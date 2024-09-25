@@ -49,17 +49,13 @@ const readMoreLinks = document.querySelectorAll(".read-more-link");
 readMoreLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
-        const testimonialText = link.parentElement;
-        const moreText = testimonialText.querySelector('.more-text');
-        const ellipsis = testimonialText.querySelector('.ellipsis');
-        if (moreText.style.display === "none" || !moreText.style.display) {
-            moreText.style.display = "inline";
-            ellipsis.style.display = "none";
-            link.textContent = "Read less";
-        } else {
-            moreText.style.display = "none";
-            ellipsis.style.display = "inline";
+        const testimonialText = link.previousElementSibling;
+        if (testimonialText.classList.contains('expanded')) {
+            testimonialText.classList.remove('expanded');
             link.textContent = "Read more";
+        } else {
+            testimonialText.classList.add('expanded');
+            link.textContent = "Read less";
         }
     });
 });
@@ -74,6 +70,16 @@ accordions.forEach((accordion) => {
     const icon = accordion.querySelector(".accordion-icon");
 
     header.addEventListener("click", () => {
+        // Close all other accordions
+        accordions.forEach((acc) => {
+            if (acc !== accordion) {
+                acc.classList.remove("open");
+                acc.querySelector(".accordion-content").style.display = "none";
+                acc.querySelector(".accordion-icon").style.transform = "rotate(0deg)";
+            }
+        });
+
+        // Toggle the clicked accordion
         accordion.classList.toggle("open");
         if (accordion.classList.contains("open")) {
             content.style.display = "block";
