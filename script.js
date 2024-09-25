@@ -62,7 +62,6 @@ readMoreLinks.forEach((link) => {
 const accordions = document.querySelectorAll(".accordion");
 
 // Ensure all accordions are closed initially
-
 accordions.forEach((accordion) => {
     const header = accordion.querySelector(".accordion-header");
     const content = accordion.querySelector(".accordion-content");
@@ -81,7 +80,7 @@ accordions.forEach((accordion) => {
 });
 
 // Button Hover Functionality for Disabled Buttons
-const disabledButtons = document.querySelectorAll(".disabled-btn");
+const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
 
 disabledButtons.forEach((button) => {
     const originalText = button.getAttribute('data-original-text');
