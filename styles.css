@@ -139,7 +139,7 @@ nav .logo a {
     }
 
     .nav-links {
-        display: flex !important;
+        display: flex !important; /* Ensures nav-links are visible */
         flex-direction: row;
         position: static;
         width: auto;
@@ -174,6 +174,16 @@ nav .logo a {
 /* Removed text-align: center; from section to allow individual alignment */
 section {
     padding: 60px 0;
+}
+
+/* Section Headers */
+section h2 {
+    font-size: 2.5em; /* Makes the headers larger */
+    text-align: center; /* Centers the headers */
+    margin-bottom: 30px; /* Adds space below the headers */
+    font-family: 'Raleway', 'Roboto', sans-serif; /* Ensures consistent font */
+    font-weight: 700; /* Makes the headers bold */
+    color: var(--primary-color); /* Optional: Adds primary color to headers */
 }
 
 /* Zebra Striped Background */
@@ -273,16 +283,17 @@ section:nth-of-type(even) {
 
 .accordion-header h3 {
     flex-grow: 1;
-    font-size: 1.4em;
-    font-weight: 700; /* Increased weight for prominence */
-    font-family: 'Raleway', 'Roboto', sans-serif; /* Ensure consistency */
+    font-size: 1.6em; /* Slightly larger for prominence */
+    font-weight: 700; /* Makes the company name bold */
+    font-family: 'Raleway', 'Roboto', sans-serif; /* Ensures consistent font */
+    margin-bottom: 5px; /* Adds space below the company name */
 }
 
-/* Differentiate Title within h3 */
 .accordion-header h3 span {
     font-family: 'Roboto', sans-serif; /* Differentiate font */
-    font-weight: 400; /* Normal weight */
-    font-style: italic; /* Optional: add style for distinction */
+    font-weight: 500; /* Makes the role slightly less bold */
+    font-style: italic; /* Optional: adds style for distinction */
+    color: #555; /* Optional: adds color to differentiate */
 }
 
 .accordion-header .accordion-icon {
@@ -455,6 +466,8 @@ section:nth-of-type(even) {
 #contact {
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 0; /* Removes bottom padding */
+    margin-bottom: 0; /* Removes bottom margin if any */
 }
 
 #contact p {
@@ -481,6 +494,8 @@ section:nth-of-type(even) {
     color: #333;
     font-size: 1em;
     transition: color 0.3s;
+    text-align: left;
+    width: 100%; /* Make links full width */
 }
 
 .contact-links a:hover {
@@ -501,9 +516,9 @@ section:nth-of-type(even) {
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0; /* Reduces top and bottom padding */
     background-color: #f5f5f5;
-    margin-top: 40px;
+    margin-top: 0; /* Removes top margin */
 }
 
 footer p {
@@ -609,7 +624,7 @@ footer p {
 
     /* Specific Styles for Experience Section */
     .accordion-header h3 {
-        font-size: 1.4em; /* Adjusted */
+        font-size: 1.6em; /* Increased font size */
     }
 
     /* Contact Links */
