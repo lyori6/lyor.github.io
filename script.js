@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuIcon.classList.toggle('open');
             menuIcon.setAttribute('aria-expanded', isActive);
             nav.classList.toggle('menu-open', isActive); // Optional: Toggle class on nav for additional styles
+            document.body.classList.toggle('no-scroll', isActive); // Prevent body scroll when menu is open
         };
 
         menuIcon.addEventListener('click', toggleMenu);
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("Menu icon or navigation links not found.");
     }
 
-    // Carousel Functionality (Existing Code)
+    // Carousel Functionality
     let slideIndex = 0;
     let autoScrollInterval;
     const slides = document.querySelectorAll(".testimonial");
@@ -99,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Read More Functionality for Testimonials (Existing Code)
+    // Read More Functionality for Testimonials
     const testimonials = document.querySelectorAll(".testimonial");
 
     testimonials.forEach((testimonial) => {
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Accordion Functionality (Existing Code)
+    // Accordion Functionality
     const accordions = document.querySelectorAll(".accordion");
 
     accordions.forEach((accordion) => {
@@ -176,8 +177,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Button Hover Functionality for Disabled Buttons
+    const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
 
-    // Smooth Scrolling for Navigation Links (Existing Code)
+    disabledButtons.forEach((button) => {
+        const originalText = button.textContent;
+
+        button.addEventListener("mouseenter", () => {
+            button.textContent = "COMING SOON!";
+        });
+
+        button.addEventListener("mouseleave", () => {
+            button.textContent = originalText;
+        });
+    });
+
+    // Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             // Prevent default if it's not a disabled link
@@ -194,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Highlight Active Navigation Link on Scroll (Existing Code)
+    // Highlight Active Navigation Link on Scroll
     window.addEventListener('scroll', () => {
         let current = '';
         const sections = document.querySelectorAll('section');

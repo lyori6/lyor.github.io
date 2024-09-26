@@ -48,7 +48,6 @@ nav .logo a {
     font-weight: 600;
 }
 
-
 /* Menu Icon */
 .menu-icon {
     display: flex;
@@ -86,8 +85,7 @@ nav .logo a {
 .menu-icon.open .close-icon {
     opacity: 1;
     pointer-events: auto;
-    transform: scale(1.2); 
-
+    transform: translate(-50%, -50%) scale(1.2); /* Added scale for emphasis */
 }
 
 /* Navigation Links */
@@ -173,9 +171,9 @@ nav .logo a {
 }
 
 /* Section Styles */
+/* Removed text-align: center; from section to allow individual alignment */
 section {
     padding: 60px 0;
-    text-align: center;
 }
 
 /* Zebra Striped Background */
@@ -189,7 +187,7 @@ section:nth-of-type(even) {
 
 /* Home Section */
 #home {
-    text-align: center;
+    text-align: center; /* Center text only in Home section */
     padding-top: 60px;
 }
 
@@ -277,6 +275,14 @@ section:nth-of-type(even) {
     flex-grow: 1;
     font-size: 1.4em;
     font-weight: 700; /* Increased weight for prominence */
+    font-family: 'Raleway', 'Roboto', sans-serif; /* Ensure consistency */
+}
+
+/* Differentiate Title within h3 */
+.accordion-header h3 span {
+    font-family: 'Roboto', sans-serif; /* Differentiate font */
+    font-weight: 400; /* Normal weight */
+    font-style: italic; /* Optional: add style for distinction */
 }
 
 .accordion-header .accordion-icon {
@@ -295,6 +301,7 @@ section:nth-of-type(even) {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
+    text-align: left; /* Ensure left alignment within accordion content */
 }
 
 .accordion-content h4 {
@@ -359,6 +366,7 @@ section:nth-of-type(even) {
 .project-content h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    font-family: 'Raleway', 'Roboto', sans-serif;
 }
 
 .project-content p {
@@ -458,7 +466,8 @@ section:nth-of-type(even) {
     list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Changed from center for better alignment */
+    padding-left: 10px; /* Add left padding */
 }
 
 .contact-links li {
@@ -616,6 +625,7 @@ footer p {
         font-size: 1em; /* Consistent font size */
     }
 
+    /* Adjust Icons */
     .contact-icon {
         width: 25px;
         height: 25px;
