@@ -213,6 +213,7 @@ section:nth-of-type(even) {
 .accordion-content ul {
     list-style-type: disc;
     margin-left: 25px;
+    margin-bottom: 20px; /* Added space after bullet points */
 }
 
 .accordion-content ul li {
@@ -325,6 +326,7 @@ section:nth-of-type(even) {
     cursor: not-allowed;
     pointer-events: none; /* Prevent clicking */
     border: none; /* Ensure no border for consistency */
+    margin-bottom: 20px; /* Added space after the button */
 }
 
 .disabled-btn:hover {
@@ -376,6 +378,10 @@ section:nth-of-type(even) {
 
 .testimonial-text.expanded {
     -webkit-line-clamp: unset; /* Remove line clamp */
+}
+
+.read-more-container {
+    margin-bottom: 10px; /* Space between read-more link and cite */
 }
 
 .read-more-link {

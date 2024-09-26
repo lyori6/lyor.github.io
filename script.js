@@ -49,7 +49,7 @@ const readMoreLinks = document.querySelectorAll(".read-more-link");
 readMoreLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
-        const testimonialText = link.previousElementSibling;
+        const testimonialText = link.parentElement.previousElementSibling;
         if (testimonialText.classList.contains('expanded')) {
             testimonialText.classList.remove('expanded');
             link.textContent = "Read more";
@@ -103,5 +103,30 @@ disabledButtons.forEach((button) => {
 
     button.addEventListener("mouseleave", () => {
         button.textContent = originalText;
+    });
+});
+
+// Conditional Display of "Read more" Links
+document.addEventListener("DOMContentLoaded", () => {
+    const testimonials = document.querySelectorAll(".testimonial");
+
+    testimonials.forEach((testimonial) => {
+        const textElement = testimonial.querySelector(".testimonial-text");
+        const readMoreLink = testimonial.querySelector(".read-more-link");
+        
+        // Temporarily remove the line clamp to measure full height
+        textElement.style.webkitLineClamp = 'unset';
+        const fullHeight = textElement.scrollHeight;
+
+        // Re-apply the line clamp
+        textElement.style.webkitLineClamp = '3';
+        const truncatedHeight = textElement.scrollHeight;
+
+        // If the content is taller when not truncated, show the "Read more" link
+        if (fullHeight > truncatedHeight + 1) { // Adding 1 to account for minor differences
+            readMoreLink.style.display = "inline-block";
+        } else {
+            readMoreLink.style.display = "none";
+        }
     });
 });
