@@ -5,16 +5,23 @@
     box-sizing: border-box;
 }
 
+/* Font Face with font-display for Safari support */
+@font-face {
+  font-family: 'Catamaran';
+  src: url('https://fonts.googleapis.com/css2?family=Catamaran:wght@500;700&family=Roboto&display=swap');
+  font-display: swap; /* Ensures fonts load properly in Safari */
+}
+
 /* Body Styles */
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1rem; /* Base font size */
     background-color: #fafafa;
 }
 
-/* Color Variables */
+/* Color Variables for Theme */
 :root {
     --primary-color: #007FFF; /* Vibrant blue */
     --accent-color: #F85E00;  /* Accent color */
@@ -42,7 +49,7 @@ nav .logo {
 
 nav .logo a {
     text-decoration: none;
-    font-size: 1.8em; /* Increased font size for better visibility */
+    font-size: 1.8em; /* Emphasized logo visibility */
     color: #000;
 }
 
@@ -53,77 +60,81 @@ nav .nav-links {
 }
 
 nav .nav-links li {
-    margin-left: 25px; /* Increased margin for better spacing */
+    margin-left: 25px; /* Spacing between links */
 }
 
 nav .nav-links a {
     text-decoration: none;
     color: #333;
-    font-weight: 600; /* Increased font weight for prominence */
+    font-weight: 600; /* Bold text for prominence */
     font-size: 1em;
 }
 
 nav .nav-links a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Color on hover */
 }
 
 /* Section Styles */
 section {
-    padding: 80px 10%;
-    margin-top: 60px;
+    padding: 80px 10%; /* Consistent padding across sections */
+    margin-top: 60px; /* Offset to compensate for fixed nav */
 }
 
 @media (max-width: 768px) {
     section {
-        padding: 60px 8%;
+        padding: 60px 8%; /* Reduced padding for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     section {
-        padding: 40px 5%; /* More compact padding on very small screens */
+        padding: 40px 5%; /* Compact padding for very small screens */
     }
 }
 
+/* Responsive Image Styles */
 img {
     max-width: 100%;
-    height: auto;
+    height: auto; /* Ensure images are responsive */
 }
 
+/* Button Styles */
 .btn {
-    padding: 15px 40px; /* Bigger buttons */
-    font-size: 1.1em; /* Larger text for buttons */
+    padding: 15px 40px; /* Comfortable padding */
+    font-size: 1.1em; /* Slightly larger button text */
+    border-radius: 8px; /* Rounded corners */
 }
 
 @media (max-width: 768px) {
     .btn {
-        padding: 12px 35px; /* Adjust padding on smaller screens */
-        font-size: 1.2em;
+        padding: 12px 35px; /* Adjust padding for tablets */
+        font-size: 1.2em; /* Larger text for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .btn {
-        padding: 10px 30px;
-        font-size: 1.3em;
+        padding: 10px 30px; /* Compact padding on mobile */
+        font-size: 1.3em; /* Further increase for mobile */
     }
 }
 
+/* Container Styles */
 .container {
-    width: 70%; 
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 70%;
+    max-width: 1000px; /* Limit max width */
+    margin: 0 auto; /* Center container */
 }
 
 @media (max-width: 768px) {
     .container {
-        width: 90%;
+        width: 90%; /* Wider container for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        width: 95%; /* Even wider for mobile */
+        width: 95%; /* Maximize container width on mobile */
     }
 }
 
@@ -467,9 +478,8 @@ section:nth-of-type(even) {
 }
 
 .read-more-link {
-    color: var(--primary-color);
+    color: #005BBB;
     text-decoration: none;
-    font-weight: bold;
     display: none; /* Initially hidden */
 }
 
