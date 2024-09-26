@@ -222,19 +222,19 @@ section:nth-of-type(even) {
 
 /* Summary Paragraph */
 .summary {
-    margin-bottom: 30px; /* Increased from 20px to 30px */
+    margin-bottom: 40px;
 }
 
 /* Read More Container */
 .read-more-container {
     text-align: center;
-    margin-bottom: 10px; /* Space between read-more link and cite */
+    margin-bottom: 10px; 
 }
 
 /* Buttons */
 .accordion-content .secondary-btn,
 .accordion-content .disabled-btn {
-    margin-top: 20px; /* Added top margin to separate buttons from the summary */
+    margin-top: 20px; 
 }
 
 /* Company Logos */
