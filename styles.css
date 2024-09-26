@@ -703,7 +703,11 @@ footer p {
         font-size: 1rem; /* Adjusted */
     }
 
-    h1, h2 {
+    h1 {
+        font-size: 1.8em; /* Adjusted */
+    }
+
+    h2 {
         font-size: 1.6em; /* Adjusted */
     }
 
