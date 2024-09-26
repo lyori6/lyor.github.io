@@ -86,7 +86,7 @@ nav .logo a {
 .menu-icon.open .close-icon {
     opacity: 1;
     pointer-events: auto;
-    transform: scale(1.2); 
+    transform: scale(0.8); 
 
 }
 
