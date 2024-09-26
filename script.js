@@ -40,37 +40,44 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoScroll();
     }
     
-    startAutoScroll();
+startAutoScroll();
+
+// Read more functionality for testimonials
+const testimonials = document.querySelectorAll(".testimonial");
+
+testimonials.forEach((testimonial) => {
+    const textElement = testimonial.querySelector(".testimonial-text");
+    const readMoreLink = testimonial.querySelector(".read-more-link");
     
-    // Read more functionality for testimonials
-    const testimonials = document.querySelectorAll(".testimonial");
-    
-    testimonials.forEach((testimonial) => {
-        const textElement = testimonial.querySelector(".testimonial-text");
-        const readMoreLink = testimonial.querySelector(".read-more-link");
-        
-        // Ensure both textElement and readMoreLink exist
-        if (textElement && readMoreLink) {
-            const originalHeight = textElement.clientHeight;
-            const expandedHeight = textElement.scrollHeight;
-            
-            // Check if text exceeds max-height
-            if (expandedHeight > originalHeight) {
-                textElement.style.maxHeight = `${originalHeight}px`; // Set to original height
-                readMoreLink.classList.add("visible");
-                
-                readMoreLink.addEventListener("click", (e) => {
-                    e.preventDefault(); // Prevent default link behavior
-                    const isExpanded = textElement.classList.toggle("expanded");
-                    textElement.style.maxHeight = isExpanded ? `${expandedHeight}px` : `${originalHeight}px`;
-                    readMoreLink.textContent = isExpanded ? "Read less" : "Read more";
-                });
-            }
+    // Ensure both textElement and readMoreLink exist
+    if (textElement && readMoreLink) {
+        const fullText = textElement.textContent.trim();
+        const words = fullText.split(/\s+/);
+        const wordLimit = 50; // Adjust the number of words as needed
+
+        if (words.length > wordLimit) {
+            const truncatedText = words.slice(0, wordLimit).join(' ') + '... ';
+            textElement.textContent = truncatedText;
+            readMoreLink.style.display = 'inline'; // Ensure the link is visible
+
+            readMoreLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (readMoreLink.textContent === 'Read more') {
+                    textElement.textContent = fullText + ' ';
+                    readMoreLink.textContent = 'Read less';
+                } else {
+                    textElement.textContent = truncatedText;
+                    readMoreLink.textContent = 'Read more';
+                }
+            });
         } else {
-            // Optionally, log a warning if elements are missing
-            console.warn("Missing .testimonial-text or .read-more-link in a testimonial.");
+            readMoreLink.style.display = 'none'; // Hide the link if text is short
         }
-    });
+    } else {
+        // Optionally, log a warning if elements are missing
+        console.warn("Missing .testimonial-text or .read-more-link in a testimonial.");
+    }
+});
     
     // Accordion Functionality
 const accordions = document.querySelectorAll(".accordion");

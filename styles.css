@@ -110,13 +110,20 @@ img {
 }
 
 .container {
-    width: 70%; /* Use percentage-based widths */
-    max-width: 1000px; /* Add a max-width to prevent it from stretching too wide */
+    width: 70%; 
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
     .container {
-        width: 95%;
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%; /* Even wider for mobile */
     }
 }
 
@@ -453,15 +460,22 @@ section:nth-of-type(even) {
     font-style: italic;
     margin-bottom: 15px;
     line-height: 1.8;
-    max-height: 3em; /* Approximately 3 lines */
-    overflow: hidden;
-    transition: max-height 0.3s ease;
 }
 
 .testimonial-text.expanded {
     max-height: none;
 }
 
+.read-more-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    display: none; /* Initially hidden */
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
+}
 
 @media (max-width: 768px) {
     .testimonial-text {
@@ -709,9 +723,11 @@ footer p {
 
 
 .contact-icon {
-    width: auto; /* Remove fixed width */
-    height: 48px; /* Allow height to adjust naturally */
-    object-fit: contain; /* Ensure the aspect ratio is maintained */
+    height: 25px; /* Consistent height */
+    width: auto; /* Adjusts based on aspect ratio */
+    margin-right: 10px;
+    object-fit: contain;
+    max-width: 40px; /* Allows Gmail icon to be wider */
 }
 
 @media (max-width: 480px) {
