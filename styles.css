@@ -710,7 +710,7 @@ footer p {
 
 .contact-icon {
     width: auto; /* Remove fixed width */
-    height: auto; /* Allow height to adjust naturally */
+    height: 48px; /* Allow height to adjust naturally */
     object-fit: contain; /* Ensure the aspect ratio is maintained */
 }
 
