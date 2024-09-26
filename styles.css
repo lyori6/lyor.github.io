@@ -37,6 +37,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
 }
 
 nav .logo a {
@@ -47,207 +48,112 @@ nav .logo a {
     font-weight: 600;
 }
 
-/* Menu Icon Styles */
+/* Menu Icon - Replaced SVG with CSS-based spans */
 .menu-icon {
-    width: 25px; /* Reduced from 35px */
-    height: 20px; /* Reduced from 30px */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center; /* Centers the bars horizontally */
+    width: 30px;
+    height: 22px;
     cursor: pointer;
-    z-index: 100;
-    margin-left: auto;
-    overflow: visible; /* Ensures the icon isn't cropped */
+    z-index: 110;
+    padding: 0;
+    margin: 0;
 }
 
-.menu-icon .bar {
-    height: 2px; /* Reduced from 4px */
+.menu-icon span {
+    display: block;
+    height: 3px;
     width: 100%;
     background-color: #333;
-    transition: all 0.3s ease;
-    border-radius: 1px;
-}
-
-.menu-icon.open .bar:nth-child(1) {
-    transform: rotate(45deg);
-}
-
-.menu-icon.open .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-icon.open .bar:nth-child(3) {
-    transform: rotate(-45deg);
-}
-
-.line {
+    border-radius: 2px;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    transform-origin: center;
 }
 
-.menu-icon.open .line1 {
-    transform: rotate(45deg) translate(3px, 3px); /* Further reduced translation */
+/* Transformations for Open State */
+.menu-icon.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
 }
 
-.menu-icon.open .line2 {
+.menu-icon.open span:nth-child(2) {
     opacity: 0;
 }
 
-.menu-icon.open .line3 {
-    transform: rotate(-45deg) translate(3px, -3px); /* Further reduced translation */
-}
-
-/* Navigation Styles */
-nav {
-    width: 100%;
-    background-color: #fff;
-    border-bottom: 1px solid #eaeaea;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-}
-
-nav .logo a {
-    text-decoration: none;
-    font-size: 1.8em;
-    color: #000;
-    font-family: 'Raleway', 'Roboto', sans-serif;
-    font-weight: 600;
-}
-
-/* Menu Icon Styles */
-.menu-icon {
-    width: 25px;
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    z-index: 100;
-    margin-left: auto;
-    overflow: visible;
-}
-
-.menu-icon .bar {
-    height: 2px;
-    width: 100%;
-    background-color: #333;
-    transition: all 0.3s ease;
-    border-radius: 1px;
-}
-
-.menu-icon.open .bar:nth-child(1) {
-    transform: rotate(45deg);
-}
-
-.menu-icon.open .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-icon.open .bar:nth-child(3) {
-    transform: rotate(-45deg);
+.menu-icon.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Navigation Links */
-nav .nav-links {
+.nav-links {
     display: none;
     flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%; /* Positioned below the nav bar */
+    left: 0;
     width: 100%;
     background-color: #fff;
-    position: absolute;
-    top: 100%;
-    left: 0;
     padding: 20px 0;
-    transition: max-height 0.3s ease-in-out;
+    list-style: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+    transition: max-height 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
     overflow: hidden;
-    max-height: 0;
-    align-items: flex-end; /* Align items to the right */
+    max-height: 0; /* Initially hidden with height 0 */
 }
 
-nav .nav-links.active {
+.nav-links.active {
     display: flex;
-    max-height: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 500px; /* Set a max height when active, adjust as needed */
 }
 
-nav .nav-links li {
-    width: 100%; /* Make list items full width */
-    margin: 15px 0;
+.nav-links li {
+    width: 100%; /* Ensure full width for alignment */
 }
 
-nav .nav-links a {
-    display: block; /* Make the link fill the list item */
-    width: 100%;
-    padding: 15px 20px;
-    text-decoration: none;
+.nav-links li a {
+    display: block;
+    padding: 15px 30px;
     color: #333;
     font-weight: 600;
-    font-size: 1.2em;
-    text-align: right; /* Align text to the right */
-    transition: color 0.3s;
+    font-size: 1.2em; /* Increased font size */
+    text-decoration: none;
+    text-align: center; /* Center align text on mobile */
+    width: 100%; /* Full width for larger clickable area */
+    transition: background-color 0.3s, color 0.3s;
 }
 
-nav .nav-links a:hover {
+.nav-links li a:hover {
+    background-color: rgba(0, 127, 255, 0.1);
     color: var(--primary-color);
 }
 
-/* Hide the menu icon on larger screens */
+/* Media Queries for Larger Screens */
 @media (min-width: 769px) {
     .menu-icon {
         display: none;
     }
 
-    nav .nav-links {
+    .nav-links {
         display: flex !important;
         flex-direction: row;
         position: static;
+        width: auto;
         background-color: transparent;
-        align-items: center;
-        max-height: none;
         box-shadow: none;
-    }
-
-    nav .nav-links li {
-        margin-left: 25px;
-        margin-bottom: 0;
-    }
-
-    nav .nav-links a {
-        text-align: left;
         padding: 0;
+    }
+
+    .nav-links li {
+        margin-left: 25px;
+        width: auto;
+    }
+
+    .nav-links li a {
+        padding: 0;
+        color: #333;
+        font-weight: 600;
         font-size: 1em;
-    }
-
-    /* Container Styles */
-    .container {
-        width: 85%; /* Adjusted */
-        padding: 40px 0;
-    }
-
-    /* Specific Sections */
-    #about, #experience, #projects {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    /* Ensure consistent padding in Experience Section */
-    #experience .accordion-content,
-    #about p,
-    #projects .project-content {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    /* Project Section */
-    .project {
-        padding-left: 20px;
-        padding-right: 20px;
+        text-align: left;
     }
 }
 
@@ -332,22 +238,258 @@ section:nth-of-type(even) {
     transform: scale(0.95);
 }
 
-/* ... (Rest of your CSS remains unchanged) ... */
+/* About, Experience, and Projects Sections Padding */
+#about, #experience, #projects {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Accordion Styles */
+.accordion {
+    border-bottom: 1px solid #eaeaea;
+    padding: 15px 0;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.accordion-header img.company-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.accordion-header h3 {
+    flex-grow: 1;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.accordion-header .accordion-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.accordion.open .accordion-content {
+    max-height: 1000px; /* Large enough to accommodate content */
+    padding-top: 15px;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-content h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.accordion-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.accordion-content p.summary {
+    margin-bottom: 15px;
+}
+
+.secondary-btn, .disabled-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 0.9em;
+    cursor: not-allowed;
+}
+
+.secondary-btn:hover, .disabled-btn:hover {
+    background-color: darken(var(--accent-color), 10%);
+    transform: scale(0.98);
+}
+
+/* Projects Section */
+.project {
+    margin-bottom: 30px;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-header img.project-logo {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.project-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    margin-bottom: 10px;
+}
+
+.project-content .btn {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 0.9em;
+}
+
+.project-content .btn:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(0.98);
+}
+
+/* Testimonials Section */
+#testimonials .testimonial-carousel {
+    position: relative;
+}
+
+.testimonial {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.testimonial.active {
+    display: block;
+}
+
+.testimonial img.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.testimonial-text {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.read-more-container {
+    margin-bottom: 10px;
+}
+
+.read-more-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cite {
+    font-style: italic;
+    color: #555;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-controls .prev,
+.carousel-controls .next {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.carousel-controls img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Contact Section */
+#contact p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.contact-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-links li {
+    margin: 10px 0;
+}
+
+.contact-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.contact-links a:hover {
+    color: var(--primary-color);
+}
+
+.contact-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.contact-icon.gmail {
+    width: 30px; /* Increased size specifically for Gmail icon */
+    height: 30px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f5f5f5;
+    margin-top: 40px;
+}
+
+footer p {
+    color: #777;
+    font-size: 0.9em;
+}
 
 /* Responsive Styles */
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    /* Navigation */
-    nav .nav-links {
-        flex-direction: column;
-        align-items: flex-end; /* Align menu items to the right */
-        padding-right: 20px; /* Add right padding for alignment */
+    /* Navigation Links */
+    .nav-links {
+        align-items: center; /* Center menu items */
     }
 
-    nav .nav-links a {
-        font-size: 1.3em; /* Further increase for better visibility */
+    .nav-links li a {
+        text-align: center;
     }
+
     /* Container */
     .container {
         width: 95%;

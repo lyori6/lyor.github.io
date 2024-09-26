@@ -1,34 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Hamburger Menu Functionality
-const menuIcon = document.querySelector('.menu-icon');
-const navLinks = document.querySelector('.nav-links');
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
 
-if (menuIcon && navLinks) {
-    const toggleMenu = () => {
-        const isActive = navLinks.classList.toggle('active');
-        menuIcon.classList.toggle('open');
-        menuIcon.setAttribute('aria-expanded', isActive);
-    };
+    if (menuIcon && navLinks) {
+        const toggleMenu = () => {
+            const isActive = navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('open');
+            menuIcon.setAttribute('aria-expanded', isActive);
+        };
 
-    menuIcon.addEventListener('click', toggleMenu);
+        menuIcon.addEventListener('click', toggleMenu);
 
-    menuIcon.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleMenu();
-        }
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
+        menuIcon.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
                 toggleMenu();
             }
         });
-    });
-} else {
-    console.warn("Menu icon or navigation links not found.");
-}
+
+        // Close the menu when a navigation link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    } else {
+        console.warn("Menu icon or navigation links not found.");
+    }
 
     // Carousel Functionality
     let slideIndex = 0;
