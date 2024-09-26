@@ -310,8 +310,8 @@ section:nth-of-type(even) {
 
 .btn:hover {
     background-color: var(--button-hover-color);
-    transform: translateY(-2px); /* Subtle lift on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: scale(0.95) ; 
+    box-shadow: none;
 }
 
 /* Secondary Button Style */
