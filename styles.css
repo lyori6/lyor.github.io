@@ -10,8 +10,8 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     line-height: 1.6;
-    font-size: 1rem;
-    background-color: #fafafa;
+    font-size: 1rem; /* Adjusted for better readability */
+    background-color: white;
     padding-top: 60px; /* To offset the fixed nav */
     -webkit-font-smoothing: antialiased; /* Improve rendering on Safari */
     -moz-osx-font-smoothing: grayscale; /* Improve rendering on Firefox */
@@ -53,14 +53,32 @@ nav .logo a {
     font-size: 1.8em;
     cursor: pointer;
     color: #333; /* Ensure visibility against background */
+    position: relative; /* Adjusted */
+    top: 0; /* Aligned with nav */
+    margin-left: auto; /* Push to far right */
+    z-index: 101; /* Above other elements */
 }
 
-/* Optional: Replace text hamburger with SVG for better consistency */
-.menu-icon svg {
-    width: 30px;
-    height: 30px;
-    fill: #333; /* Match the color */
-    cursor: pointer;
+/* Hamburger SVG Styles */
+.hamburger-svg {
+    transition: transform 0.3s ease;
+}
+
+.line {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+.menu-icon.open .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon.open .line2 {
+    opacity: 0;
+}
+
+.menu-icon.open .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Navigation Links */
@@ -75,12 +93,16 @@ nav .nav-links {
     border-top: 1px solid #eaeaea;
     list-style: none; /* Remove bullets from menu */
     padding: 0; /* Remove default padding */
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
 }
 
 nav .nav-links.active {
     display: flex;
     align-items: flex-end; /* Align menu items to the right when active */
     padding-right: 20px; /* Add right padding for alignment */
+    max-height: 500px; /* Adjust based on content */
 }
 
 nav .nav-links li {
@@ -117,11 +139,38 @@ nav .nav-links a:hover {
         background-color: transparent;
         align-items: center; /* Ensure proper alignment in desktop */
         list-style: none; /* Remove bullets if any */
+        max-height: none; /* Remove max-height */
     }
 
     nav .nav-links li {
         margin-left: 25px;
         margin-bottom: 0;
+    }
+
+    /* Container Styles */
+    .container {
+        width: 85%; /* Adjusted */
+        padding: 40px 0;
+    }
+
+    /* Specific Sections */
+    #about, #experience, #projects {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Ensure consistent padding in Experience Section */
+    #experience .accordion-content,
+    #about p,
+    #projects .project-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Project Section */
+    .project {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -596,12 +645,12 @@ footer p {
     }
 
     .intro-text {
-        font-size: 8vw;
+        font-size: 6vw; /* Adjusted */
         letter-spacing: 0.3px;
     }
 
     .intro-subtext {
-        font-size: 2em; /* Adjusted for better mobile visibility */
+        font-size: 1.8em; /* Adjusted */
     }
 
     /* Accordion Headers */
@@ -629,7 +678,7 @@ footer p {
     .secondary-btn,
     .disabled-btn {
         padding: 12px 30px;
-        font-size: 1em; /* Increased from 0.9em for better readability */
+        font-size: 1em;
     }
 
     /* Testimonial Avatars */
@@ -641,31 +690,31 @@ footer p {
 
     /* Adjust Text Sizes */
     body {
-        font-size: 1.25rem; /* Increased for better readability on mobile */
+        font-size: 1rem; /* Adjusted */
     }
 
     h1, h2 {
-        font-size: 1.8em; /* Increased from default */
+        font-size: 1.6em; /* Adjusted */
     }
 
     h3 {
-        font-size: 1.6em; /* Added to increase h3 size */
+        font-size: 1.4em; /* Adjusted */
     }
 
     p {
-        font-size: 1.2em; /* Increased from 1.1em */
-        line-height: 1.8;
+        font-size: 1em; /* Adjusted */
+        line-height: 1.6;
     }
 
     /* Specific Styles for About and Experience Sections */
     #about, #experience, #projects {
-        padding-left: 20px; /* Add more margin on the sides */
+        padding-left: 20px;
         padding-right: 20px;
     }
 
     /* Specific Styles for Experience Section */
     .accordion-header h3 {
-        font-size: 1.6em; /* Increased from 1.5em */
+        font-size: 1.4em; /* Adjusted */
     }
 
     /* Contact Links */
@@ -680,16 +729,16 @@ footer p {
 
     /* Reduce Contact Text Size */
     #contact p {
-        font-size: 1em; /* Reduced from 1.1em */
+        font-size: 1em; /* Adjusted */
     }
 
     .contact-links a {
-        font-size: 1em; /* Reduced from 1.1em */
+        font-size: 1em; /* Adjusted */
     }
 
     /* Keep Gmail Icon Expanded */
     .contact-icon.gmail {
-        width: 30px; /* Increase size specifically for Gmail icon */
+        width: 30px; /* Increased size specifically for Gmail icon */
         height: 30px;
     }
 
@@ -700,7 +749,7 @@ footer p {
 
     /* Testimonials Text Size */
     .testimonial-text {
-        font-size: 1em; /* Reduced from 1.1em */
+        font-size: 1em; /* Adjusted */
     }
 
     /* Add More Margins to About and Projects Sections */
@@ -714,11 +763,11 @@ footer p {
 @media (max-width: 480px) {
     /* Adjust Intro Text */
     .intro-text {
-        font-size: 8vw;
+        font-size: 7vw; /* Adjusted */
     }
 
     .intro-subtext {
-        font-size: 1.8em; /* Further adjustment for very small screens */
+        font-size: 1.6em; /* Further adjustment */
     }
 
     /* Further Reduce Avatar Size */
@@ -727,23 +776,23 @@ footer p {
         height: 50px;
     }
 
-    /* Increase Base Font Size */
+    /* Adjust Base Font Size */
     body {
-        font-size: 1.35rem; /* Further increased for very small screens */
+        font-size: 0.95rem; /* Further adjusted */
     }
 
     /* Headings */
     h1, h2 {
-        font-size: 2em;
+        font-size: 1.8em; /* Adjusted */
     }
 
     h3 {
-        font-size: 1.8em; /* Further increased for very small screens */
+        font-size: 1.6em; /* Adjusted */
     }
 
     p {
-        font-size: 1.4em;
-        line-height: 1.9;
+        font-size: 1.1em; /* Adjusted */
+        line-height: 1.7;
     }
 
     /* Read More Button */
@@ -759,7 +808,7 @@ footer p {
 
     /* Add More Margins to About and Projects Sections */
     #about, #projects {
-        padding-left: 15px; /* Adjust padding for very small screens */
+        padding-left: 15px; /* Adjusted for very small screens */
         padding-right: 15px;
     }
 }
