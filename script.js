@@ -47,21 +47,32 @@ document.addEventListener("DOMContentLoaded", () => {
     
     testimonials.forEach((testimonial) => {
         const textElement = testimonial.querySelector(".testimonial-text");
-        const readMoreBtn = testimonial.querySelector(".read-more-btn");
+        const readMoreLink = testimonial.querySelector(".read-more-link");
         
-        // Check if text exceeds max-height
-        if (textElement.scrollHeight > textElement.clientHeight) {
-            readMoreBtn.classList.add("visible");
+        // Ensure both textElement and readMoreLink exist
+        if (textElement && readMoreLink) {
+            const originalHeight = textElement.clientHeight;
+            const expandedHeight = textElement.scrollHeight;
+            
+            // Check if text exceeds max-height
+            if (expandedHeight > originalHeight) {
+                textElement.style.maxHeight = `${originalHeight}px`; // Set to original height
+                readMoreLink.classList.add("visible");
+                
+                readMoreLink.addEventListener("click", (e) => {
+                    e.preventDefault(); // Prevent default link behavior
+                    const isExpanded = textElement.classList.toggle("expanded");
+                    textElement.style.maxHeight = isExpanded ? `${expandedHeight}px` : `${originalHeight}px`;
+                    readMoreLink.textContent = isExpanded ? "Read less" : "Read more";
+                });
+            }
+        } else {
+            // Optionally, log a warning if elements are missing
+            console.warn("Missing .testimonial-text or .read-more-link in a testimonial.");
         }
-        
-        readMoreBtn.addEventListener("click", () => {
-            const isExpanded = textElement.classList.toggle("expanded");
-            readMoreBtn.textContent = isExpanded ? "Read less" : "Read more";
-            readMoreBtn.setAttribute("aria-expanded", isExpanded);
-        });
     });
     
-    // Accordion Functionality (Assuming it's needed elsewhere)
+    // Accordion Functionality
     const accordions = document.querySelectorAll(".accordion");
     
     accordions.forEach((accordion) => {
@@ -74,15 +85,21 @@ document.addEventListener("DOMContentLoaded", () => {
             accordions.forEach((acc) => {
                 if (acc !== accordion) {
                     acc.classList.remove("open");
-                    acc.querySelector(".accordion-content").style.display = "none";
-                    acc.querySelector(".accordion-icon").style.transform = "rotate(0deg)";
+                    const accContent = acc.querySelector(".accordion-content");
+                    const accIcon = acc.querySelector(".accordion-icon");
+                    if (accContent && accIcon) {
+                        accContent.style.display = "none";
+                        accIcon.style.transform = "rotate(0deg)";
+                    }
                 }
             });
     
             // Toggle the clicked accordion
             const isOpen = accordion.classList.toggle("open");
-            content.style.display = isOpen ? "block" : "none";
-            icon.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
+            if (content && icon) {
+                content.style.display = isOpen ? "block" : "none";
+                icon.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
+            }
         });
     });
     
@@ -106,9 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
     
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
     

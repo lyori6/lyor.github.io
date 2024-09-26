@@ -316,7 +316,7 @@ section:nth-of-type(even) {
 
 /* Secondary Button Style */
 .secondary-btn {
-    background-color: transparent;
+    background-color: white;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
     padding: 10px 25px;
@@ -579,6 +579,8 @@ footer p {
         height: 60px;
     }
 }
+
+
 
 @media (max-width: 480px) {
     /* Reduce avatar size further */
