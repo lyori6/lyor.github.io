@@ -2,12 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hamburger Menu Functionality
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.querySelector('.nav-links');
+    const nav = document.querySelector('nav'); // Reference to nav for additional classes if needed
 
     if (menuIcon && navLinks) {
         const toggleMenu = () => {
             const isActive = navLinks.classList.toggle('active');
             menuIcon.classList.toggle('open');
             menuIcon.setAttribute('aria-expanded', isActive);
+            nav.classList.toggle('menu-open', isActive); // Optional: Toggle class on nav for additional styles
         };
 
         menuIcon.addEventListener('click', toggleMenu);
@@ -31,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("Menu icon or navigation links not found.");
     }
 
-    // Carousel Functionality
+    // Carousel Functionality (Existing Code)
     let slideIndex = 0;
     let autoScrollInterval;
     const slides = document.querySelectorAll(".testimonial");
@@ -97,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Read More Functionality for Testimonials
+    // Read More Functionality for Testimonials (Existing Code)
     const testimonials = document.querySelectorAll(".testimonial");
 
     testimonials.forEach((testimonial) => {
@@ -128,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Accordion Functionality
+    // Accordion Functionality (Existing Code)
     const accordions = document.querySelectorAll(".accordion");
 
     accordions.forEach((accordion) => {
@@ -174,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Button Hover Functionality for Disabled Buttons
+    // Button Hover Functionality for Disabled Buttons (Existing Code)
     const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
 
     disabledButtons.forEach((button) => {
@@ -189,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Smooth Scrolling for Navigation Links
+    // Smooth Scrolling for Navigation Links (Existing Code)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             // Prevent default if it's not a disabled link
@@ -206,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Highlight Active Navigation Link on Scroll
+    // Highlight Active Navigation Link on Scroll (Existing Code)
     window.addEventListener('scroll', () => {
         let current = '';
         const sections = document.querySelectorAll('section');
@@ -226,15 +228,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // **Removed: Skills Section Animation (Redundant)**
-    // const skillBars = document.querySelectorAll('.skill-bar');
-    // window.addEventListener('scroll', () => {
-    //     skillBars.forEach(bar => {
-    //         const barTop = bar.getBoundingClientRect().top;
-    //         if (barTop < window.innerHeight) {
-    //             bar.classList.add('animate');
-    //         }
-    //     });
-    // });
 });

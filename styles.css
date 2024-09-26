@@ -48,39 +48,43 @@ nav .logo a {
     font-weight: 600;
 }
 
-/* Menu Icon - Replaced SVG with CSS-based spans */
+/* Menu Icon */
 .menu-icon {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    z-index: 110;
+    width: 40px; /* Adjusted width */
+    height: 40px; /* Adjusted height */
+    position: relative;
     padding: 0;
     margin: 0;
+    z-index: 110;
 }
 
-.menu-icon span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: #333;
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+.menu-icon img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px; /* Adjust size as needed */
+    height: 30px;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
 }
 
-/* Transformations for Open State */
-.menu-icon.open span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.menu-icon.open span:nth-child(2) {
+.menu-icon .close-icon {
     opacity: 0;
+    pointer-events: none;
 }
 
-.menu-icon.open span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+.menu-icon.open .hamburger-icon {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-icon.open .close-icon {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Navigation Links */
