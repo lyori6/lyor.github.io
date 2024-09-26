@@ -11,7 +11,7 @@ body {
     color: #333;
     line-height: 1.6;
     font-size: 1rem;
-    background-color: white;
+    background-color: #fafafa;
     padding-top: 60px; /* To offset the fixed nav */
     -webkit-font-smoothing: antialiased; /* Improve rendering on Safari */
     -moz-osx-font-smoothing: grayscale; /* Improve rendering on Firefox */
@@ -580,7 +580,8 @@ footer p {
     /* Navigation */
     nav .nav-links {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end; /* Align menu items to the right */
+        padding-right: 20px; /* Add right padding for alignment */
     }
 
     /* Container */
@@ -656,10 +657,10 @@ footer p {
         line-height: 1.8;
     }
 
-    /* Specific Styles for Experience and About Sections */
+    /* Specific Styles for About and Experience Sections */
     #about, #experience, #projects {
-        padding-left: 10px; /* Add more margin on the sides */
-        padding-right: 10px;
+        padding-left: 20px; /* Add more margin on the sides */
+        padding-right: 20px;
     }
 
     /* Specific Styles for Experience Section */
@@ -692,9 +693,20 @@ footer p {
         height: 30px;
     }
 
+    .contact-icon {
+        width: 25px; /* Maintain or slightly adjust other icons */
+        height: 25px;
+    }
+
     /* Testimonials Text Size */
     .testimonial-text {
         font-size: 1em; /* Reduced from 1.1em */
+    }
+
+    /* Add More Margins to About and Projects Sections */
+    #about, #projects {
+        padding-left: 20px; /* Additional left padding */
+        padding-right: 20px; /* Additional right padding */
     }
 }
 
@@ -743,5 +755,11 @@ footer p {
     .carousel-controls img {
         width: 25px;
         height: 25px;
+    }
+
+    /* Add More Margins to About and Projects Sections */
+    #about, #projects {
+        padding-left: 15px; /* Adjust padding for very small screens */
+        padding-right: 15px;
     }
 }
