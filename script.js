@@ -79,6 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const header = accordion.querySelector(".accordion-header");
         const content = accordion.querySelector(".accordion-content");
         const icon = accordion.querySelector(".accordion-icon");
+        if (icon) {
+    icon.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
+}
     
         header.addEventListener("click", () => {
             // Close all other accordions

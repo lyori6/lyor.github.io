@@ -312,6 +312,29 @@ section:nth-of-type(even) {
     text-align: center;
 }
 
+
+/* Experience and Project Section - Mobile */
+@media (max-width: 768px) {
+    #experience h3, #projects h3 {
+        font-size: 1.6em; /* Make the titles bigger */
+    }
+
+    #experience h4, #projects p {
+        font-size: 1.2em; /* Increase job description and project text size */
+    }
+}
+
+@media (max-width: 480px) {
+    #experience h3, #projects h3 {
+        font-size: 1.8em; /* Further increase on smaller screens */
+    }
+
+    #experience h4, #projects p {
+        font-size: 1.3em;
+    }
+}
+
+
 .project {
     margin-bottom: 40px;
     text-align: left; /* Align projects to the left */
@@ -430,13 +453,26 @@ section:nth-of-type(even) {
     font-style: italic;
     margin-bottom: 15px;
     line-height: 1.8;
-    max-height: 4.5em; /* Approximately 3 lines */
+    max-height: 3em; /* Approximately 3 lines */
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
 
 .testimonial-text.expanded {
     max-height: none;
+}
+
+
+@media (max-width: 768px) {
+    .testimonial-text {
+        font-size: 1em; /* Slightly larger on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-text {
+        font-size: 1.1em; /* Even larger on mobile */
+    }
 }
 
 .read-more-container {
@@ -521,6 +557,23 @@ section:nth-of-type(even) {
     line-height: 1.8;
 }
 
+@media (max-width: 768px) {
+    #contact p {
+        font-size: 1em; /* Reduce size */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-icon {
+        width: 30px; /* Increase icon size */
+        height: 30px;
+    }
+
+    .contact-links a {
+        font-size: 1.2em; /* Make the text bigger */
+    }
+}
+
 .contact-links {
     list-style-type: none;
     display: flex;
@@ -576,7 +629,7 @@ footer p {
         font-size: 1.125rem; /* Increase base font size for smaller screens */
     }
 
-    h1, h2, h3 {
+    h1, h2 {
         font-size: 1.5em; /* Scale up headers */
     }
     
@@ -653,6 +706,9 @@ footer p {
     outline-offset: 4px;
 }
 
+
+
+
 @media (max-width: 480px) {
     /* Reduce avatar size further */
     .avatar {
@@ -664,7 +720,7 @@ footer p {
         font-size: 1.25rem; /* Further increase for very small screens */
     }
 
-    h1, h2, h3 {
+    h1, h2 {
         font-size: 1.8em;
     }
 
