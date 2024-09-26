@@ -13,6 +13,8 @@ body {
     font-size: 1rem;
     background-color: #fafafa;
     padding-top: 60px; /* To offset the fixed nav */
+    -webkit-font-smoothing: antialiased; /* Improve rendering on Safari */
+    -moz-osx-font-smoothing: grayscale; /* Improve rendering on Firefox */
 }
 
 /* Color Variables */
@@ -41,14 +43,23 @@ nav .logo a {
     text-decoration: none;
     font-size: 1.8em;
     color: #000;
-    font-family: 'Raleway', sans-serif; /* Apply Raleway */
-    font-weight: 600; /* Use Raleway 600 */
+    font-family: 'Raleway', 'Roboto', sans-serif; /* Added 'Roboto' as fallback */
+    font-weight: 600;
 }
 
 /* Hamburger Menu Icon */
 .menu-icon {
-    display: block;
+    display: block; /* Ensure it's visible on mobile */
     font-size: 1.8em;
+    cursor: pointer;
+    color: #333; /* Ensure visibility against background */
+}
+
+/* Optional: Replace text hamburger with SVG for better consistency */
+.menu-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: #333; /* Match the color */
     cursor: pointer;
 }
 
@@ -79,6 +90,8 @@ nav .nav-links a {
     font-weight: 600;
     font-size: 1em;
     transition: color 0.3s;
+    -webkit-font-smoothing: antialiased; /* Improve rendering on Safari */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 nav .nav-links a:hover {
@@ -142,6 +155,8 @@ section:nth-of-type(even) {
     margin-bottom: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .intro-subtext {
@@ -152,6 +167,8 @@ section:nth-of-type(even) {
     margin-bottom: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .subtitle {
@@ -164,6 +181,8 @@ section:nth-of-type(even) {
 .home-content p {
     font-size: 1.3em;
     margin-bottom: 35px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .home-content .btn {
@@ -186,6 +205,8 @@ section:nth-of-type(even) {
     font-size: 2.5em;
     margin-bottom: 40px;
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #about p {
@@ -193,6 +214,8 @@ section:nth-of-type(even) {
     color: #555;
     margin-bottom: 25px;
     line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Experience Section */
@@ -200,6 +223,8 @@ section:nth-of-type(even) {
     font-size: 2.5em;
     margin-bottom: 40px;
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .job {
@@ -225,6 +250,8 @@ section:nth-of-type(even) {
 .accordion-header h3 {
     font-size: 1.5em;
     flex: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .accordion-header h3 span {
@@ -290,6 +317,8 @@ section:nth-of-type(even) {
     font-size: 2.5em;
     margin-bottom: 40px;
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .project {
@@ -307,6 +336,8 @@ section:nth-of-type(even) {
 .project-header img.project-logo {
     width: 80px;
     margin-right: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .project-content {
@@ -316,12 +347,16 @@ section:nth-of-type(even) {
 .project-content h3 {
     font-size: 1.8em;
     margin-bottom: 10px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .project-content p {
     font-size: 1.1em;
     color: #555;
     margin-bottom: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Button Styles */
@@ -381,6 +416,8 @@ section:nth-of-type(even) {
     font-size: 2.5em;
     margin-bottom: 40px;
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .testimonial-carousel {
@@ -395,6 +432,8 @@ section:nth-of-type(even) {
     text-align: center;
     padding: 0 10%;
     position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .testimonial.active {
@@ -464,6 +503,8 @@ section:nth-of-type(even) {
     font-size: 2.5em;
     margin-bottom: 40px;
     text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #contact p {
@@ -472,6 +513,8 @@ section:nth-of-type(even) {
     margin-bottom: 25px;
     text-align: center;
     line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .contact-links {
@@ -494,6 +537,8 @@ section:nth-of-type(even) {
     display: flex;
     align-items: center;
     transition: text-decoration 0.3s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .contact-links a:hover {
@@ -547,6 +592,10 @@ footer p {
         letter-spacing: 0.3px;
     }
 
+    .intro-subtext {
+        font-size: 2em; /* Adjusted for better mobile visibility */
+    }
+
     /* Accordion Headers */
     .accordion-header {
         flex-direction: column;
@@ -572,7 +621,7 @@ footer p {
     .secondary-btn,
     .disabled-btn {
         padding: 12px 30px;
-        font-size: 0.9em;
+        font-size: 1em; /* Increased from 0.9em to 1em for better readability */
     }
 
     /* Testimonial Avatars */
@@ -584,16 +633,25 @@ footer p {
 
     /* Adjust Text Sizes */
     body {
-        font-size: 1.25rem;
+        font-size: 1.25rem; /* Increased for better readability on mobile */
     }
 
     h1, h2 {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Increased from default */
+    }
+
+    h3 {
+        font-size: 1.6em; /* Added to increase h3 size */
     }
 
     p {
-        font-size: 1.2em;
+        font-size: 1.2em; /* Increased from 1.1em */
         line-height: 1.8;
+    }
+
+    /* Specific Styles for Experience Section */
+    .accordion-header h3 {
+        font-size: 1.6em; /* Increased from 1.5em */
     }
 
     /* Contact Links */
@@ -614,6 +672,10 @@ footer p {
         font-size: 8vw;
     }
 
+    .intro-subtext {
+        font-size: 1.8em; /* Further adjustment for very small screens */
+    }
+
     /* Further Reduce Avatar Size */
     .avatar {
         width: 50px;
@@ -622,12 +684,16 @@ footer p {
 
     /* Increase Base Font Size */
     body {
-        font-size: 1.35rem;
+        font-size: 1.35rem; /* Further increased for very small screens */
     }
 
     /* Headings */
     h1, h2 {
         font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.8em; /* Further increased for very small screens */
     }
 
     p {

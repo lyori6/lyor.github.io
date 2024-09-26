@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Lyor Itzhaki - Portfolio</title>
     <meta name="description" content="Portfolio of Lyor Itzhaki - Founder & Product Manager specializing in startup growth and product innovation.">
-    <!-- Link to Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Viewport Meta Tag for Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to Google Fonts (including Raleway) -->
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500;700&family=Roboto&family=Raleway:wght@500;600&display=swap" rel="stylesheet">
     <!-- Link to CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,8 +17,13 @@
         <div class="logo">
             <a href="#home">Lyor Itzhaki</a>
         </div>
-        <div class="menu-icon">
-  <span>☰</span> <!-- Hamburger menu icon -->
+        <div class="menu-icon" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+    <!-- Hamburger SVG Icon -->
+    <svg width="30" height="30" viewBox="0 0 100 80" fill="#333" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="15"></rect>
+        <rect y="30" width="100" height="15"></rect>
+        <rect y="60" width="100" height="15"></rect>
+    </svg>
 </div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>

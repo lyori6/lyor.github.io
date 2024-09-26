@@ -1,15 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
     // **1. Navigation Menu Toggle**
-    const menuIcon = document.querySelector('.menu-icon');
-    const navLinks = document.querySelector('.nav-links');
+const menuIcon = document.querySelector('.menu-icon');
+const navLinks = document.querySelector('.nav-links');
 
-    if (menuIcon && navLinks) {
-        menuIcon.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Toggle visibility
-        });
-    } else {
-        console.warn("Menu icon or navigation links not found.");
-    }
+if (menuIcon && navLinks) {
+    menuIcon.addEventListener('click', () => {
+        const isActive = navLinks.classList.toggle('active'); // Toggle visibility
+        menuIcon.setAttribute('aria-expanded', isActive);
+    });
+
+    // Optional: Allow toggling via Enter key for accessibility
+    menuIcon.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const isActive = navLinks.classList.toggle('active');
+            menuIcon.setAttribute('aria-expanded', isActive);
+        }
+    });
+} else {
+    console.warn("Menu icon or navigation links not found.");
+}
 
     // **2. Carousel Functionality**
     let slideIndex = 0;
