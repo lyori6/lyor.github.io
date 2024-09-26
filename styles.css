@@ -47,7 +47,6 @@ nav .logo a {
     font-weight: 600;
 }
 
-/* Keep the hamburger icon the same size as before */
 .menu-icon {
     display: block;
     cursor: pointer;
@@ -60,28 +59,23 @@ nav .logo a {
     z-index: 100; 
 }
 
-/* Fix the SVG alignment and size */
 .menu-icon svg {
     width: 30px;
     height: 30px;
-    overflow: visible; /* Ensure the entire SVG is visible */
+    overflow: visible;
 }
 
-
-/* Hamburger SVG Styles */
 .hamburger-svg {
     transition: transform 0.3s ease;
 }
 
-/* Transform lines with correct origin for the X */
 .line {
     transition: transform 0.3s ease, opacity 0.3s ease;
     transform-origin: center;
 }
 
-/* Scale the X down slightly to avoid cropping */
 .menu-icon.open .line1 {
-    transform: rotate(45deg) scale(0.85) translate(0, 0); /* Scale down to 85% */
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
 .menu-icon.open .line2 {
@@ -89,7 +83,7 @@ nav .logo a {
 }
 
 .menu-icon.open .line3 {
-    transform: rotate(-45deg) scale(0.85) translate(0, 0); /* Scale down to 85% */
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Navigation Links */
