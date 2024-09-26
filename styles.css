@@ -708,6 +708,11 @@ footer p {
 
 
 
+.contact-icon {
+    width: auto; /* Remove fixed width */
+    height: auto; /* Allow height to adjust naturally */
+    object-fit: contain; /* Ensure the aspect ratio is maintained */
+}
 
 @media (max-width: 480px) {
     /* Reduce avatar size further */
