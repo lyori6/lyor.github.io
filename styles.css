@@ -49,19 +49,6 @@ nav .logo a {
 }
 
 
-nav {
-    justify-content: center; /* Center the navigation */
-}
-
-.nav-links li {
-    margin-left: 15px; /* Optional: Reduce spacing between links */
-}
-
-.nav-links li a {
-    font-size: 1.4em; 
-}
-
-
 /* Menu Icon */
 .menu-icon {
     display: flex;
@@ -188,6 +175,7 @@ nav {
 /* Section Styles */
 section {
     padding: 60px 0;
+    text-align: center;
 }
 
 /* Zebra Striped Background */
