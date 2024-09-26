@@ -110,8 +110,8 @@ img {
 }
 
 .container {
-    width: 90%; /* Use percentage-based widths */
-    max-width: 1200px; /* Add a max-width to prevent it from stretching too wide */
+    width: 70%; /* Use percentage-based widths */
+    max-width: 1000px; /* Add a max-width to prevent it from stretching too wide */
 }
 
 @media (max-width: 768px) {

@@ -73,38 +73,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     // Accordion Functionality
-    const accordions = document.querySelectorAll(".accordion");
-    
-    accordions.forEach((accordion) => {
-        const header = accordion.querySelector(".accordion-header");
-        const content = accordion.querySelector(".accordion-content");
-        const icon = accordion.querySelector(".accordion-icon");
-        if (icon) {
-    icon.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
-}
-    
-        header.addEventListener("click", () => {
-            // Close all other accordions
-            accordions.forEach((acc) => {
-                if (acc !== accordion) {
-                    acc.classList.remove("open");
-                    const accContent = acc.querySelector(".accordion-content");
-                    const accIcon = acc.querySelector(".accordion-icon");
-                    if (accContent && accIcon) {
-                        accContent.style.display = "none";
-                        accIcon.style.transform = "rotate(0deg)";
-                    }
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach((accordion) => {
+    const header = accordion.querySelector(".accordion-header");
+    const content = accordion.querySelector(".accordion-content");
+    const icon = accordion.querySelector(".accordion-icon");
+
+    header.addEventListener("click", () => {
+        // Close all other accordions
+        accordions.forEach((acc) => {
+            if (acc !== accordion) {
+                acc.classList.remove("open");
+                const accContent = acc.querySelector(".accordion-content");
+                const accIcon = acc.querySelector(".accordion-icon");
+                if (accContent && accIcon) {
+                    accContent.style.display = "none";
+                    accIcon.style.transform = "rotate(0deg)";
                 }
-            });
-    
-            // Toggle the clicked accordion
-            const isOpen = accordion.classList.toggle("open");
-            if (content && icon) {
-                content.style.display = isOpen ? "block" : "none";
-                icon.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
             }
         });
+
+        // Toggle the clicked accordion
+        const isOpen = accordion.classList.toggle("open"); // Define isOpen here
+        if (content && icon) {
+            content.style.display = isOpen ? "block" : "none";
+            icon.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";  // Use isOpen here
+        }
     });
+});
     
     // Button Hover Functionality for Disabled Buttons
     const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
