@@ -10,6 +10,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     line-height: 1.6;
+    font-size: 16px;
     background-color: #fafafa;
 }
 
@@ -70,6 +71,53 @@ nav .nav-links a:hover {
 section {
     padding: 80px 10%;
     margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 8%;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 40px 5%; /* More compact padding on very small screens */
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    padding: 15px 40px; /* Bigger buttons */
+    font-size: 1.1em; /* Larger text for buttons */
+}
+
+@media (max-width: 768px) {
+    .btn {
+        padding: 12px 35px; /* Adjust padding on smaller screens */
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 10px 30px;
+        font-size: 1.3em;
+    }
+}
+
+.container {
+    width: 90%; /* Use percentage-based widths */
+    max-width: 1200px; /* Add a max-width to prevent it from stretching too wide */
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
 }
 
 /* Zebra Striped Background for Alternate Sections */
@@ -524,6 +572,18 @@ footer p {
         display: none;
     }
 
+ body {
+        font-size: 18px; /* Increase base font size for smaller screens */
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5em; /* Scale up headers */
+    }
+    
+    p {
+        font-size: 1.2em; /* Make paragraph text more readable */
+    }
+
     nav {
         justify-content: center;
     }
@@ -589,6 +649,17 @@ footer p {
         height: 50px;
     }
 
+   body {
+        font-size: 20px; /* Further increase for very small screens */
+    }
+
+    h1, h2, h3 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1.3em;
+    }
     /* Adjust read-more button font size */
     .read-more-btn {
         font-size: 0.8em;
