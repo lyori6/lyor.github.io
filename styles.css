@@ -82,15 +82,29 @@ section {
 
 @media (max-width: 768px) {
     section {
-        padding: 60px 8%; /* Reduced padding for smaller screens */
+        padding: 40px 5%; /* Reduced padding for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     section {
-        padding: 40px 5%; /* Compact padding for very small screens */
+        padding: 30px 4%; /* Compact padding for very small screens */
     }
 }
+
+@media (max-width: 480px) {
+    body {
+        font-size: 1.4rem;
+    }
+
+    h1, h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.35em;
+        line-height: 1.9; /* Further improve readability */
+    }
 
 /* Responsive Image Styles */
 img {
@@ -100,22 +114,22 @@ img {
 
 /* Button Styles */
 .btn {
-    padding: 15px 40px; /* Comfortable padding */
-    font-size: 1.1em; /* Slightly larger button text */
+    padding: 12px 35px; /* Comfortable padding */
+    font-size: 1.2em; /* Slightly larger button text */
     border-radius: 8px; /* Rounded corners */
 }
 
 @media (max-width: 768px) {
     .btn {
-        padding: 12px 35px; /* Adjust padding for tablets */
-        font-size: 1.2em; /* Larger text for smaller screens */
+        padding: 15px 40px; /* Adjust padding for tablets */
+        font-size: 1.3em; /* Larger text for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .btn {
-        padding: 10px 30px; /* Compact padding on mobile */
-        font-size: 1.3em; /* Further increase for mobile */
+        padding: 18px 45px; /* Compact padding on mobile */
+        font-size: 1.4em; /* Further increase for mobile */
     }
 }
 
@@ -128,13 +142,15 @@ img {
 
 @media (max-width: 768px) {
     .container {
-        width: 90%; /* Wider container for smaller screens */
+        width: 95%; /* Use the full width for mobile */
+        padding: 0 5%; /* Add small padding to the edges */
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        width: 95%; /* Maximize container width on mobile */
+        width: 98%; /* Maximize container width on very small screens */
+        padding: 0 3%; /* Slightly smaller padding for narrow screens */
     }
 }
 
@@ -155,11 +171,19 @@ section:nth-of-type(even) {
 .intro-text {
     font-family: 'Catamaran', sans-serif;
     font-size: 6vw; /* Larger font size */
+    letter-spacing: 0.5px; 
     color: var(--primary-color);
     font-weight: 700; /* Bolder */
     margin-bottom: 10px; /* Reduced space below */
     letter-spacing: 1px; /* Slight letter spacing */
     text-transform: uppercase; /* Uppercase for modern feel */
+}
+
+@media (max-width: 480px) {
+    .intro-text {
+        font-size: 8vw; /* Increase font size slightly on smaller screens */
+        letter-spacing: 0.3px; /* Tighten character spacing further */
+    }
 }
 
 .welcome-text {
@@ -237,7 +261,7 @@ section:nth-of-type(even) {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    padding: 10px 0; /* Reduced padding for compactness */
+    padding: 12px 0; /* Reduced padding for compactness */
     border-bottom: 1px solid #eaeaea;
     transition: color 0.3s;
 }
@@ -268,6 +292,13 @@ section:nth-of-type(even) {
 .accordion-content {
     display: none;
     padding: 15px 0;
+}
+
+@media (max-width: 768px) {
+    .accordion-header {
+        flex-direction: column; /* Stack the accordion header items on mobile */
+        align-items: flex-start;
+    }
 }
 
 .accordion-content h4 {
@@ -390,11 +421,26 @@ section:nth-of-type(even) {
     text-decoration: none;
     background-color: var(--primary-color);
     color: #fff;
-    padding: 15px 35px;
+    padding: 12px 35px;
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
-    font-size: 1em;
+    font-size: 1.1em;
     display: inline-block;
+}
+
+
+@media (max-width: 768px) {
+    .btn {
+        padding: 15px 40px; /* Increase padding for touch targets */
+        font-size: 1.2em; /* Larger button text */
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 18px 45px; /* Further increase padding */
+        font-size: 1.3em; /* Bigger text for readability */
+    }
 }
 
 .btn:hover {
@@ -620,8 +666,8 @@ section:nth-of-type(even) {
 }
 
 .contact-icon {
-    width: 25px; /* Increased icon size */
-    height: 25px; /* Increased icon size */
+    width: 25px; 
+    height: 25px; 
     margin-right: 10px;
 }
 
@@ -650,15 +696,16 @@ footer p {
     }
 
     body {
-        font-size: 1.125rem; /* Increase base font size for smaller screens */
+        font-size: 1.25rem;
     }
 
     h1, h2 {
-        font-size: 1.5em; /* Scale up headers */
+        font-size: 1.8em;
     }
-    
+
     p {
-        font-size: 1.2em; /* Make paragraph text more readable */
+        font-size: 1.2em;
+        line-height: 1.8; /* Add more breathing room */
     }
 
     nav {
@@ -714,6 +761,8 @@ footer p {
     .avatar {
         width: 60px;
         height: 60px;
+        margin-bottom: 15px;
+
     }
 }
 
@@ -722,6 +771,21 @@ footer p {
         display: block;
         font-size: 1.8em;
         cursor: pointer;
+    }
+}
+
+
+/* Hide hamburger menu on larger screens */
+@media (min-width: 769px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+/* Show hamburger menu on mobile */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
     }
 }
 
@@ -748,16 +812,18 @@ footer p {
     }
 
     body {
-        font-size: 1.25rem; /* Further increase for very small screens */
+        font-size: 1.35rem; /* Further increase base font size */
     }
 
     h1, h2 {
-        font-size: 1.8em;
+        font-size: 2em; /* Make headings larger */
     }
 
     p {
-        font-size: 1.3em;
+        font-size: 1.4em; 
+        line-height: 1.9;
     }
+
 
     /* Adjust read-more button font size */
     .read-more-btn {
@@ -768,5 +834,60 @@ footer p {
     .carousel-controls img {
         width: 25px;
         height: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    #projects h3, #experience h3 {
+        font-size: 1.8em; /* Make project titles bigger */
+    }
+
+    #projects p, #experience h4 {
+        font-size: 1.3em; /* Increase description size */
+    }
+
+    .btn {
+        padding: 15px 40px; /* Increase padding for touch targets */
+        font-size: 1.2em; /* Larger button text */
+    }
+
+    /* Hide hamburger menu on larger screens */
+    .menu-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    #projects h3, #experience h3 {
+        font-size: 2em; /* Further increase size */
+    }
+
+    #projects p, #experience h4 {
+        font-size: 1.4em; /* Further increase description size */
+    }
+
+    .btn {
+        padding: 18px 45px; /* Further increase padding */
+        font-size: 1.3em; /* Bigger text for readability */
+    }
+
+    /* Ensure hamburger menu shows on mobile */
+    .menu-icon {
+        display: block;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    #projects p, #experience h4 {
+        font-size: 1.3em; /* Increase description size */
+    }
+}
+
+@media (max-width: 480px) {
+
+    #projects p, #experience h4 {
+        font-size: 1.4em; /* Ensure readability */
     }
 }
