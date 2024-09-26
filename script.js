@@ -176,20 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Button Hover Functionality for Disabled Buttons (Existing Code)
-    const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
-
-    disabledButtons.forEach((button) => {
-        const originalText = button.textContent;
-
-        button.addEventListener("mouseenter", () => {
-            button.textContent = "COMING SOON!";
-        });
-
-        button.addEventListener("mouseleave", () => {
-            button.textContent = originalText;
-        });
-    });
 
     // Smooth Scrolling for Navigation Links (Existing Code)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
