@@ -10,7 +10,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 1rem;
     background-color: #fafafa;
 }
 
@@ -136,7 +136,7 @@ section:nth-of-type(even) {
 
 .intro-text {
     font-family: 'Catamaran', sans-serif;
-    font-size: 2.5em; /* Larger font size */
+    font-size: 6vw; /* Larger font size */
     color: var(--primary-color);
     font-weight: 700; /* Bolder */
     margin-bottom: 10px; /* Reduced space below */
@@ -572,8 +572,8 @@ footer p {
         display: none;
     }
 
- body {
-        font-size: 18px; /* Increase base font size for smaller screens */
+    body {
+        font-size: 1.125rem; /* Increase base font size for smaller screens */
     }
 
     h1, h2, h3 {
@@ -640,7 +640,18 @@ footer p {
     }
 }
 
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        font-size: 1.8em;
+        cursor: pointer;
+    }
+}
 
+.btn:focus, .nav-links a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+}
 
 @media (max-width: 480px) {
     /* Reduce avatar size further */
@@ -649,8 +660,8 @@ footer p {
         height: 50px;
     }
 
-   body {
-        font-size: 20px; /* Further increase for very small screens */
+    body {
+        font-size: 1.25rem; /* Further increase for very small screens */
     }
 
     h1, h2, h3 {
@@ -660,6 +671,7 @@ footer p {
     p {
         font-size: 1.3em;
     }
+
     /* Adjust read-more button font size */
     .read-more-btn {
         font-size: 0.8em;
