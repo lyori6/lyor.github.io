@@ -19,7 +19,6 @@ if (menuIcon && navLinks) {
         }
     });
 
-    // Close the menu when a navigation link is clicked
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             if (navLinks.classList.contains('active')) {
@@ -27,9 +26,9 @@ if (menuIcon && navLinks) {
             }
         });
     });
-}else {
-        console.warn("Menu icon or navigation links not found.");
-    }
+} else {
+    console.warn("Menu icon or navigation links not found.");
+}
 
     // Carousel Functionality
     let slideIndex = 0;
