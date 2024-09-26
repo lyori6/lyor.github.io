@@ -49,14 +49,19 @@ nav .logo a {
 
 /* Hamburger Menu Icon */
 .menu-icon {
-    display: block; /* Ensure it's visible on mobile */
-    font-size: 1.8em;
+    display: block;
     cursor: pointer;
-    color: #333; /* Ensure visibility against background */
-    position: relative; /* Adjusted */
-    top: 0; /* Aligned with nav */
-    margin-left: auto; /* Push to far right */
-    z-index: 101; /* Above other elements */
+    width: 30px; /* Fixed width for consistency */
+    height: 30px; /* Fixed height for consistency */
+    position: relative; /* Ensure it doesn't move unexpectedly */
+    padding: 0; /* Remove any internal padding that might cause shifts */
+    margin: 0 auto; /* Center it within its container */
+}
+
+/* Keep the SVG size fixed */
+.menu-icon svg {
+    width: 100%; /* Ensure it takes the full width of the container */
+    height: auto; /* Maintain aspect ratio */
 }
 
 /* Hamburger SVG Styles */
@@ -64,9 +69,10 @@ nav .logo a {
     transition: transform 0.3s ease;
 }
 
+/* Transform the lines */
 .line {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform-origin: center;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+    transform-origin: 50% 50%; /* Rotate around the center */
 }
 
 .menu-icon.open .line1 {
