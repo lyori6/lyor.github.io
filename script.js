@@ -1,25 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
     // **1. Navigation Menu Toggle with ARIA Attributes**
     const menuIcon = document.querySelector('.menu-icon');
-    const navLinks = document.querySelector('.nav-links');
+const navLinks = document.querySelector('.nav-links');
 
-    if (menuIcon && navLinks) {
-        const toggleMenu = () => {
-            const isActive = navLinks.classList.toggle('active'); // Toggle visibility
-            menuIcon.classList.toggle('open'); // Toggle the hamburger to X animation
-            menuIcon.setAttribute('aria-expanded', isActive);
-        };
+if (menuIcon && navLinks) {
+    const toggleMenu = () => {
+        const isActive = navLinks.classList.toggle('active'); // Toggle visibility
+        menuIcon.classList.toggle('open'); // Toggle the class that animates the hamburger to X
+        menuIcon.setAttribute('aria-expanded', isActive);
+    };
 
-        menuIcon.addEventListener('click', toggleMenu);
+    menuIcon.addEventListener('click', toggleMenu);
 
-        // Allow toggling via Enter and Space keys for accessibility
-        menuIcon.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleMenu();
-            }
-        });
-    } else {
+    // Allow toggling via Enter and Space keys for accessibility
+    menuIcon.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMenu();
+        }
+    });
+} else {
         console.warn("Menu icon or navigation links not found.");
     }
 
