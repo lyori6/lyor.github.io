@@ -47,21 +47,23 @@ nav .logo a {
     font-weight: 600;
 }
 
-/* Hamburger Menu Icon */
+/* Ensure the hamburger icon stays aligned to the right */
 .menu-icon {
     display: block;
     cursor: pointer;
-    width: 30px; /* Fixed width for consistency */
-    height: 30px; /* Fixed height for consistency */
-    position: relative; /* Ensure it doesn't move unexpectedly */
-    padding: 0; /* Remove any internal padding that might cause shifts */
-    margin: 0 auto; /* Center it within its container */
+    width: 30px;
+    height: 30px;
+    position: relative;
+    padding: 0;
+    margin: 0; /* Ensure there's no unintentional shifting */
+    right: 0; /* Align the hamburger menu to the right */
+    z-index: 100; /* Ensure it's on top of other elements */
 }
 
-/* Keep the SVG size fixed */
+/* Fix the SVG alignment and size */
 .menu-icon svg {
-    width: 100%; /* Ensure it takes the full width of the container */
-    height: auto; /* Maintain aspect ratio */
+    width: 30px;
+    height: 30px;
 }
 
 /* Hamburger SVG Styles */
@@ -69,22 +71,23 @@ nav .logo a {
     transition: transform 0.3s ease;
 }
 
-/* Transform the lines */
+/* Transform lines with correct origin for the X */
 .line {
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
-    transform-origin: 50% 50%; /* Rotate around the center */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center; /* Ensure the lines rotate around the center */
 }
 
+/* Animation for transforming the hamburger into X */
 .menu-icon.open .line1 {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(0, 0); /* Correct translation to prevent shifting */
 }
 
 .menu-icon.open .line2 {
-    opacity: 0;
+    opacity: 0; /* Middle line disappears */
 }
 
 .menu-icon.open .line3 {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(0, 0); /* Correct translation to prevent shifting */
 }
 
 /* Navigation Links */
