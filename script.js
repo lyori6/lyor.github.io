@@ -113,20 +113,20 @@ document.addEventListener("DOMContentLoaded", () => {
     testimonials.forEach((testimonial) => {
         const textElement = testimonial.querySelector(".testimonial-text");
         const readMoreLink = testimonial.querySelector(".read-more-link");
-        
-        // Temporarily remove the line clamp to measure full height
-        textElement.style.webkitLineClamp = 'unset';
+
+        // Temporarily remove the max-height to measure full height
+        textElement.style.maxHeight = 'none';
         const fullHeight = textElement.scrollHeight;
 
-        // Re-apply the line clamp
-        textElement.style.webkitLineClamp = '3';
+        // Re-apply the max-height to show truncated text
+        textElement.style.maxHeight = '4.5em';
         const truncatedHeight = textElement.scrollHeight;
 
         // If the content is taller when not truncated, show the "Read more" link
         if (fullHeight > truncatedHeight + 1) { // Adding 1 to account for minor differences
-            readMoreLink.style.display = "inline-block";
+            readMoreLink.classList.add("visible");
         } else {
-            readMoreLink.style.display = "none";
+            readMoreLink.classList.remove("visible");
         }
     });
 });
