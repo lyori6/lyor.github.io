@@ -15,11 +15,11 @@ body {
 
 /* Color Variables */
 :root {
-    --primary-color: #007FFF; /* Updated vibrant blue */
-    --accent-color: #F85E00;  /* Updated accent color */
-    --button-hover-color: #0066CC; /* Darker shade for hover effect */
+    --primary-color: #007FFF; /* Vibrant blue */
+    --accent-color: #F85E00;  /* Accent color */
+    --button-hover-color: #0066CC; /* Darker shade for hover */
     --secondary-color: #007FFF;
-    --zebra-color: #f9f9f9; /* Light gray for zebra stripes */
+    --zebra-color: #f9f9f9; /* Light gray */
 }
 
 /* Navigation Styles */
@@ -220,8 +220,21 @@ section:nth-of-type(even) {
     margin-bottom: 10px;
 }
 
+/* Summary Paragraph */
 .summary {
-    margin-bottom: 20px; /* Added space after summary paragraph */
+    margin-bottom: 30px; /* Increased from 20px to 30px */
+}
+
+/* Read More Container */
+.read-more-container {
+    text-align: center;
+    margin-bottom: 10px; /* Space between read-more link and cite */
+}
+
+/* Buttons */
+.accordion-content .secondary-btn,
+.accordion-content .disabled-btn {
+    margin-top: 20px; /* Added top margin to separate buttons from the summary */
 }
 
 /* Company Logos */
@@ -365,15 +378,11 @@ section:nth-of-type(even) {
     display: block;
 }
 
-.testimonial p {
+.testimonial-text {
     font-style: italic;
     margin-bottom: 15px;
-    position: relative;
     line-height: 1.8;
-}
-
-.testimonial-text {
-    max-height: 4.5em; /* Approx 3 lines */
+    max-height: 4.5em; /* Approximately 3 lines */
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
@@ -383,22 +392,26 @@ section:nth-of-type(even) {
 }
 
 .read-more-container {
+    text-align: center;
     margin-bottom: 10px; /* Space between read-more link and cite */
 }
 
-.read-more-link {
+.read-more-btn {
+    background: none;
+    border: none;
     color: var(--primary-color);
     text-decoration: underline;
     cursor: pointer;
+    font-weight: bold;
     font-size: 0.9em;
-    display: none; /* Initially hidden, shown via JS if text is truncated */
+    display: none; /* Initially hidden */
 }
 
-.read-more-link.visible {
+.read-more-btn.visible {
     display: inline-block;
 }
 
-.read-more-link:hover {
+.read-more-btn:hover {
     color: var(--button-hover-color);
 }
 
@@ -425,7 +438,8 @@ section:nth-of-type(even) {
     cursor: pointer;
     user-select: none;
     padding: 0 20px;
-    transition: transform 0.3s;
+    background: none;
+    border: none;
 }
 
 .carousel-controls .prev:hover,
@@ -563,5 +577,24 @@ footer p {
     .avatar {
         width: 60px;
         height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Reduce avatar size further */
+    .avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Adjust read-more button font size */
+    .read-more-btn {
+        font-size: 0.8em;
+    }
+
+    /* Adjust carousel controls size */
+    .carousel-controls img {
+        width: 25px;
+        height: 25px;
     }
 }
