@@ -11,7 +11,7 @@ body {
     color: #333;
     line-height: 1.6;
     font-size: 1rem;
-    background-color: #fafafa;
+    background-color: white;
     padding-top: 60px; /* To offset the fixed nav */
     -webkit-font-smoothing: antialiased; /* Improve rendering on Safari */
     -moz-osx-font-smoothing: grayscale; /* Improve rendering on Firefox */
