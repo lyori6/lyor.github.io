@@ -50,15 +50,15 @@ nav .logo a {
 .menu-icon {
     display: block;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 35px; /* Increased from 30px to 35px */
+    height: 35px; /* Increased from 30px to 35px */
     position: relative;
     padding: 0;
     margin: 0;
     right: 0;
     z-index: 100; 
+    overflow: visible; /* Ensure overflow is visible */
 }
-
 .menu-icon svg {
     width: 30px;
     height: 30px;
@@ -75,7 +75,7 @@ nav .logo a {
 }
 
 .menu-icon.open .line1 {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(4px, 4px); /* Reduced translation */
 }
 
 .menu-icon.open .line2 {
@@ -83,7 +83,7 @@ nav .logo a {
 }
 
 .menu-icon.open .line3 {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(4px, -4px); /* Reduced translation */
 }
 
 /* Navigation Links */
@@ -104,23 +104,25 @@ nav .nav-links {
 }
 
 nav .nav-links.active {
-    display: block;
+    display: flex; /* Changed from block to flex for better control */
     align-items: center;
     max-height: 500px; /* Set a max height when active, adjust as needed */
+    flex-direction: column;
+    padding: 20px 30px; /* Increased padding for better alignment */
 }
 
 nav .nav-links li {
     margin: 15px 0;
-    text-align: center;
+    text-align: left; 
 }
 
 nav .nav-links a {
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 1.2em; /* Increased font size */
     transition: color 0.3s;
-    -webkit-font-smoothing: antialiased; /* Improve rendering on Safari */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
@@ -637,6 +639,9 @@ footer p {
         padding-right: 20px; /* Add right padding for alignment */
     }
 
+    nav .nav-links a {
+        font-size: 1.3em; /* Further increase for better visibility */
+    }
     /* Container */
     .container {
         width: 95%;
