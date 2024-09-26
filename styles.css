@@ -73,10 +73,14 @@ nav .nav-links {
     top: 60px;
     left: 0;
     border-top: 1px solid #eaeaea;
+    list-style: none; /* Remove bullets from menu */
+    padding: 0; /* Remove default padding */
 }
 
 nav .nav-links.active {
     display: flex;
+    align-items: flex-end; /* Align menu items to the right when active */
+    padding-right: 20px; /* Add right padding for alignment */
 }
 
 nav .nav-links li {
@@ -111,6 +115,8 @@ nav .nav-links a:hover {
         border: none;
         width: auto;
         background-color: transparent;
+        align-items: center; /* Ensure proper alignment in desktop */
+        list-style: none; /* Remove bullets if any */
     }
 
     nav .nav-links li {
@@ -518,10 +524,11 @@ section:nth-of-type(even) {
 }
 
 .contact-links {
-    list-style-type: none;
+    list-style-type: none; /* Remove bullets from contact links */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0; /* Remove default padding */
 }
 
 .contact-links li {
@@ -621,7 +628,7 @@ footer p {
     .secondary-btn,
     .disabled-btn {
         padding: 12px 30px;
-        font-size: 1em; /* Increased from 0.9em to 1em for better readability */
+        font-size: 1em; /* Increased from 0.9em for better readability */
     }
 
     /* Testimonial Avatars */
@@ -649,6 +656,12 @@ footer p {
         line-height: 1.8;
     }
 
+    /* Specific Styles for Experience and About Sections */
+    #about, #experience, #projects {
+        padding-left: 10px; /* Add more margin on the sides */
+        padding-right: 10px;
+    }
+
     /* Specific Styles for Experience Section */
     .accordion-header h3 {
         font-size: 1.6em; /* Increased from 1.5em */
@@ -662,6 +675,26 @@ footer p {
 
     .contact-links li {
         margin: 10px 0;
+    }
+
+    /* Reduce Contact Text Size */
+    #contact p {
+        font-size: 1em; /* Reduced from 1.1em */
+    }
+
+    .contact-links a {
+        font-size: 1em; /* Reduced from 1.1em */
+    }
+
+    /* Keep Gmail Icon Expanded */
+    .contact-icon.gmail {
+        width: 30px; /* Increase size specifically for Gmail icon */
+        height: 30px;
+    }
+
+    /* Testimonials Text Size */
+    .testimonial-text {
+        font-size: 1em; /* Reduced from 1.1em */
     }
 }
 
