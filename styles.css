@@ -41,15 +41,36 @@ nav .logo a {
     text-decoration: none;
     font-size: 1.8em;
     color: #000;
+    font-family: 'Raleway', sans-serif; /* Apply Raleway */
+    font-weight: 600; /* Use Raleway 600 */
 }
 
+/* Hamburger Menu Icon */
+.menu-icon {
+    display: block;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+/* Navigation Links */
 nav .nav-links {
-    list-style: none;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    border-top: 1px solid #eaeaea;
+}
+
+nav .nav-links.active {
     display: flex;
 }
 
 nav .nav-links li {
-    margin-left: 25px;
+    margin: 15px 0;
+    text-align: center;
 }
 
 nav .nav-links a {
@@ -64,14 +85,28 @@ nav .nav-links a:hover {
     color: var(--primary-color);
 }
 
-/* Hamburger Menu Icon */
-.menu-icon {
-    display: none;
-    font-size: 1.8em;
-    cursor: pointer;
+/* Media Queries for Larger Screens */
+@media (min-width: 769px) {
+    .menu-icon {
+        display: none;
+    }
+
+    nav .nav-links {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        border: none;
+        width: auto;
+        background-color: transparent;
+    }
+
+    nav .nav-links li {
+        margin-left: 25px;
+        margin-bottom: 0;
+    }
 }
 
-/* Container */
+/* Container Styles */
 .container {
     width: 90%;
     max-width: 1000px;
@@ -250,7 +285,7 @@ section:nth-of-type(even) {
     margin-top: 20px;
 }
 
-/* Project Section */
+/* Projects Section */
 #projects h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
@@ -492,27 +527,8 @@ footer p {
 @media (max-width: 768px) {
     /* Navigation */
     nav .nav-links {
-        display: none;
         flex-direction: column;
-        width: 100%;
-        background-color: #fff;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        border-top: 1px solid #eaeaea;
-    }
-
-    nav .nav-links.active {
-        display: flex;
-    }
-
-    nav .nav-links li {
-        margin: 15px 0;
-        text-align: center;
-    }
-
-    .menu-icon {
-        display: block;
+        align-items: center;
     }
 
     /* Container */
