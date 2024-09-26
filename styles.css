@@ -48,6 +48,20 @@ nav .logo a {
     font-weight: 600;
 }
 
+
+nav {
+    justify-content: center; /* Center the navigation */
+}
+
+.nav-links li {
+    margin-left: 15px; /* Optional: Reduce spacing between links */
+}
+
+.nav-links li a {
+    font-size: 1.4em; 
+}
+
+
 /* Menu Icon */
 .menu-icon {
     display: flex;
@@ -69,7 +83,7 @@ nav .logo a {
     width: 30px; /* Adjust size as needed */
     height: 30px;
     transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
+    transition: opacity 0.1s ease, transform 0.3s ease;
 }
 
 .menu-icon .close-icon {
@@ -85,6 +99,8 @@ nav .logo a {
 .menu-icon.open .close-icon {
     opacity: 1;
     pointer-events: auto;
+    transform: scale(1.2); 
+
 }
 
 /* Navigation Links */
