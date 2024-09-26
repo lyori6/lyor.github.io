@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Hamburger menu functionality
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.querySelector('.nav-links');
 
@@ -17,12 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleMenu();
             }
         });
-    }
-}); else {
+    } else {
         console.warn("Menu icon or navigation links not found.");
     }
 
-    // **2. Carousel Functionality**
+    // Carousel Functionality
     let slideIndex = 0;
     let autoScrollInterval;
     const slides = document.querySelectorAll(".testimonial");
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoScroll();
     }
 
-    // **3. Read More Functionality for Testimonials**
+    // Read More Functionality for Testimonials
     const testimonials = document.querySelectorAll(".testimonial");
     
     testimonials.forEach((testimonial) => {
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // **4. Accordion Functionality**
+    // Accordion Functionality
     const accordions = document.querySelectorAll(".accordion");
     
     accordions.forEach((accordion) => {
@@ -132,11 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // **5. Button Hover Functionality for Disabled Buttons**
+    // Button Hover Functionality for Disabled Buttons
     const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
     
     disabledButtons.forEach((button) => {
-        const originalText = button.textContent; // Use textContent to get the button's current text
+        const originalText = button.textContent;
     
         button.addEventListener("mouseenter", () => {
             button.textContent = "COMING SOON!";
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // **6. Smooth Scrolling for Navigation Links**
+    // Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // **7. Highlight Active Navigation Link on Scroll**
+    // Highlight Active Navigation Link on Scroll
     window.addEventListener('scroll', () => {
         let current = '';
         const sections = document.querySelectorAll('section');
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // **8. Skills Section Animation (Optional)**
+    // Skills Section Animation (Optional)
     const skillBars = document.querySelectorAll('.skill-bar');
     window.addEventListener('scroll', () => {
         skillBars.forEach(bar => {
