@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (menuIcon && navLinks) {
         const toggleMenu = () => {
             const isActive = navLinks.classList.toggle('active'); // Toggle visibility
+            menuIcon.classList.toggle('open'); // Toggle the hamburger to X animation
             menuIcon.setAttribute('aria-expanded', isActive);
         };
 
