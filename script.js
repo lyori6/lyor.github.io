@@ -44,19 +44,22 @@ function resetAutoScroll() {
 startAutoScroll();
 
 // Read more functionality for testimonials
-const readMoreLinks = document.querySelectorAll(".read-more-link");
+document.addEventListener("DOMContentLoaded", () => {
+    const testimonials = document.querySelectorAll(".testimonial");
 
-readMoreLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const testimonialText = link.parentElement.previousElementSibling;
-        if (testimonialText.classList.contains('expanded')) {
-            testimonialText.classList.remove('expanded');
-            link.textContent = "Read more";
-        } else {
-            testimonialText.classList.add('expanded');
-            link.textContent = "Read less";
+    testimonials.forEach((testimonial) => {
+        const textElement = testimonial.querySelector(".testimonial-text");
+        const readMoreLink = testimonial.querySelector(".read-more-link");
+
+        if (textElement.scrollHeight > textElement.clientHeight) {
+            readMoreLink.classList.add("visible");
         }
+
+        readMoreLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            textElement.classList.toggle("expanded");
+            readMoreLink.textContent = textElement.classList.contains("expanded") ? "Read less" : "Read more";
+        });
     });
 });
 
@@ -106,27 +109,45 @@ disabledButtons.forEach((button) => {
     });
 });
 
-// Conditional Display of "Read more" Links
-document.addEventListener("DOMContentLoaded", () => {
-    const testimonials = document.querySelectorAll(".testimonial");
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
-    testimonials.forEach((testimonial) => {
-        const textElement = testimonial.querySelector(".testimonial-text");
-        const readMoreLink = testimonial.querySelector(".read-more-link");
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 
-        // Temporarily remove the max-height to measure full height
-        textElement.style.maxHeight = 'none';
-        const fullHeight = textElement.scrollHeight;
+// Highlight active navigation link on scroll
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
-        // Re-apply the max-height to show truncated text
-        textElement.style.maxHeight = '4.5em';
-        const truncatedHeight = textElement.scrollHeight;
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 60) {
+            current = section.getAttribute('id');
+        }
+    });
 
-        // If the content is taller when not truncated, show the "Read more" link
-        if (fullHeight > truncatedHeight + 1) { // Adding 1 to account for minor differences
-            readMoreLink.classList.add("visible");
-        } else {
-            readMoreLink.classList.remove("visible");
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Add animation to skills section (if you have one)
+const skillBars = document.querySelectorAll('.skill-bar');
+window.addEventListener('scroll', () => {
+    skillBars.forEach(bar => {
+        const barTop = bar.getBoundingClientRect().top;
+        if (barTop < window.innerHeight) {
+            bar.classList.add('animate');
         }
     });
 });
