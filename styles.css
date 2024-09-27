@@ -185,6 +185,31 @@ section:nth-of-type(even) {
     background-color: var(--zebra-color);
 }
 
+section h2 {
+    text-align: center; /* Center the text */
+    font-size: 3em; /* Increase font size */
+    margin-bottom: 20px; /* Add spacing below the header */
+    font-family: 'Raleway', 'Roboto', sans-serif; /* Consistent font */
+    font-weight: 700; /* Bold for prominence */
+    color: #333333; /* Optional: use primary color */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+    section h2 {
+        font-size: 2.5em; /* Slightly smaller on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    section h2 {
+        font-size: 2em; /* Further reduced on mobile */
+    }
+}
+
 /* Home Section */
 #home {
     text-align: center; /* Center text only in Home section */
