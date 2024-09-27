@@ -190,10 +190,10 @@ section h2 {
     font-size: 3em; /* Increase font size */
     margin-bottom: 20px; /* Add spacing below the header */
     font-family: 'Raleway', 'Roboto', sans-serif; /* Consistent font */
-    font-weight: 700; /* Bold for prominence */
+    font-weight: 800; /* Bold for prominence */
     color: #333333; /* Optional: use primary color */
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 
@@ -353,6 +353,18 @@ section h2 {
 
 .accordion-content p.summary {
     margin-bottom: 15px;
+}
+
+.accordion-header h3,
+.accordion-header h3 span {
+    color: #333; /* Default text color */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Change text color on hover */
+.accordion-header:hover h3,
+.accordion-header:hover h3 span {
+    color: var(--primary-color); /* Primary color defined in :root */
 }
 
 /* Existing Styles */
@@ -545,7 +557,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     background-color: #f5f5f5;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 footer p {
@@ -622,7 +634,7 @@ footer p {
     }
 
     h1 {
-        font-size: 1.8em; /* Adjusted */
+        font-size: 1.9em; /* Adjusted */
     }
 
     h2 {
