@@ -132,58 +132,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Accordion Functionality
-    const accordions = document.querySelectorAll(".accordion");
-
     accordions.forEach((accordion) => {
-        const header = accordion.querySelector(".accordion-header");
-        const content = accordion.querySelector(".accordion-content");
-        const icon = accordion.querySelector(".accordion-icon");
+    const header = accordion.querySelector(".accordion-header");
 
-        if (header && content && icon) {
-            header.addEventListener("click", () => {
-                const isOpen = accordion.classList.toggle("open");
+    header.addEventListener("click", () => {
+        const isOpen = accordion.classList.toggle("open");
 
-                // Update ARIA attributes for accessibility
-                header.setAttribute('aria-expanded', isOpen);
-                icon.setAttribute('aria-hidden', !isOpen);
-
-                // If opened, remove hover color and disable hover
-                if (isOpen) {
-                    header.classList.add('no-hover');
-                } else {
-                    header.classList.remove('no-hover');
-                }
-
-                // Close all other accordions
-                accordions.forEach((acc) => {
-                    if (acc !== accordion && acc.classList.contains('open')) {
-                        acc.classList.remove("open");
-                        const otherHeader = acc.querySelector(".accordion-header");
-                        const otherIcon = acc.querySelector(".accordion-icon");
-                        if (otherHeader && otherIcon) {
-                            otherHeader.setAttribute('aria-expanded', false);
-                            otherIcon.setAttribute('aria-hidden', true);
-                            otherHeader.classList.remove('no-hover');
-                        }
-                    }
-                });
-            });
-
-            // Optional: Allow accordion toggling via keyboard
-            header.setAttribute('tabindex', '0'); // Make header focusable
-            header.setAttribute('role', 'button');
-            header.setAttribute('aria-expanded', 'false');
-
-            header.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    header.click();
-                }
-            });
+        // Disable hover when open
+        if (isOpen) {
+            header.classList.add('no-hover');
         } else {
-            console.warn("Accordion elements missing in one of the accordions.");
+            header.classList.remove('no-hover');
         }
+
+        // Close other accordions
+        accordions.forEach((acc) => {
+            if (acc !== accordion && acc.classList.contains('open')) {
+                acc.classList.remove("open");
+                const otherHeader = acc.querySelector(".accordion-header");
+                otherHeader.classList.remove('no-hover');
+            }
+        });
     });
+});
 
     // Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

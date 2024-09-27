@@ -10,11 +10,11 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1rem; /* Adjusted for better readability */
     background-color: white;
-    padding-top: 60px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    padding-top: 60px; /* To offset the fixed nav */
+    -webkit-font-smoothing: antialiased; /* Improve rendering on Safari */
+    -moz-osx-font-smoothing: grayscale; /* Improve rendering on Firefox */
 }
 
 /* Color Variables */
@@ -37,14 +37,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
 }
 
 nav .logo a {
     text-decoration: none;
     font-size: 1.8em;
     color: #000;
-    font-family: 'Raleway', 'Roboto', sans-serif;
+    font-family: 'Raleway', 'Roboto', sans-serif; /* Added 'Roboto' as fallback */
     font-weight: 600;
 }
 
@@ -54,8 +54,8 @@ nav .logo a {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 40px; /* Adjusted width */
+    height: 40px; /* Adjusted height */
     position: relative;
     padding: 0;
     margin: 0;
@@ -66,7 +66,7 @@ nav .logo a {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 30px;
+    width: 30px; /* Adjust size as needed */
     height: 30px;
     transform: translate(-50%, -50%);
     transition: opacity 0.1s ease, transform 0.3s ease;
@@ -85,34 +85,34 @@ nav .logo a {
 .menu-icon.open .close-icon {
     opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.2); /* Added scale for emphasis */
 }
 
 /* Navigation Links */
 .nav-links {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 100%;
+    top: 100%; /* Positioned below the nav bar */
     left: 0;
     width: 100%;
     background-color: #fff;
     padding: 20px 0;
     list-style: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
     transition: max-height 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
     overflow: hidden;
-    max-height: 0;
+    max-height: 0; /* Initially hidden with height 0 */
 }
 
 .nav-links.active {
     display: flex;
-    max-height: 500px;
+    max-height: 500px; /* Set a max height when active, adjust as needed */
 }
 
 .nav-links li {
-    width: 100%;
+    width: 100%; /* Ensure full width for alignment */
 }
 
 .nav-links li a {
@@ -120,10 +120,10 @@ nav .logo a {
     padding: 15px 30px;
     color: #333;
     font-weight: 600;
-    font-size: 1.2em;
+    font-size: 1.2em; /* Increased font size */
     text-decoration: none;
-    text-align: center;
-    width: 100%;
+    text-align: center; /* Center align text on mobile */
+    width: 100%; /* Full width for larger clickable area */
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -171,18 +171,9 @@ nav .logo a {
 }
 
 /* Section Styles */
+/* Removed text-align: center; from section to allow individual alignment */
 section {
     padding: 60px 0;
-}
-
-/* Section Headers */
-section h2 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 30px;
-    font-family: 'Raleway', 'Roboto', sans-serif;
-    font-weight: 800;
-    color: #333333;
 }
 
 /* Zebra Striped Background */
@@ -196,7 +187,7 @@ section:nth-of-type(even) {
 
 /* Home Section */
 #home {
-    text-align: center;
+    text-align: center; /* Center text only in Home section */
     padding-top: 60px;
 }
 
@@ -270,40 +261,39 @@ section:nth-of-type(even) {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+        transition: all 0.4s ease; /* Smoother transition */
+
+}
+
+.accordion-header.no-hover:hover {
+    color: inherit; /* Prevent hover effect when open */
 }
 
 .accordion-header img.company-logo {
     width: 50px;
     height: 50px;
     margin-right: 15px;
-    object-fit: contain;
-    background-color: transparent;
-    transition: transform 0.4s ease; /* Updated transition duration */
+    object-fit: contain; /* Prevent image stretching */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    background-color: transparent; /* Optional */
 }
 
 .accordion-header:hover img.company-logo {
-    transform: scale(0.98); /* Slightly scale down for subtle effect */
+    transform: scale(1.05); /* Subtle scaling on hover */
 }
 
 .accordion-header h3 {
     flex-grow: 1;
-    font-size: 1.6em;
-    font-weight: 700;
-    font-family: 'Raleway', 'Roboto', sans-serif;
-    margin-bottom: 5px;
-    transition: color 0.3s ease;
+    font-size: 1.4em;
+    font-weight: 700; /* Increased weight for prominence */
+    font-family: 'Raleway', 'Roboto', sans-serif; /* Ensure consistency */
 }
 
-.accordion-header:hover h3,
-.accordion-header:hover h3 span {
-    color: var(--primary-color);
-}
-
+/* Differentiate Title within h3 */
 .accordion-header h3 span {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-style: italic;
-    color: #555;
+    font-family: 'Roboto', sans-serif; /* Differentiate font */
+    font-weight: 400; /* Normal weight */
+    font-style: italic; /* Optional: add style for distinction */
 }
 
 .accordion-header .accordion-icon {
@@ -312,21 +302,17 @@ section:nth-of-type(even) {
     transition: transform 0.3s ease;
 }
 
-.accordion:hover .accordion-content {
-    color: var(--primary-color);
-}
-
 .accordion.open .accordion-content {
-    max-height: 1000px;
+    max-height: 1000px; /* Large enough to accommodate content */
     padding-top: 15px;
-    transition: max-height 0.3s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
 }
 
 .accordion-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
-    text-align: left;
+    text-align: left; /* Ensure left alignment within accordion content */
 }
 
 .accordion-content h4 {
@@ -344,7 +330,7 @@ section:nth-of-type(even) {
     margin-bottom: 15px;
 }
 
-/* Secondary and Disabled Buttons */
+/* Existing Styles */
 .secondary-btn, .disabled-btn {
     display: inline-block;
     text-decoration: none;
@@ -352,22 +338,24 @@ section:nth-of-type(even) {
     color: #fff;
     padding: 10px 25px;
     border-radius: 5px;
-    transition: none;
+    transition: none; /* Remove transitions */
     font-size: 0.9em;
     cursor: not-allowed;
 }
 
+/* Remove Hover Effects for Disabled Buttons */
 .disabled-btn:hover {
-    background-color: var(--accent-color);
-    transform: none;
+    background-color: var(--accent-color); /* Keep the same color */
+    transform: none; /* No scaling */
 }
 
+/* Optional: Ensure .secondary-btn still has hover effects */
 .secondary-btn:hover {
     background-color: var(--button-hover-color);
     transform: scale(0.98);
 }
 
-/* Projects Section Alignment */
+/* Projects Section */
 .project {
     margin-bottom: 30px;
 }
@@ -379,17 +367,11 @@ section:nth-of-type(even) {
 }
 
 .project-header img.project-logo {
-    width: 50px;
-    height: 50px;
+    width: 50px; /* Adjusted to match company-logo size */
+    height: 50px; /* Adjusted to match company-logo size */
     margin-right: 15px;
-    object-fit: contain;
-    vertical-align: middle; /* Ensures vertical alignment */
-}
-
-.project-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center the content */
+    object-fit: contain; /* Prevent image stretching */
+    background-color: transparent; /* Optional */
 }
 
 .project-content h3 {
@@ -403,13 +385,19 @@ section:nth-of-type(even) {
 }
 
 .project-content .btn {
-    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    padding: 10px 25px; /* Standard padding for button */
     background-color: var(--primary-color);
-    color: #fff;
-    padding: 10px 25px;
+    color: white;
     border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-    font-size: 0.9em;
+    font-size: 1em;
+    text-align: center;
+}
+
+.project-content .btn.disabled-btn {
+    background-color: grey; /* Disabled button background */
+    cursor: not-allowed; /* Disable pointer events for the last button */
 }
 
 .project-content .btn:hover {
@@ -484,8 +472,6 @@ section:nth-of-type(even) {
 #contact {
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 0;
-    margin-bottom: 0;
 }
 
 #contact p {
@@ -497,8 +483,8 @@ section:nth-of-type(even) {
     list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding-left: 10px;
+    align-items: flex-start; /* Changed from center for better alignment */
+    padding-left: 10px; /* Add left padding */
 }
 
 .contact-links li {
@@ -512,8 +498,6 @@ section:nth-of-type(even) {
     color: #333;
     font-size: 1em;
     transition: color 0.3s;
-    text-align: left;
-    width: 100%;
 }
 
 .contact-links a:hover {
@@ -524,20 +508,19 @@ section:nth-of-type(even) {
     width: 25px;
     height: 25px;
     margin-right: 10px;
-    object-fit: contain; /* Ensure aspect ratio is maintained */
 }
 
 .contact-icon.gmail {
-    width: 25px;
-    height: auto; /* Allow height to adjust to maintain aspect ratio */
+    width: 25px; /* Adjusted to match other icons */
+    height: 25px;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
     background-color: #f5f5f5;
-    margin-top: 0;
+    margin-top: 40px;
 }
 
 footer p {
@@ -549,37 +532,37 @@ footer p {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    /* Navigation Links */
     .nav-links {
-        align-items: center;
+        align-items: center; /* Center menu items */
     }
 
     .nav-links li a {
         text-align: center;
     }
 
+    /* Container */
     .container {
         width: 95%;
         padding: 20px 0;
     }
 
+    /* Home Section */
     #home {
         padding-top: 60px;
     }
 
     .intro-text {
-        font-size: 6vw;
+        font-size: 6vw; /* Adjusted */
         letter-spacing: 0.3px;
     }
 
     .intro-subtext {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Adjusted */
     }
 
-    .accordion-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
+    /* Project Headers */
     .project-header {
         flex-direction: column;
         align-items: center;
@@ -593,6 +576,7 @@ footer p {
         text-align: center;
     }
 
+    /* Buttons */
     .btn,
     .secondary-btn,
     .disabled-btn {
@@ -600,54 +584,60 @@ footer p {
         font-size: 1em;
     }
 
+    /* Testimonial Avatars */
     .avatar {
         width: 60px;
         height: 60px;
         margin-bottom: 15px;
     }
 
+    /* Adjust Text Sizes */
     body {
-        font-size: 1rem;
+        font-size: 1rem; /* Adjusted */
     }
 
     h1 {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Adjusted */
     }
 
     h2 {
-        font-size: 1.6em;
+        font-size: 1.6em; /* Adjusted */
     }
 
     h3 {
-        font-size: 1.4em;
+        font-size: 1.4em; /* Adjusted */
     }
 
     p {
-        font-size: 1em;
+        font-size: 1em; /* Adjusted */
         line-height: 1.6;
     }
 
+    /* Specific Styles for About and Experience Sections */
     #about, #experience, #projects {
         padding-left: 20px;
         padding-right: 20px;
     }
 
+    /* Specific Styles for Experience Section */
     .accordion-header h3 {
-        font-size: 1.6em;
+        font-size: 1.4em; /* Adjusted */
     }
 
+    /* Contact Links */
     .contact-links {
         flex-direction: column;
-        align-items: flex-start;
-        padding-left: 10px;
+        align-items: flex-start; /* Changed from center */
+        padding-left: 10px; /* Add left padding */
     }
 
     .contact-links a {
         text-align: left;
-        width: 100%;
-        font-size: 1em;
+        width: 100%; /* Make links full width */
+        font-size: 1em; /* Consistent font size */
     }
 
+    /* Adjust Icons */
     .contact-icon {
         width: 25px;
         height: 25px;
@@ -655,63 +645,72 @@ footer p {
     }
 
     .contact-icon.gmail {
-        width: 25px;
-        height: auto;
+        width: 25px; /* Adjusted to match other icons */
+        height: 25px;
     }
 
+    /* Testimonials Text Size */
     .testimonial-text {
-        font-size: 1em;
+        font-size: 1em; /* Adjusted */
     }
 
+    /* Add More Margins to About and Projects Sections */
     #about, #projects {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 20px; /* Additional left padding */
+        padding-right: 20px; /* Additional right padding */
     }
 }
 
 /* Very Small Screens */
 @media (max-width: 480px) {
+    /* Adjust Intro Text */
     .intro-text {
-        font-size: 7vw;
+        font-size: 7vw; /* Adjusted */
     }
 
     .intro-subtext {
-        font-size: 1.6em;
+        font-size: 1.6em; /* Further adjustment */
     }
 
+    /* Further Reduce Avatar Size */
     .avatar {
         width: 50px;
         height: 50px;
     }
 
+    /* Adjust Base Font Size */
     body {
-        font-size: 0.95rem;
+        font-size: 0.95rem; /* Further adjusted */
     }
 
+    /* Headings */
     h1, h2 {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Adjusted */
     }
 
     h3 {
-        font-size: 1.6em;
+        font-size: 1.6em; /* Adjusted */
     }
 
     p {
-        font-size: 1.1em;
+        font-size: 1.1em; /* Adjusted */
         line-height: 1.7;
     }
 
+    /* Read More Button */
     .read-more-btn {
         font-size: 0.8em;
     }
 
+    /* Carousel Controls */
     .carousel-controls img {
         width: 25px;
         height: 25px;
     }
 
+    /* Add More Margins to About and Projects Sections */
     #about, #projects {
-        padding-left: 15px;
+        padding-left: 15px; /* Adjusted for very small screens */
         padding-right: 15px;
     }
 }
