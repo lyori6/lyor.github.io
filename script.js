@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Existing Code...
+
     // Hamburger Menu Functionality
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.querySelector('.nav-links');
@@ -216,5 +218,105 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+    });
+
+    // Contact Form Functionality
+    const contactForm = document.getElementById('contact-form');
+    const emailInput = document.getElementById('email-address');
+    const emailError = document.getElementById('email-error');
+    const formFeedback = document.getElementById('form-feedback');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    // Email Validation Regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Function to Validate Email
+    function validateEmail(email) {
+        return emailRegex.test(email);
+    }
+
+    // Show Error Message
+    function showError(message) {
+        emailError.textContent = message;
+        emailError.style.display = 'block';
+    }
+
+    // Hide Error Message
+    function hideError() {
+        emailError.style.display = 'none';
+    }
+
+    // Handle Form Submission
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        // Clear previous feedback
+        formFeedback.textContent = '';
+        formFeedback.classList.remove('thank-you-message');
+
+        const fullName = document.getElementById('full-name').value.trim();
+        const email = emailInput.value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // Validate Email
+        if (!validateEmail(email)) {
+            showError('Please enter a valid email address.');
+            return;
+        } else {
+            hideError();
+        }
+
+        // Disable Submit Button to Prevent Multiple Submissions
+        submitButton.disabled = true;
+
+        // Add Spinner
+        const spinner = document.createElement('div');
+        spinner.classList.add('spinner');
+        submitButton.appendChild(spinner);
+
+        // Prepare Form Data
+        const formData = {
+            fullName,
+            email,
+            message
+        };
+
+        try {
+            // Send POST Request to Cloudflare Worker or Google Apps Script
+            const response = await fetch('https://contact.lyori.com', { // Replace with your Worker URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                if (result.status === 'success') {
+                    // Success Feedback
+                    formFeedback.textContent = 'Thank you! I received your message and will get back to you soon.';
+                    formFeedback.classList.add('thank-you-message');
+                    contactForm.reset(); // Clear the form
+                } else {
+                    // Server Error Feedback
+                    formFeedback.textContent = result.message || 'Something went wrong. Please try again later.';
+                    formFeedback.style.color = 'var(--accent-color)';
+                }
+            } else {
+                // HTTP Error Feedback
+                formFeedback.textContent = 'Something went wrong. Please try again later.';
+                formFeedback.style.color = 'var(--accent-color)';
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            formFeedback.textContent = 'An error occurred. Please try again later.';
+            formFeedback.style.color = 'var(--accent-color)';
+        } finally {
+            // Remove Spinner and Re-enable Button
+            submitButton.removeChild(spinner);
+            submitButton.disabled = false;
+        }
     });
 });
