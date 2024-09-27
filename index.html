@@ -121,7 +121,28 @@
                     </p>
                     <!-- You can add buttons or other elements here if needed -->
                 </div>
+            <!-- AssemblyDrop -->
+            <div class="job accordion">
+                <div class="accordion-header">
+                    <img src="images/assembly.png" alt="AssemblyDrop Logo" class="company-logo">
+                    <h3>AssemblyDrop <span>Product Manager - Consultant</span></h3>
+                    <img src="images/down.png" alt="Expand" class="accordion-icon">
+                </div>
+                <div class="accordion-content">
+                    <h4>Apr 2020 - Sep 2020 | Palo Alto, CA</h4>
+                    <ul>
+                        <li>Conducted market studies and redefined the product roadmap for an on-demand hardware marketplace.</li>
+                    </ul>
+                    <!-- Summary Heading -->
+                    <h4>Summary</h4>
+                    <!-- Summary Paragraph -->
+                    <p class="summary">
+                        I partnered with the founder to launch AssemblyDrop, aiming to be the "Instacart for the construction industry." Leading the product from concept to launch, I developed the initial roadmap, executed go-to-market strategies, and conducted comprehensive user research. This in-depth research enabled us to pivot effectively, creating an automated ordering solution tailored for the construction sector. Our innovative approach led to AssemblyDrop's acquisition by Harbor Ready Mix, underscoring the product's value and impact in the industry.
+                    </p>
+                </div>
             </div>
+
+                 </div>
             <!-- ProgForce -->
             <div class="job accordion">
                 <div class="accordion-header">
@@ -140,26 +161,6 @@
                     <!-- Summary Paragraph -->
                     <p class="summary">
                         At ProgForce, I collaborated closely with the founder and engineering team to develop an innovative hierarchical task management system for large enterprises. Leading the product from concept to prototype in under a year, I also hired a UX designer and crafted compelling pitch decks. Our testing projected a 30% increase in response rates, a 25% reduction in response times, and a 20% boost in completion rates for travel forecasts across all organizational levels. By integrating gamification, automation, and enhanced transparency, we addressed critical organizational challenges. Although the project was paused due to COVID-19, the experience reinforced my ability to design impactful solutions and adapt to unforeseen challenges.
-                    </p>
-                </div>
-            </div>
-            <!-- AssemblyDrop -->
-            <div class="job accordion">
-                <div class="accordion-header">
-                    <img src="images/assembly.png" alt="AssemblyDrop Logo" class="company-logo">
-                    <h3>AssemblyDrop <span>Product Manager - Consultant</span></h3>
-                    <img src="images/down.png" alt="Expand" class="accordion-icon">
-                </div>
-                <div class="accordion-content">
-                    <h4>Apr 2020 - Sep 2020 | Palo Alto, CA</h4>
-                    <ul>
-                        <li>Conducted market studies and redefined the product roadmap for an on-demand hardware marketplace.</li>
-                    </ul>
-                    <!-- Summary Heading -->
-                    <h4>Summary</h4>
-                    <!-- Summary Paragraph -->
-                    <p class="summary">
-                        I partnered with the founder to launch AssemblyDrop, aiming to be the "Instacart for the construction industry." Leading the product from concept to launch, I developed the initial roadmap, executed go-to-market strategies, and conducted comprehensive user research. This in-depth research enabled us to pivot effectively, creating an automated ordering solution tailored for the construction sector. Our innovative approach led to AssemblyDrop's acquisition by Harbor Ready Mix, underscoring the product's value and impact in the industry.
                     </p>
                 </div>
             </div>
@@ -344,36 +345,35 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out through any of the platforms below.</p>
-            <ul class="contact-links">
-                <li>
-                    <a href="mailto:lyori6@gmail.com">
-                        <img src="images/gmail.png" alt="Gmail" class="contact-icon gmail"> 
-                        lyori6@gmail.com
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/lyor" target="_blank">
-                        <img src="images/linkedin.svg" alt="LinkedIn" class="contact-icon"> 
-                        linkedin.com/in/lyor
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/lyori6" target="_blank">
-                        <img src="images/github.png" alt="GitHub" class="contact-icon"> 
-                        github.com/lyori6
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.figma.com/@lyor" target="_blank">
-                        <img src="images/figma.png" alt="Figma" class="contact-icon"> 
-                        figma.com/@lyor
-                    </a>
-                </li>
-            </ul>
-        </section>
+ <!-- Contact Section -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out through any of the platforms below.</p>
+    
+    <!-- Contact Form -->
+    <form id="contact-form" class="contact-form">
+        <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="fullName" required>
+        </div>
+        <div class="form-group">
+            <label for="email-address">Email Address</label>
+            <input type="email" id="email-address" name="email" required>
+            <span class="error-message" id="email-error">Please enter a valid email address.</span>
+        </div>
+        <div class="form-group">
+            <label for="message">What do you want to work on together?</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+        <div id="form-feedback" class="form-feedback"></div>
+    </form>
+    
+    <!-- Existing Contact Links -->
+    <ul class="contact-links">
+        <!-- ... -->
+    </ul>
+</section>
     </div>
 
     <!-- Footer -->

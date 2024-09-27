@@ -282,8 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            // Send POST Request to Cloudflare Worker or Google Apps Script
-            const response = await fetch('https://contact.lyori.com', { // Replace with your Worker URL
+            const response = await fetch('const GOOGLE_APPS_SCRIPT_URL = 'const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxah3jH8l8y9xqoz46PLUkkTTK6FiEpHP1Xx_FdwTVE45adZHZlmhRi5YJ10GUtj-bB/exec',{ 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

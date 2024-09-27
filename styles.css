@@ -783,3 +783,82 @@ footer p {
         padding-right: 15px;
     }
 }
+
+/* Contact Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.error-message {
+    color: var(--accent-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+}
+
+.contact-form button[type="submit"] {
+    align-self: flex-start; /* Align button to the start */
+    position: relative; /* For spinner positioning */
+}
+
+.form-feedback {
+    margin-top: 15px;
+    font-size: 1em;
+    color: var(--primary-color);
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid var(--primary-color); /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: -30px; /* Position it to the right of the button */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg) translateY(-50%); }
+    100% { transform: rotate(360deg) translateY(-50%); }
+}
+
+/* Thank You Message */
+.thank-you-message {
+    color: var(--primary-color);
+    font-weight: 600;
+}
