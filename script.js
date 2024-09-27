@@ -229,6 +229,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Email Validation Regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+
+
+// Handle success feedback and animation
+function showSuccessMessage() {
+    formFeedback.textContent = 'Thank you! I received your message and will get back to you soon.';
+    formFeedback.classList.add('thank-you-message', 'show');
+}
+
+// Call this function on success in your existing submission logic
+
     // Function to Validate Email
     function validateEmail(email) {
         return emailRegex.test(email);

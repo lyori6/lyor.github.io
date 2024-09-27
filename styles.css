@@ -863,32 +863,7 @@ footer p {
     display: none; /* Hidden by default */
 }
 
-.submit-container {
-    position: relative; /* For absolute positioning of spinner */
-    display: flex;
-    justify-content: center; /* Center the button horizontally */
-    align-items: center; /* Center the button vertically */
-}
 
-/* Spinner Styles */
-.spinner {
-    border: 4px solid #f3f3f3; /* Light grey */
-    border-top: 4px solid var(--primary-color); /* Blue */
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-    position: absolute;
-    left: 50%; /* Center horizontally */
-    top: 50%; /* Center vertically */
-    transform: translate(-50%, -50%); /* Adjust for exact centering */
-    display: none; /* Hidden by default */
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg) translate(-50%, -50%); }
-    100% { transform: rotate(360deg) translate(-50%, -50%); }
-}
 
 /* Loading State for Submit Button */
 .contact-form.loading .btn {
@@ -931,4 +906,32 @@ footer p {
         width: 16px;
         height: 16px;
     }
+}
+
+
+/* Center the thank-you message and add styling */
+.form-feedback {
+    display: block;
+    text-align: center;
+    font-size: 1.5em; /* Increase size */
+    font-weight: 600; /* Make it heavier */
+    color: var(--primary-color); /* Ensure primary color */
+    margin-top: 20px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animation */
+}
+
+/* When success is triggered, show with animation */
+.form-feedback.show {
+    opacity: 1;
+    transform: translateY(0); /* Moves up slightly */
+}
+
+/* Add a success emoji above or within the text */
+.form-feedback:before {
+    content: "🎉"; /* Success emoji */
+    display: block;
+    font-size: 2em; /* Bigger emoji */
+    margin-bottom: 10px;
 }
