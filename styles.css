@@ -37,7 +37,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
 }
 
 nav .logo a {
@@ -90,7 +90,7 @@ nav .logo a {
 
 /* Navigation Links */
 .nav-links {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     position: absolute;
@@ -139,7 +139,7 @@ nav .logo a {
     }
 
     .nav-links {
-        display: flex !important; 
+        display: flex !important; /* Ensures nav-links are visible */
         flex-direction: row;
         position: static;
         width: auto;
@@ -182,8 +182,8 @@ section h2 {
     text-align: center; /* Centers the headers */
     margin-bottom: 30px; /* Adds space below the headers */
     font-family: 'Raleway', 'Roboto', sans-serif; /* Ensures consistent font */
-    font-weight: 800; /* Makes the headers bold */
-    color: #333333; /* Optional: Adds primary color to headers */
+    font-weight: 700; /* Makes the headers bold */
+    color: var(--primary-color); /* Optional: Adds primary color to headers */
 }
 
 /* Zebra Striped Background */
@@ -273,33 +273,20 @@ section:nth-of-type(even) {
     cursor: pointer;
 }
 
-
-/* Change color of both company name and title on hover */
-.accordion-header:hover h3,
-.accordion-header:hover h3 span {
-    color: var(--primary-color);
-    transition: color 0.3s ease;
-}
-
-/* Subtle animation for company logo on hover */
 .accordion-header img.company-logo {
     width: 50px;
     height: 50px;
     margin-right: 15px;
-    object-fit: contain;
-    background-color: transparent;
-    transition: transform 0.3s ease, filter 0.3s ease; /* Added filter transition */
+    object-fit: contain; /* Prevent image stretching */
+    background-color: transparent; /* Optional */
 }
 
-.accordion-header img.company-logo:hover {
-    transform: scale(1.05); /* Slightly enlarge the logo */
-    filter: brightness(1.2); /* Slight brightness increase for emphasis */
-}
-
-/* Ensure the accordion header remains interactive when open */
-.accordion.open .accordion-header h3,
-.accordion.open .accordion-header h3 span {
-    color: var(--primary-color);
+.accordion-header h3 {
+    flex-grow: 1;
+    font-size: 1.6em; /* Slightly larger for prominence */
+    font-weight: 700; /* Makes the company name bold */
+    font-family: 'Raleway', 'Roboto', sans-serif; /* Ensures consistent font */
+    margin-bottom: 5px; /* Adds space below the company name */
 }
 
 .accordion-header h3 span {
@@ -315,15 +302,10 @@ section:nth-of-type(even) {
     transition: transform 0.3s ease;
 }
 
-
-.accordion:hover .accordion-content {
-    color: var(--primary-color);
-}
-
 .accordion.open .accordion-content {
     max-height: 1000px; /* Large enough to accommodate content */
     padding-top: 15px;
-    transition: color 0.3s ease;
+    transition: max-height 0.5s ease-in-out;
 }
 
 .accordion-content {
@@ -378,35 +360,24 @@ section:nth-of-type(even) {
     margin-bottom: 30px;
 }
 
-/* 2. Align Project Logos with Project Names */
-
-/* Ensure project headers use flexbox for proper alignment */
 .project-header {
     display: flex;
-    align-items: center; /* Vertically centers items */
+    align-items: center;
     margin-bottom: 15px;
 }
 
-/* Adjust project logo styles for better alignment */
 .project-header img.project-logo {
-    width: 50px;
-    height: 50px;
+    width: 50px; /* Adjusted to match company-logo size */
+    height: 50px; /* Adjusted to match company-logo size */
     margin-right: 15px;
-    object-fit: contain;
-    background-color: transparent;
-    transition: transform 0.3s ease; /* Optional: Add transition for hover effects */
+    object-fit: contain; /* Prevent image stretching */
+    background-color: transparent; /* Optional */
 }
 
-/* Optional: Add hover effect to project logos for consistency */
-.project-header img.project-logo:hover {
-    transform: scale(1.05);
-}
-
-/* Ensure project content is centered vertically */
-.project-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.project-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-family: 'Raleway', 'Roboto', sans-serif;
 }
 
 .project-content p {
