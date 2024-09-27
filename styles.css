@@ -840,15 +840,72 @@ footer p {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 400px;
-    margin-top: 30px;
-    padding: 20px; /* Added padding for better spacing */
-    background-color: #f9f9f9; /* Optional: Add a light background for contrast */
-    border-radius: 10px; /* Optional: Rounded corners for aesthetics */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
-    margin-bottom: 0; /* Remove bottom margin */
-    padding-bottom: 20px; /* Adjust as needed for spacing */
+    gap: 20px;
+    margin: 30px auto 0 auto; /* Center the form horizontally */
+    padding: 40px 20px; /* Adjusted padding */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Set a maximum width for the form */
 }
+
+/* Center the form elements and make inputs narrower */
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the form groups */
+}
+
+.contact-form .form-group label {
+    width: 100%;
+    max-width: 500px; /* Set max width for labels */
+    margin-bottom: 8px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 100%;
+    max-width: 500px; /* Set max width for inputs */
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.contact-form .error-message {
+    color: var(--accent-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact-form .submit-container {
+    display: flex;
+    justify-content: center; /* Center the submit button */
+}
+
+.contact-form .submit-container .btn {
+    width: 100%;
+    max-width: 200px; /* Set a max width for the button */
+    text-align: center;
+    padding: 15px 0; /* Adjust padding for button */
+    margin: 0 auto; /* Center the button */
+}
+
+
 
 .form-group {
     display: flex;
