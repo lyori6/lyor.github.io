@@ -422,35 +422,27 @@ section h2 {
 
 .project-header {
     display: flex;
-    align-items: flex-start; /* Align items at the top */
-    margin-bottom: 15px;
-}
-
-.project-header-left {
-    display: flex;
     align-items: center;
-    margin-right: 15px;
+    margin-bottom: 10px;
 }
 
-.project-header-left img.project-logo {
+.project-header img.project-logo {
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 15px;
     object-fit: contain; /* Prevent image stretching */
     background-color: transparent; /* Optional */
 }
 
-.project-content {
-    flex: 1; /* Allow content to fill the remaining space */
-    display: flex;
-    flex-direction: column;
-}
-
-.project-content h3 {
+.project-header h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
     font-family: 'Raleway', 'Roboto', sans-serif;
     color: #333;
+}
+
+.project-content {
+    text-align: left;
 }
 
 .project-content p {
@@ -459,7 +451,6 @@ section h2 {
 
 .project-content .btn {
     display: inline-block; /* Ensure buttons don't take full width */
-    width: auto; /* Ensure button size is intrinsic */
     padding: 10px 25px; /* Standard padding for button */
     background-color: var(--primary-color);
     color: white;
@@ -476,7 +467,6 @@ section h2 {
     transform: scale(0.98);
 }
 
-/* Ensure Disabled Buttons in Projects Section Are Properly Styled */
 .project-content .disabled-btn {
     background-color: #cccccc; /* Light grey background */
     color: #666666; /* Darker grey text */
@@ -682,12 +672,9 @@ footer p {
         align-items: flex-start; /* Align items to the left */
     }
 
-    .project-header-left {
+    .project-header img.project-logo {
+        margin-right: 0;
         margin-bottom: 10px;
-    }
-
-    .project-header-left img.project-logo {
-        margin-bottom: 0;
     }
 
     .project-content {
@@ -976,11 +963,10 @@ footer p {
     border: none;
     color: #fff;
     font-size: 1.2em;
-    margin-left: auto;
+    margin-left: auto; /* Ensures the Dismiss button is at the far right */
     cursor: pointer;
     padding: 0 5px;
     line-height: 1;
-    margin-left: auto; /* Ensures the Dismiss button is at the far right */
 }
 
 .toast-dismiss:focus {
