@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
-    const GOOGLE_APPS_SCRIPT_URL = 'https://lyori-contact.lyori6ux.workers.dev/;'
+    const GOOGLE_APPS_SCRIPT_URL = 'https://lyori-contact.lyori6ux.workers.dev/'
 
     // Handle Form Submission
     contactForm.addEventListener('submit', async (e) => {

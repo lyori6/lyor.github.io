@@ -253,18 +253,25 @@ section h2 {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.home-content .btn {
+/* Consolidated Button Styles */
+.btn {
     text-decoration: none;
     background-color: var(--primary-color);
     color: #fff;
     padding: 15px 35px;
+    border: none; /* Remove default border */
+    outline: none; /* Remove default outline */
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
     font-size: 1em;
     cursor: pointer;
+    position: relative;
+    min-width: 150px; /* Ensure a minimum width */
+    text-align: center;
+    display: inline-block; /* Ensure inline-block for proper sizing */
 }
 
-.home-content .btn:hover {
+.btn:hover {
     background-color: var(--button-hover-color);
     transform: scale(0.95);
 }
@@ -548,10 +555,22 @@ section h2 {
 }
 
 #contact p {
-    font-size: 1em;
+    font-size: 1.2em; /* Increased font size */
     margin-bottom: 20px;
+    text-align: center; /* Center align the introductory text */
+    font-family: 'Roboto', sans-serif;
+    color: #333;
 }
 
+.contact-intro {
+    font-size: 1.5em; /* Make it larger */
+    margin-bottom: 20px;
+    text-align: center; /* Center the text */
+    font-family: 'Roboto', sans-serif; /* Ensure consistency with other text */
+    color: #333; /* Maintain text color */
+}
+
+/* Contact Links */
 .contact-links {
     list-style: none;
     display: flex;
@@ -835,54 +854,6 @@ footer p {
     display: flex;
     justify-content: center; /* Center the button horizontally */
     align-items: center; /* Center the button vertically */
-}
-
-.contact-form .btn {
-    text-decoration: none;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 15px 35px;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s;
-    font-size: 1em;
-    cursor: pointer;
-    position: relative; /* For spinner positioning */
-    min-width: 150px; /* Ensure a minimum width */
-    text-align: center;
-}
-
-.contact-form .btn:hover {
-    background-color: var(--button-hover-color);
-    transform: scale(0.95);
-}
-
-/* Submit Container to position button and spinner */
-.submit-container {
-    position: relative;
-    display: flex;
-    justify-content: center; /* Center the button horizontally */
-    align-items: center; /* Center the button vertically */
-}
-
-/* Submit Button Styles */
-.contact-form .btn {
-    /* Inherit styles from existing .btn class */
-    text-decoration: none;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 15px 35px;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s;
-    font-size: 1em;
-    cursor: pointer;
-    position: relative; /* For spinner positioning */
-    min-width: 150px; /* Ensure a minimum width */
-    text-align: center;
-}
-
-.contact-form .btn:hover {
-    background-color: var(--button-hover-color);
-    transform: scale(0.95);
 }
 
 /* Spinner Styles */
