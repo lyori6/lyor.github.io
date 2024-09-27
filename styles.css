@@ -417,7 +417,7 @@ section h2 {
 
 /* Projects Section */
 .project {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .project-header {
@@ -458,6 +458,7 @@ section h2 {
     font-size: 1em;
     text-align: center;
     text-decoration: none;
+    margin-bottom: 20px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     max-width: 200px; /* Maximum width on desktop */
 }
@@ -839,7 +840,7 @@ footer p {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 400px;
     margin-top: 30px;
     padding: 20px; /* Added padding for better spacing */
     background-color: #f9f9f9; /* Optional: Add a light background for contrast */
@@ -907,8 +908,11 @@ footer p {
 }
 
 @keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
     to {
-        transform: rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
