@@ -332,8 +332,15 @@ section h2 {
     width: 20px;
     height: 20px;
     transition: transform 0.3s ease;
+    transform: rotate(0deg); /* Initial rotation */
 }
 
+/* Flip Animation for Chevron Icon */
+.accordion.open .accordion-icon {
+    transform: rotate(180deg); /* Rotate 180 degrees when open */
+}
+
+/* Accordion Content Styles */
 .accordion.open .accordion-content {
     max-height: 1000px; /* Large enough to accommodate content */
     padding-top: 15px;
@@ -435,7 +442,7 @@ section h2 {
 
 .project-content .btn {
     display: inline-block;
-    width: auto;
+    width: auto; /* Ensure button size is intrinsic */
     padding: 10px 25px; /* Standard padding for button */
     background-color: var(--primary-color);
     color: white;
@@ -451,6 +458,7 @@ section h2 {
     transform: scale(0.98);
 }
 
+/* Ensuring Disabled Buttons in Projects Section are Properly Styled */
 .project-content .disabled-btn {
     background-color: #cccccc; /* Light grey background */
     color: #666666;            /* Darker grey text */
@@ -694,7 +702,7 @@ footer p {
 
     .contact-links a {
         text-align: left;
-        width: 100%; /* Make links full width */
+        width: auto; /* Change from 100% to auto */
         font-size: 1em; /* Consistent font size */
     }
 
