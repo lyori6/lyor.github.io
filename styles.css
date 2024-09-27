@@ -554,20 +554,20 @@ section h2 {
     padding-right: 20px;
 }
 
+#contact h3.contact-intro {
+    font-size: 1.5em; /* Increased font size */
+    margin-bottom: 20px;
+    text-align: center; /* Center the text */
+    font-family: 'Roboto', sans-serif; /* Ensure consistency with other text */
+    color: #333; /* Maintain text color */
+}
+
 #contact p {
     font-size: 1.2em; /* Increased font size */
     margin-bottom: 20px;
     text-align: center; /* Center align the introductory text */
     font-family: 'Roboto', sans-serif;
     color: #333;
-}
-
-.contact-intro {
-    font-size: 1.5em; /* Make it larger */
-    margin-bottom: 20px;
-    text-align: center; /* Center the text */
-    font-family: 'Roboto', sans-serif; /* Ensure consistency with other text */
-    color: #333; /* Maintain text color */
 }
 
 /* Contact Links */
