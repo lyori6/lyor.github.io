@@ -249,69 +249,73 @@ document.addEventListener('DOMContentLoaded', () => {
     const GOOGLE_APPS_SCRIPT_URL = 'https://lyori-contact.lyori6ux.workers.dev/'
 
     // Handle Form Submission
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent default form submission
+    // Handle Form Submission
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent default form submission
 
-        // Clear previous feedback
-        formFeedback.textContent = '';
-        formFeedback.classList.remove('thank-you-message');
+    // Clear previous feedback
+    formFeedback.textContent = '';
+    formFeedback.classList.remove('thank-you-message');
 
-        const fullName = document.getElementById('full-name').value.trim();
-        const email = emailInput.value.trim();
-        const message = document.getElementById('message').value.trim();
+    const fullName = document.getElementById('full-name').value.trim();
+    const email = emailInput.value.trim();
+    const message = document.getElementById('message').value.trim();
 
-        // Validate Email
-        if (!validateEmail(email)) {
-            showError('Please enter a valid email address.');
-            return;
-        } else {
-            hideError();
-        }
+    // Validate Email
+    if (!validateEmail(email)) {
+        showError('Please enter a valid email address.');
+        return;
+    } else {
+        hideError();
+    }
 
-        // Add loading state
-        contactForm.classList.add('loading');
+    // Add loading state
+    contactForm.classList.add('loading');
 
-        // Prepare Form Data
-        const formData = {
-            fullName,
-            email,
-            message
-        };
+    // Prepare Form Data
+    const formData = {
+        fullName,
+        email,
+        message
+    };
 
-        try {
-            const response = await fetch(GOOGLE_APPS_SCRIPT_URL, { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
+    try {
+        const response = await fetch(GOOGLE_APPS_SCRIPT_URL, { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
 
-            if (response.ok) {
-                const result = await response.json();
-                if (result.status === 'success') {
-                    // Success Feedback
-                    formFeedback.textContent = 'Thank you! I received your message and will get back to you soon.';
-                    formFeedback.classList.add('thank-you-message');
-                    contactForm.reset(); // Clear the form
-                } else {
-                    // Server Error Feedback
-                    formFeedback.textContent = result.message || 'Something went wrong. Please try again later.';
-                    formFeedback.style.color = 'var(--accent-color)';
-                }
+        if (response.ok) {
+            const result = await response.json();
+            if (result.status === 'success') {
+                // Success Feedback
+                formFeedback.textContent = 'Thank you! I received your message and will get back to you soon.';
+                formFeedback.classList.add('thank-you-message');
+                contactForm.reset(); // Clear the form
+                
+                // Optionally, hide the form or redirect
+                // contactForm.style.display = 'none';
             } else {
-                // HTTP Error Feedback
-                formFeedback.textContent = 'Something went wrong. Please try again later.';
+                // Server Error Feedback
+                formFeedback.textContent = result.message || 'Something went wrong. Please try again later.';
                 formFeedback.style.color = 'var(--accent-color)';
             }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            formFeedback.textContent = 'An error occurred. Please try again later.';
+        } else {
+            // HTTP Error Feedback
+            formFeedback.textContent = 'Something went wrong. Please try again later.';
             formFeedback.style.color = 'var(--accent-color)';
-        } finally {
-            // Remove loading state
-            contactForm.classList.remove('loading');
         }
-    });
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        formFeedback.textContent = 'An error occurred. Please try again later.';
+        formFeedback.style.color = 'var(--accent-color)';
+    } finally {
+        // Remove loading state
+        contactForm.classList.remove('loading');
+    }
+});
 });
