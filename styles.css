@@ -261,6 +261,7 @@ section h2 {
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
     font-size: 1em;
+    cursor: pointer;
 }
 
 .home-content .btn:hover {
@@ -427,6 +428,7 @@ section h2 {
 .project-content {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* Ensure items are aligned to the start */
 }
 
 .project-content h3 {
@@ -441,7 +443,7 @@ section h2 {
 }
 
 .project-content .btn {
-    display: inline-block;
+    display: inline-block; /* Ensure buttons don't take full width */
     width: auto; /* Ensure button size is intrinsic */
     padding: 10px 25px; /* Standard padding for button */
     background-color: var(--primary-color);
@@ -451,6 +453,7 @@ section h2 {
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    max-width: 200px; /* Maximum width on desktop */
 }
 
 .project-content .btn:hover {
@@ -827,18 +830,62 @@ footer p {
     display: none; /* Hidden by default */
 }
 
-.contact-form button[type="submit"] {
-    align-self: flex-start; /* Align button to the start */
-    position: relative; /* For spinner positioning */
+.submit-container {
+    position: relative; /* For absolute positioning of spinner */
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically */
 }
 
-.form-feedback {
-    margin-top: 15px;
+.contact-form .btn {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
     font-size: 1em;
-    color: var(--primary-color);
+    cursor: pointer;
+    position: relative; /* For spinner positioning */
+    min-width: 150px; /* Ensure a minimum width */
+    text-align: center;
 }
 
-/* Loading Spinner */
+.contact-form .btn:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(0.95);
+}
+
+/* Submit Container to position button and spinner */
+.submit-container {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically */
+}
+
+/* Submit Button Styles */
+.contact-form .btn {
+    /* Inherit styles from existing .btn class */
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1em;
+    cursor: pointer;
+    position: relative; /* For spinner positioning */
+    min-width: 150px; /* Ensure a minimum width */
+    text-align: center;
+}
+
+.contact-form .btn:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(0.95);
+}
+
+/* Spinner Styles */
 .spinner {
     border: 4px solid #f3f3f3; /* Light grey */
     border-top: 4px solid var(--primary-color); /* Blue */
@@ -847,18 +894,57 @@ footer p {
     height: 20px;
     animation: spin 1s linear infinite;
     position: absolute;
-    right: -30px; /* Position it to the right of the button */
-    top: 50%;
-    transform: translateY(-50%);
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    display: none; /* Hidden by default */
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg) translateY(-50%); }
-    100% { transform: rotate(360deg) translateY(-50%); }
+    0% { transform: rotate(0deg) translate(-50%, -50%); }
+    100% { transform: rotate(360deg) translate(-50%, -50%); }
+}
+
+/* Loading State for Submit Button */
+.contact-form.loading .btn {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.contact-form.loading .spinner {
+    display: block;
 }
 
 /* Thank You Message */
 .thank-you-message {
     color: var(--primary-color);
     font-weight: 600;
+}
+
+/* Ensure Disabled Buttons Do Not Change on Hover */
+.disabled-btn:hover {
+    background-color: #cccccc; /* Maintain light grey background */
+    color: #666666;            /* Maintain darker grey text */
+    transform: none;           /* Prevent any transformations */
+}
+
+/* Adjust button width on mobile for narrower buttons */
+@media (max-width: 768px) {
+    .project-content .btn,
+    .project-content .secondary-btn {
+        max-width: 150px; /* Narrower on mobile */
+        width: auto;
+    }
+
+    /* Contact Form Button */
+    .contact-form .btn {
+        padding: 12px 30px; /* Reduced padding for mobile */
+        min-width: 120px; /* Reduced min-width for mobile */
+    }
+
+    /* Adjust spinner size on mobile */
+    .spinner {
+        width: 16px;
+        height: 16px;
+    }
 }

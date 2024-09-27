@@ -224,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailError = document.getElementById('email-error');
     const formFeedback = document.getElementById('form-feedback');
     const submitButton = contactForm.querySelector('button[type="submit"]');
+    const spinner = document.getElementById('spinner');
 
     // Email Validation Regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -244,8 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
         emailError.style.display = 'none';
     }
 
-    // Define the Cloudflare Worker URL (replace with your actual Worker URL)
-    const GOOGLE_APPS_SCRIPT_URL = 'https://lyori-contact.lyori6ux.workers.dev/'; 
+    
+    const GOOGLE_APPS_SCRIPT_URL = 'https://lyori-contact.lyori6ux.workers.dev/;'
 
     // Handle Form Submission
     contactForm.addEventListener('submit', async (e) => {
@@ -267,13 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hideError();
         }
 
-        // Disable Submit Button to Prevent Multiple Submissions
-        submitButton.disabled = true;
-
-        // Add Spinner
-        const spinner = document.createElement('div');
-        spinner.classList.add('spinner');
-        submitButton.appendChild(spinner);
+        // Add loading state
+        contactForm.classList.add('loading');
 
         // Prepare Form Data
         const formData = {
@@ -314,9 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
             formFeedback.textContent = 'An error occurred. Please try again later.';
             formFeedback.style.color = 'var(--accent-color)';
         } finally {
-            // Remove Spinner and Re-enable Button
-            submitButton.removeChild(spinner);
-            submitButton.disabled = false;
+            // Remove loading state
+            contactForm.classList.remove('loading');
         }
     });
 });
