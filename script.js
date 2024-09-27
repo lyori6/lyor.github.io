@@ -229,15 +229,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Email Validation Regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    // Handle success feedback and animation
+    function showSuccessMessage() {
+        formFeedback.textContent = 'Thank you! I received your message and will get back to you soon.';
+        formFeedback.classList.add('thank-you-message', 'show');
+    }
 
+    // Toast Elements
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    const toastDismiss = document.getElementById('toast-dismiss');
 
-// Handle success feedback and animation
-function showSuccessMessage() {
-    formFeedback.textContent = 'Thank you! I received your message and will get back to you soon.';
-    formFeedback.classList.add('thank-you-message', 'show');
-}
+    // Function to Show Toast
+    function showToast(message) {
+        toastMessage.textContent = message;
+        toast.classList.add('show');
+        // Automatically hide after 5 seconds
+        setTimeout(() => {
+            hideToast();
+        }, 5000);
+    }
 
-// Call this function on success in your existing submission logic
+    // Function to Hide Toast
+    function hideToast() {
+        toast.classList.remove('show');
+    }
+
+    // Dismiss Button Event
+    if (toastDismiss) {
+        toastDismiss.addEventListener('click', hideToast);
+    }
 
     // Function to Validate Email
     function validateEmail(email) {
@@ -255,77 +276,68 @@ function showSuccessMessage() {
         emailError.style.display = 'none';
     }
 
-    
     const GOOGLE_APPS_SCRIPT_URL = 'https://lyori-contact.lyori6ux.workers.dev/'
 
     // Handle Form Submission
-    // Handle Form Submission
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent default form submission
 
-    // Clear previous feedback
-    formFeedback.textContent = '';
-    formFeedback.classList.remove('thank-you-message');
+        // Clear previous feedback
+        formFeedback.textContent = '';
+        formFeedback.classList.remove('thank-you-message');
 
-    const fullName = document.getElementById('full-name').value.trim();
-    const email = emailInput.value.trim();
-    const message = document.getElementById('message').value.trim();
+        const fullName = document.getElementById('full-name').value.trim();
+        const email = emailInput.value.trim();
+        const message = document.getElementById('message').value.trim();
 
-    // Validate Email
-    if (!validateEmail(email)) {
-        showError('Please enter a valid email address.');
-        return;
-    } else {
-        hideError();
-    }
-
-    // Add loading state
-    contactForm.classList.add('loading');
-
-    // Prepare Form Data
-    const formData = {
-        fullName,
-        email,
-        message
-    };
-
-    try {
-        const response = await fetch(GOOGLE_APPS_SCRIPT_URL, { 
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
-
-        if (response.ok) {
-            const result = await response.json();
-            if (result.status === 'success') {
-                // Success Feedback
-                formFeedback.textContent = 'Thank you! I received your message and will get back to you soon.';
-                formFeedback.classList.add('thank-you-message');
-                contactForm.reset(); // Clear the form
-                
-                // Optionally, hide the form or redirect
-                // contactForm.style.display = 'none';
-            } else {
-                // Server Error Feedback
-                formFeedback.textContent = result.message || 'Something went wrong. Please try again later.';
-                formFeedback.style.color = 'var(--accent-color)';
-            }
+        // Validate Email
+        if (!validateEmail(email)) {
+            showError('Please enter a valid email address.');
+            return;
         } else {
-            // HTTP Error Feedback
-            formFeedback.textContent = 'Something went wrong. Please try again later.';
-            formFeedback.style.color = 'var(--accent-color)';
+            hideError();
         }
-    } catch (error) {
-        console.error('Error submitting form:', error);
-        formFeedback.textContent = 'An error occurred. Please try again later.';
-        formFeedback.style.color = 'var(--accent-color)';
-    } finally {
-        // Remove loading state
-        contactForm.classList.remove('loading');
-    }
-});
+
+        // Add loading state
+        contactForm.classList.add('loading');
+
+        // Prepare Form Data
+        const formData = {
+            fullName,
+            email,
+            message
+        };
+
+        try {
+            const response = await fetch(GOOGLE_APPS_SCRIPT_URL, { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                if (result.status === 'success') {
+                    // Show Toast Notification
+                    showToast('Thank you! Your message has been sent successfully.');
+                    contactForm.reset(); // Clear the form
+                } else {
+                    // Server Error Feedback
+                    showToast(result.message || 'Something went wrong. Please try again later.');
+                }
+            } else {
+                // HTTP Error Feedback
+                showToast('Something went wrong. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            showToast('An error occurred. Please try again later.');
+        } finally {
+            // Remove loading state
+            contactForm.classList.remove('loading');
+        }
+    });
 });
