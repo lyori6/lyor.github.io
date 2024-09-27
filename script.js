@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.querySelector('.nav-links');
     const nav = document.querySelector('nav'); // Reference to nav for additional classes if needed
+     const accordions = document.querySelectorAll(".accordion");
 
     if (menuIcon && navLinks) {
         const toggleMenu = () => {
