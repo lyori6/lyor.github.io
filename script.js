@@ -141,21 +141,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (header && content && icon) {
             header.addEventListener("click", () => {
-                // Toggle the clicked accordion
                 const isOpen = accordion.classList.toggle("open");
 
                 // Update ARIA attributes for accessibility
-                accordion.setAttribute('aria-expanded', isOpen);
+                header.setAttribute('aria-expanded', isOpen);
                 icon.setAttribute('aria-hidden', !isOpen);
+
+                // If opened, remove hover color and disable hover
+                if (isOpen) {
+                    header.classList.add('no-hover');
+                } else {
+                    header.classList.remove('no-hover');
+                }
 
                 // Close all other accordions
                 accordions.forEach((acc) => {
-                    if (acc !== accordion) {
+                    if (acc !== accordion && acc.classList.contains('open')) {
                         acc.classList.remove("open");
-                        acc.setAttribute('aria-expanded', false);
+                        const otherHeader = acc.querySelector(".accordion-header");
                         const otherIcon = acc.querySelector(".accordion-icon");
-                        if (otherIcon) {
+                        if (otherHeader && otherIcon) {
+                            otherHeader.setAttribute('aria-expanded', false);
                             otherIcon.setAttribute('aria-hidden', true);
+                            otherHeader.classList.remove('no-hover');
                         }
                     }
                 });
@@ -175,21 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.warn("Accordion elements missing in one of the accordions.");
         }
-    });
-
-    // Button Hover Functionality for Disabled Buttons
-    const disabledButtons = document.querySelectorAll(".disabled-btn, .debtcat-project-button, .ecocart-project-button");
-
-    disabledButtons.forEach((button) => {
-        const originalText = button.textContent;
-
-        button.addEventListener("mouseenter", () => {
-            button.textContent = "COMING SOON!";
-        });
-
-        button.addEventListener("mouseleave", () => {
-            button.textContent = originalText;
-        });
     });
 
     // Smooth Scrolling for Navigation Links
