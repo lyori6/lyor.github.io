@@ -273,30 +273,32 @@ section:nth-of-type(even) {
     cursor: pointer;
 }
 
+
+/* Change color of both company name and title on hover */
+.accordion-header:hover h3,
+.accordion-header:hover h3 span {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+/* Subtle animation for company logo on hover */
 .accordion-header img.company-logo {
     width: 50px;
     height: 50px;
     margin-right: 15px;
     object-fit: contain;
     background-color: transparent;
-    transition: transform 0.3s ease; /* Adds transition for a smooth effect */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Added filter transition */
 }
-
 
 .accordion-header img.company-logo:hover {
-    transform: scale(0.95, 1); /* Squishes the logo slightly on hover */
+    transform: scale(1.05); /* Slightly enlarge the logo */
+    filter: brightness(1.2); /* Slight brightness increase for emphasis */
 }
 
-.accordion-header h3 {
-    flex-grow: 1;
-    font-size: 1.6em; /* Slightly larger for prominence */
-    font-weight: 700; /* Makes the company name bold */
-    font-family: 'Raleway', 'Roboto', sans-serif; /* Ensures consistent font */
-    margin-bottom: 5px; /* Adds space below the company name */
-        transition: color 0.3s ease;
-}
-
-.accordion-header:hover h3 {
+/* Ensure the accordion header remains interactive when open */
+.accordion.open .accordion-header h3,
+.accordion.open .accordion-header h3 span {
     color: var(--primary-color);
 }
 
@@ -376,24 +378,35 @@ section:nth-of-type(even) {
     margin-bottom: 30px;
 }
 
+/* 2. Align Project Logos with Project Names */
+
+/* Ensure project headers use flexbox for proper alignment */
 .project-header {
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically centers items */
     margin-bottom: 15px;
 }
 
+/* Adjust project logo styles for better alignment */
 .project-header img.project-logo {
-    width: 50px; /* Adjusted to match company-logo size */
-    height: 50px; /* Adjusted to match company-logo size */
+    width: 50px;
+    height: 50px;
     margin-right: 15px;
-    object-fit: contain; /* Prevent image stretching */
-    background-color: transparent; /* Optional */
+    object-fit: contain;
+    background-color: transparent;
+    transition: transform 0.3s ease; /* Optional: Add transition for hover effects */
 }
 
-.project-content h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    font-family: 'Raleway', 'Roboto', sans-serif;
+/* Optional: Add hover effect to project logos for consistency */
+.project-header img.project-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Ensure project content is centered vertically */
+.project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .project-content p {
