@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Existing Code...
-
     // Hamburger Menu Functionality
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.querySelector('.nav-links');
@@ -246,6 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
         emailError.style.display = 'none';
     }
 
+    // Define the Cloudflare Worker URL (replace with your actual Worker URL)
+    const GOOGLE_APPS_SCRIPT_URL = 'https://lyori-contact.lyori6ux.workers.dev/'; 
+
     // Handle Form Submission
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault(); // Prevent default form submission
@@ -282,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('const GOOGLE_APPS_SCRIPT_URL = 'const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxah3jH8l8y9xqoz46PLUkkTTK6FiEpHP1Xx_FdwTVE45adZHZlmhRi5YJ10GUtj-bB/exec',{ 
+            const response = await fetch(GOOGLE_APPS_SCRIPT_URL, { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
