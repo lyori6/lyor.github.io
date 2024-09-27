@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hamburger Menu Functionality
     const menuIcon = document.querySelector('.menu-icon');
     const navLinks = document.querySelector('.nav-links');
-    const nav = document.querySelector('nav'); // Reference to nav for additional classes if needed
-     const accordions = document.querySelectorAll(".accordion");
+    const nav = document.querySelector('nav'); 
+    const accordions = document.querySelectorAll(".accordion"); // Ensure accordions are selected correctly
+    console.log('Accordions:', accordions); // Debugging line to verify selection
 
     if (menuIcon && navLinks) {
         const toggleMenu = () => {
@@ -133,29 +134,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Accordion Functionality
-    accordions.forEach((accordion) => {
-    const header = accordion.querySelector(".accordion-header");
+    if (accordions.length > 0) {
+        accordions.forEach((accordion) => {
+            const header = accordion.querySelector(".accordion-header");
 
-    header.addEventListener("click", () => {
-        const isOpen = accordion.classList.toggle("open");
+            if (header) {
+                header.addEventListener("click", () => {
+                    const isOpen = accordion.classList.toggle("open");
 
-        // Disable hover when open
-        if (isOpen) {
-            header.classList.add('no-hover');
-        } else {
-            header.classList.remove('no-hover');
-        }
+                    // Disable hover when open
+                    if (isOpen) {
+                        header.classList.add('no-hover');
+                    } else {
+                        header.classList.remove('no-hover');
+                    }
 
-        // Close other accordions
-        accordions.forEach((acc) => {
-            if (acc !== accordion && acc.classList.contains('open')) {
-                acc.classList.remove("open");
-                const otherHeader = acc.querySelector(".accordion-header");
-                otherHeader.classList.remove('no-hover');
+                    // Close other accordions
+                    accordions.forEach((acc) => {
+                        if (acc !== accordion && acc.classList.contains('open')) {
+                            acc.classList.remove("open");
+                            const otherHeader = acc.querySelector(".accordion-header");
+                            if (otherHeader) {
+                                otherHeader.classList.remove('no-hover');
+                            }
+                        }
+                    });
+                });
+
+                // Optional: Add keyboard accessibility for accordion headers
+                header.setAttribute('tabindex', '0'); // Make header focusable
+
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        header.click();
+                    }
+                });
+            } else {
+                console.warn("Accordion header not found within an accordion.");
             }
         });
-    });
-});
+    } else {
+        console.warn("No accordions found.");
+    }
 
     // Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
