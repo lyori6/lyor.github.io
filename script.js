@@ -178,19 +178,21 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("No accordions found.");
     }
 
-    // Smooth Scrolling for Navigation Links
+    // **Updated Smooth Scrolling for Navigation Links**
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            // Prevent default if it's not a disabled link
-            if (!this.classList.contains('disabled-btn')) {
-                e.preventDefault();
+            if (this.classList.contains('disabled-btn')) {
+                e.preventDefault(); // Prevent any action for disabled buttons
+                return; // Exit the handler
+            }
 
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+            // For non-disabled buttons, perform smooth scrolling
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
     });

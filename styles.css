@@ -196,7 +196,6 @@ section h2 {
     padding-bottom: 5px;
 }
 
-
 /* Responsive Adjustments for Smaller Screens */
 @media (max-width: 768px) {
     section h2 {
@@ -286,8 +285,7 @@ section h2 {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-        transition: all 0.4s ease; /* Smoother transition */
-
+    transition: all 0.4s ease; /* Smoother transition */
 }
 
 .accordion-header.no-hover:hover {
@@ -312,13 +310,22 @@ section h2 {
     font-size: 1.4em;
     font-weight: 700; /* Increased weight for prominence */
     font-family: 'Raleway', 'Roboto', sans-serif; /* Ensure consistency */
+    color: #333; /* Default text color */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
-/* Differentiate Title within h3 */
 .accordion-header h3 span {
     font-family: 'Roboto', sans-serif; /* Differentiate font */
     font-weight: 400; /* Normal weight */
     font-style: italic; /* Optional: add style for distinction */
+    color: #333; /* Default text color */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Text Color Change on Hover */
+.accordion-header:hover h3,
+.accordion-header:hover h3 span {
+    color: var(--primary-color); /* Primary color defined in :root */
 }
 
 .accordion-header .accordion-icon {
@@ -355,20 +362,26 @@ section h2 {
     margin-bottom: 15px;
 }
 
-.accordion-header h3,
-.accordion-header h3 span {
-    color: #333; /* Default text color */
-    transition: color 0.3s ease; /* Smooth color transition */
+/* Disabled Buttons */
+.disabled-btn {
+    background-color: #cccccc; /* Light grey background */
+    color: #666666;            /* Darker grey text */
+    cursor: not-allowed;       /* Indicate disabled state */
+    pointer-events: none;      /* Make button non-clickable */
+    opacity: 0.8;              /* Slightly faded appearance */
+    text-decoration: none;     /* Remove underline from links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
-/* Change text color on hover */
-.accordion-header:hover h3,
-.accordion-header:hover h3 span {
-    color: var(--primary-color); /* Primary color defined in :root */
+/* Ensure Disabled Buttons Do Not Change on Hover */
+.disabled-btn:hover {
+    background-color: #cccccc; /* Maintain light grey background */
+    color: #666666;            /* Maintain darker grey text */
+    transform: none;           /* Prevent any transformations */
 }
 
-/* Existing Styles */
-.secondary-btn, .disabled-btn {
+/* Secondary Buttons */
+.secondary-btn {
     display: inline-block;
     text-decoration: none;
     background-color: var(--accent-color);
@@ -377,16 +390,9 @@ section h2 {
     border-radius: 5px;
     transition: none; /* Remove transitions */
     font-size: 0.9em;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
-/* Remove Hover Effects for Disabled Buttons */
-.disabled-btn:hover {
-    background-color: var(--accent-color); /* Keep the same color */
-    transform: none; /* No scaling */
-}
-
-/* Optional: Ensure .secondary-btn still has hover effects */
 .secondary-btn:hover {
     background-color: var(--button-hover-color);
     transform: scale(0.98);
@@ -399,7 +405,7 @@ section h2 {
 
 .project-header {
     display: flex;
-    align-items: center;
+    align-items: center; /* Align items vertically centered with the title */
     margin-bottom: 15px;
 }
 
@@ -411,10 +417,16 @@ section h2 {
     background-color: transparent; /* Optional */
 }
 
+.project-content {
+    display: flex;
+    flex-direction: column;
+}
+
 .project-content h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
     font-family: 'Raleway', 'Roboto', sans-serif;
+    color: #333;
 }
 
 .project-content p {
@@ -430,16 +442,29 @@ section h2 {
     border-radius: 5px;
     font-size: 1em;
     text-align: center;
-}
-
-.project-content .btn.disabled-btn {
-    background-color: grey; /* Disabled button background */
-    cursor: not-allowed; /* Disable pointer events for the last button */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .project-content .btn:hover {
     background-color: var(--button-hover-color);
     transform: scale(0.98);
+}
+
+.project-content .disabled-btn {
+    background-color: #cccccc; /* Light grey background */
+    color: #666666;            /* Darker grey text */
+    cursor: not-allowed;       /* Indicate disabled state */
+    pointer-events: none;      /* Make button non-clickable */
+    opacity: 0.8;              /* Slightly faded appearance */
+    text-decoration: none;     /* Remove underline from links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.project-content .disabled-btn:hover {
+    background-color: #cccccc; /* Maintain light grey background */
+    color: #666666;            /* Maintain darker grey text */
+    transform: none;           /* Prevent any transformations */
 }
 
 /* Testimonials Section */
@@ -597,7 +622,6 @@ footer p {
     .intro-subtext {
         font-size: 1.8em; /* Adjusted */
     }
-
 
     /* Project Headers */
     .project-header {
