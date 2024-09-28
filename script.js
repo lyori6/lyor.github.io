@@ -355,12 +355,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailLink = document.getElementById('email-link');
     if (emailLink) {
         emailLink.setAttribute('href', `mailto:${email}`);
+    } else {
+        console.warn("Email link element not found.");
     }
 
     // Set the visible email address
     const emailAddress = document.getElementById('email-address');
     if (emailAddress) {
         emailAddress.textContent = email;
+    } else {
+        console.warn("Email address element not found.");
     }
 
     // 'Read More' functionality for testimonials
