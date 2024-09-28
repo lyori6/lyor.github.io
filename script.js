@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact Form Functionality
     const contactForm = document.getElementById('contact-form');
-    const emailInput = document.getElementById('email-address');
+    const emailInput = document.getElementById('contact-email'); // Updated ID
     const emailError = document.getElementById('email-error');
     const formFeedback = document.getElementById('form-feedback');
     const submitButton = contactForm.querySelector('button[type="submit"]');
@@ -360,9 +360,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Set the visible email address
-    const mailAddress = document.getElementById('gmail-address');
-    if (emailAddress) {
-        emailAddress.textContent = email;
+    const mailAddress = document.getElementById('gmail-address'); // Updated ID
+    if (mailAddress) { // Corrected variable name
+        mailAddress.textContent = email;
     } else {
         console.warn("Email address element not found.");
     }

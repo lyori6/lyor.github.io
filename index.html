@@ -346,10 +346,28 @@
 <section id="contact">
     <h2>Contact</h2>
 
-    <!-- Contact Form -->
-    <form id="contact-form" class="contact-form">
-        <!-- ... existing form fields ... -->
-    </form>
+<!-- Contact Form -->
+            <form id="contact-form" class="contact-form">
+                <h4 class="contact-intro">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out through any of the platforms below.</h4>
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" id="email-address" name="email" required>
+                    <span class="error-message" id="email-error">Please enter a valid email address.</span>
+                </div>
+                <div class="form-group">
+                    <label for="message">What do you want to work on?</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="submit-container">
+                    <button type="submit" class="btn">Submit</button>
+                    <div id="spinner" class="spinner"></div>
+                </div>
+                <div id="form-feedback" class="form-feedback"></div>
+            </form>
 
     <ul class="contact-links">
         <li>
