@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("Menu icon or navigation links not found.");
     }
 
-    // Carousel Functionality
+     // Carousel Functionality
     let slideIndex = 0;
     const slides = document.querySelectorAll(".testimonial");
     const prevBtn = document.querySelector(".prev");
@@ -98,6 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
             carousel.addEventListener('mouseleave', () => {
                 startAutoScroll();
             });
+        }
+
+        // Optional: Pause carousel when contact section is in view
+        const contactSection = document.querySelector('#contact');
+
+        if (contactSection) {
+            const observerOptions = {
+                root: null,
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        clearInterval(autoScrollInterval);
+                    } else {
+                        startAutoScroll();
+                    }
+                });
+            }, observerOptions);
+
+            observer.observe(contactSection);
         }
     }
 
