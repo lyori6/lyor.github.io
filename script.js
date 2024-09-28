@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Email Obfuscation 
     // Define parts of the email
-    const user = 'lyori6';
+    const user = 'lyori6ux';
     const domain = 'gmail';
     const tld = 'com';
 
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Set the visible email address
-    const emailAddress = document.getElementById('email-address');
+    const mailAddress = document.getElementById('gmail-address');
     if (emailAddress) {
         emailAddress.textContent = email;
     } else {
