@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
     const nav = document.querySelector('nav'); 
     const accordions = document.querySelectorAll(".accordion"); // Ensure accordions are selected correctly
-    console.log('Accordions:', accordions); // Debugging line to verify selection
 
     if (menuIcon && navLinks) {
         const toggleMenu = () => {
@@ -38,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Carousel Functionality
     let slideIndex = 0;
-    let autoScrollInterval;
     const slides = document.querySelectorAll(".testimonial");
     const prevBtn = document.querySelector(".prev");
     const nextBtn = document.querySelector(".next");
@@ -73,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Auto-scroll every 5 seconds
+    let autoScrollInterval;
     function startAutoScroll() {
         autoScrollInterval = setInterval(() => {
             slideIndex++;
@@ -101,44 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-
-// Read More Functionality for Testimonials
-const testimonials = document.querySelectorAll(".testimonial");
-
-testimonials.forEach((testimonial) => {
-    const textElement = testimonial.querySelector(".testimonial-text");
-    const readMoreLink = testimonial.querySelector(".read-more-link");
-
-    if (textElement && readMoreLink) {
-        const fullText = textElement.textContent.trim();
-        const words = fullText.split(/\s+/);
-        const wordLimit = 50; // Adjust as needed
-
-        if (words.length > wordLimit) {
-            const truncatedText = words.slice(0, wordLimit).join(' ') + '... ';
-            textElement.textContent = truncatedText;
-            readMoreLink.style.display = 'inline'; // Ensure the link is visible
-
-            readMoreLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                const isExpanded = testimonial.classList.toggle('expanded');
-                textElement.textContent = isExpanded ? fullText + ' ' : truncatedText;
-                readMoreLink.textContent = isExpanded ? 'Read less' : 'Read more';
-
-                // Pause auto-scroll when expanded
-                if (isExpanded) {
-                    clearInterval(autoScrollInterval);  // Stop the auto-scroll
-                } else {
-                    startAutoScroll();  // Resume the auto-scroll
-                }
-            });
-        } else {
-            readMoreLink.style.display = 'none'; // Hide the link if text is short
-        }
-    } else {
-        console.warn("Missing .testimonial-text or .read-more-link in a testimonial.");
-    }
-});
 
     // Accordion Functionality
     if (accordions.length > 0) {
