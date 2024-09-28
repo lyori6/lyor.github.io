@@ -162,7 +162,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
 
-                // Optional: Add keyboard accessibility for accordion headers
+//  Email Obfuscation 
+    document.addEventListener('DOMContentLoaded', () => {
+        // Define parts of the email
+        const user = 'lyori6ux';
+        const domain = 'gmail';
+        const tld = 'com';
+
+        // Construct the email address
+        const email = `${user}@${domain}.${tld}`;
+
+        // Set the href attribute for the mailto link
+        const emailLink = document.getElementById('email-link');
+        if (emailLink) {
+            emailLink.setAttribute('href', `mailto:${email}`);
+        }
+
+        // Set the visible email address
+        const emailAddress = document.getElementById('email-address');
+        if (emailAddress) {
+            emailAddress.textContent = email;
+        }
+    });
+
+                // keyboard accessibility for accordion headers
                 header.setAttribute('tabindex', '0'); // Make header focusable
 
                 header.addEventListener('keydown', (e) => {
