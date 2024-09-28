@@ -493,16 +493,15 @@ section h2 {
     display: none;
     text-align: center;
     padding: 20px;
-        min-height: 150px; 
-    max-height: 250px; 
-        overflow: hidden;
-            transition: max-height 0.5s ease-in-out; /* Smooth transition for height changes */
-
-
+    min-height: 150px;
+    max-height: 250px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out; /* Smooth transition for height changes */
 }
 
 .testimonial.expanded {
-    max-height: none; 
+    max-height: none; /* Allow full height when expanded */
+}
 
 .testimonial.active {
     display: block;
