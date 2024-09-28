@@ -520,13 +520,28 @@ section h2 {
 }
 
 .read-more-container {
+        display: flex;
+    justify-content: center; /* Keeps the button centered */
+    position: relative;
+    z-index: 10; /* Again, ensure it's above other masked areas */
     margin-bottom: 10px;
 }
 
 .read-more-link {
     color: var(--primary-color);
     text-decoration: underline;
+     position: relative;
+     z-index: 10;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .read-more-link {
+        font-size: 0.8em; /* Adjust button size for smaller screens */
+    }
+    .testimonial {
+        padding-bottom: 20px; /* Increase padding to allow room for the button */
+    }
 }
 
 .cite {
