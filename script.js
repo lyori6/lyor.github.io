@@ -309,3 +309,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// 'Read More' functionality for testimonials
+const testimonials = document.querySelectorAll('.testimonial');
+
+testimonials.forEach(testimonial => {
+    const textElement = testimonial.querySelector('.testimonial-text');
+    const readMoreLink = testimonial.querySelector('.read-more-link');
+
+    // Get the full text
+    const fullText = textElement.innerText;
+
+    // Split into sentences
+    const sentences = fullText.match(/[^\.!\?]+[\.!\?]+/g);
+
+    if (sentences && sentences.length > 3) {
+        // Get the first 3 sentences
+        const truncatedText = sentences.slice(0, 3).join(' ');
+
+        // Store the full text in a data attribute
+        textElement.dataset.fullText = fullText;
+
+        // Set the text to the truncated version
+        textElement.innerText = truncatedText;
+
+        // Add event listener to the 'Read More' link
+        readMoreLink.addEventListener('click', () => {
+            const isExpanded = testimonial.classList.contains('expanded');
+
+            if (isExpanded) {
+                // Collapse
+                textElement.innerText = truncatedText;
+                readMoreLink.innerText = 'Read More';
+                testimonial.classList.remove('expanded');
+            } else {
+                // Expand
+                textElement.innerText = fullText;
+                readMoreLink.innerText = 'Read Less';
+                testimonial.classList.add('expanded');
+            }
+        });
+    } else {
+        // If 3 sentences or less, hide the 'Read More' link
+        readMoreLink.style.display = 'none';
+    }
+});

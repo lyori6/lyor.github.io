@@ -415,6 +415,17 @@ section h2 {
     transform: scale(0.98);
 }
 
+/* Adjust Buttons in Experience Section */
+#experience .secondary-btn {
+    background-color: #cccccc; /* Light grey background */
+    color: #666666; /* Darker grey text */
+}
+
+#experience .secondary-btn:hover {
+    background-color: #b3b3b3; /* Slightly darker grey on hover */
+    transform: scale(0.98);
+}
+
 /* Projects Section */
 .project {
     margin-bottom: 50px;
@@ -486,10 +497,16 @@ section h2 {
 }
 
 /* Testimonials Section */
-#testimonials .testimonial-carousel {
+#testimonials {
     position: relative;
-    overflow: hidden; /* Ensures no overflow */
-    /* Removed fixed height to allow responsiveness */
+    overflow: hidden;
+    height: 400px; /* Adjust this value as needed */
+}
+
+.testimonial-carousel {
+    position: relative;
+    overflow-y: auto;
+    height: 100%;
 }
 
 .testimonial {
