@@ -500,7 +500,7 @@ section h2 {
 #testimonials {
     position: relative;
     overflow: hidden;
-    height: 400px; /* Adjust this value as needed */
+    /* height: 400px; */ 
 }
 
 .testimonial-carousel {
