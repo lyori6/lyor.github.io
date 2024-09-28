@@ -523,7 +523,6 @@ section h2 {
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
     min-height: 400px; /* Slightly less than carousel min-height to account for padding */
 }
 
