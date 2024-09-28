@@ -217,19 +217,19 @@ section h2 {
 
 .intro-text {
     font-family: 'Catamaran', sans-serif;
-    font-size: 6vw;
+    font-size: clamp(24px, 6vw, 48px); /* Responsive font size */
     color: var(--primary-color);
     font-weight: 700;
     margin-bottom: 10px;
-    letter-spacing: 1px;
+    letter-spacing: -1px; /* Reduced spacing for 'Lyor' */
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: letter-spacing 0.3s ease;
 }
 
 .intro-text .name {
-    letter-spacing: -1px;
-    transition: letter-spacing 0.3s ease;
+    letter-spacing: -1px; /* Further reduce spacing */
 }
 
 .intro-subtext {
@@ -505,14 +505,13 @@ section h2 {
 #testimonials {
     position: relative;
     overflow: hidden;
-    /* height: 400px; */ 
 }
 
 .testimonial-carousel {
     position: relative;
-    overflow-y: auto;
-    height: 100%;
-
+    overflow: hidden; /* Remove vertical scrolling */
+    min-height: 450px; /* Set to the height of the tallest testimonial */
+    transition: min-height 0.5s ease; /* Smooth transition if height changes */
 }
 
 .testimonial {
@@ -525,6 +524,7 @@ section h2 {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    min-height: 400px; /* Slightly less than carousel min-height to account for padding */
 }
 
 .testimonial.active {
@@ -599,6 +599,10 @@ section h2 {
 
 /* Responsive Adjustments for Testimonials */
 @media (max-width: 768px) {
+    .testimonial-carousel {
+        min-height: 350px; /* Adjusted for tablet */
+    }
+
     .testimonial img.avatar {
         width: 60px;
         height: 60px;
@@ -614,6 +618,10 @@ section h2 {
 }
 
 @media (max-width: 480px) {
+    .testimonial-carousel {
+        min-height: 300px; /* Adjusted for mobile */
+    }
+
     .testimonial img.avatar {
         width: 50px;
         height: 50px;
@@ -750,7 +758,7 @@ footer p {
     }
 
     .intro-text {
-        font-size: 6vw; /* Adjusted */
+        font-size: clamp(28px, 8vw, 50px); /* Increased font size */
         letter-spacing: 0.3px;
     }
 
@@ -875,7 +883,7 @@ footer p {
 @media (max-width: 480px) {
     /* Adjust Intro Text */
     .intro-text {
-        font-size: 7vw; /* Adjusted */
+        font-size: clamp(32px, 10vw, 56px); /* Further increased font size */
     }
 
     .intro-subtext {

@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("Menu icon or navigation links not found.");
     }
 
-     // Carousel Functionality
+    // Carousel Functionality
     let slideIndex = 0;
     const slides = document.querySelectorAll(".testimonial");
     const prevBtn = document.querySelector(".prev");
@@ -73,14 +73,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-scroll every 5 seconds
     let autoScrollInterval;
     function startAutoScroll() {
+        stopAutoScroll(); // Ensure no existing interval
         autoScrollInterval = setInterval(() => {
             slideIndex++;
             showSlides(slideIndex);
         }, 5000);
     }
 
+    function stopAutoScroll() {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+        }
+    }
+
     function resetAutoScroll() {
-        clearInterval(autoScrollInterval);
         startAutoScroll();
     }
 
@@ -92,15 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const carousel = document.querySelector('.testimonial-carousel');
         if (carousel) {
             carousel.addEventListener('mouseenter', () => {
-                clearInterval(autoScrollInterval);
+                stopAutoScroll();
+                console.log("Carousel paused on hover.");
             });
 
             carousel.addEventListener('mouseleave', () => {
                 startAutoScroll();
+                console.log("Carousel resumed on mouse leave.");
             });
         }
 
-        // Optional: Pause carousel when contact section is in view
+        // Pause carousel when contact section is in view
         const contactSection = document.querySelector('#contact');
 
         if (contactSection) {
@@ -112,9 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        clearInterval(autoScrollInterval);
+                        stopAutoScroll();
+                        console.log("Contact section in view. Carousel paused.");
                     } else {
                         startAutoScroll();
+                        console.log("Contact section out of view. Carousel resumed.");
                     }
                 });
             }, observerOptions);
@@ -331,7 +342,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
 
 // 'Read More' functionality for testimonials
 const testimonials = document.querySelectorAll('.testimonial');
