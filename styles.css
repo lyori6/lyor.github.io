@@ -488,12 +488,12 @@ section h2 {
 /* Testimonials Section */
 #testimonials .testimonial-carousel {
     position: relative;
-    overflow: hidden;
-    /* Remove fixed height to allow responsiveness */
+    overflow: hidden; /* Ensures no overflow */
+    /* Removed fixed height to allow responsiveness */
 }
 
 .testimonial {
-    display: none;
+    display: none; /* Hide all testimonials by default */
     flex-direction: column;
     align-items: center; /* Centers content horizontally */
     text-align: center;   /* Centers text */
@@ -501,12 +501,11 @@ section h2 {
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 8px;
-    /* Remove box-shadow if not needed or keep it for design consistency */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
 }
 
 .testimonial.active {
-    display: flex;
+    display: flex; /* Show only the active testimonial */
 }
 
 .testimonial img.avatar {
@@ -583,7 +582,7 @@ section h2 {
     }
 
     .testimonial-text {
-        max-height: 200px;
+        max-height: 200px; /* Increase max-height for tablets */
     }
 
     .read-more-link {
@@ -598,7 +597,7 @@ section h2 {
     }
 
     .testimonial-text {
-        max-height: 250px;
+        max-height: 250px; /* Increase max-height for mobile */
     }
 
     .read-more-link {
@@ -1142,17 +1141,4 @@ footer p {
 #contact .contact-form .btn {
     margin: 0 auto;
     display: block;
-}
-
-/* New Testimonials Responsive Styles */
-@media (max-width: 768px) {
-    .testimonial-text {
-        max-height: 200px; /* Increase max-height for tablets */
-    }
-}
-
-@media (max-width: 480px) {
-    .testimonial-text {
-        max-height: 250px; /* Increase max-height for mobile */
-    }
 }
