@@ -102,36 +102,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Read More Functionality for Testimonials
-    const testimonials = document.querySelectorAll(".testimonial");
+// Read More Functionality for Testimonials
+const testimonials = document.querySelectorAll(".testimonial");
 
-    testimonials.forEach((testimonial) => {
-        const textElement = testimonial.querySelector(".testimonial-text");
-        const readMoreLink = testimonial.querySelector(".read-more-link");
+testimonials.forEach((testimonial) => {
+    const textElement = testimonial.querySelector(".testimonial-text");
+    const readMoreLink = testimonial.querySelector(".read-more-link");
 
-        if (textElement && readMoreLink) {
-            const fullText = textElement.textContent.trim();
-            const words = fullText.split(/\s+/);
-            const wordLimit = 50; // Adjust as needed
+    if (textElement && readMoreLink) {
+        const fullText = textElement.textContent.trim();
+        const words = fullText.split(/\s+/);
+        const wordLimit = 50; // Adjust as needed
 
-            if (words.length > wordLimit) {
-                const truncatedText = words.slice(0, wordLimit).join(' ') + '... ';
-                textElement.textContent = truncatedText;
-                readMoreLink.style.display = 'inline'; // Ensure the link is visible
+        if (words.length > wordLimit) {
+            const truncatedText = words.slice(0, wordLimit).join(' ') + '... ';
+            textElement.textContent = truncatedText;
+            readMoreLink.style.display = 'inline'; // Ensure the link is visible
 
-                readMoreLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const isExpanded = testimonial.classList.toggle('expanded');
-                    textElement.textContent = isExpanded ? fullText + ' ' : truncatedText;
-                    readMoreLink.textContent = isExpanded ? 'Read less' : 'Read more';
-                });
-            } else {
-                readMoreLink.style.display = 'none'; // Hide the link if text is short
-            }
+            readMoreLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isExpanded = testimonial.classList.toggle('expanded');
+                textElement.textContent = isExpanded ? fullText + ' ' : truncatedText;
+                readMoreLink.textContent = isExpanded ? 'Read less' : 'Read more';
+
+                // Pause auto-scroll when expanded
+                if (isExpanded) {
+                    clearInterval(autoScrollInterval);  // Stop the auto-scroll
+                } else {
+                    startAutoScroll();  // Resume the auto-scroll
+                }
+            });
         } else {
-            console.warn("Missing .testimonial-text or .read-more-link in a testimonial.");
+            readMoreLink.style.display = 'none'; // Hide the link if text is short
         }
-    });
+    } else {
+        console.warn("Missing .testimonial-text or .read-more-link in a testimonial.");
+    }
+});
 
     // Accordion Functionality
     if (accordions.length > 0) {
