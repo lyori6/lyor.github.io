@@ -162,30 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
 
-//  Email Obfuscation 
-    document.addEventListener('DOMContentLoaded', () => {
-        // Define parts of the email
-        const user = 'lyori6ux';
-        const domain = 'gmail';
-        const tld = 'com';
-
-        // Construct the email address
-        const email = `${user}@${domain}.${tld}`;
-
-        // Set the href attribute for the mailto link
-        const emailLink = document.getElementById('email-link');
-        if (emailLink) {
-            emailLink.setAttribute('href', `mailto:${email}`);
-        }
-
-        // Set the visible email address
-        const emailAddress = document.getElementById('email-address');
-        if (emailAddress) {
-            emailAddress.textContent = email;
-        }
-    });
-
-                // keyboard accessibility for accordion headers
+                // Keyboard accessibility for accordion headers
                 header.setAttribute('tabindex', '0'); // Make header focusable
 
                 header.addEventListener('keydown', (e) => {
@@ -364,49 +341,70 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.classList.remove('loading');
         }
     });
-});
 
-// 'Read More' functionality for testimonials
-const testimonials = document.querySelectorAll('.testimonial');
+    // Email Obfuscation 
+    // Define parts of the email
+    const user = 'lyori6';
+    const domain = 'gmail';
+    const tld = 'com';
 
-testimonials.forEach(testimonial => {
-    const textElement = testimonial.querySelector('.testimonial-text');
-    const readMoreLink = testimonial.querySelector('.read-more-link');
+    // Construct the email address
+    const email = `${user}@${domain}.${tld}`;
 
-    // Get the full text
-    const fullText = textElement.innerText;
-
-    // Split into sentences
-    const sentences = fullText.match(/[^\.!\?]+[\.!\?]+/g);
-
-    if (sentences && sentences.length > 3) {
-        // Get the first 3 sentences
-        const truncatedText = sentences.slice(0, 3).join(' ');
-
-        // Store the full text in a data attribute
-        textElement.dataset.fullText = fullText;
-
-        // Set the text to the truncated version
-        textElement.innerText = truncatedText;
-
-        // Add event listener to the 'Read More' link
-        readMoreLink.addEventListener('click', () => {
-            const isExpanded = testimonial.classList.contains('expanded');
-
-            if (isExpanded) {
-                // Collapse
-                textElement.innerText = truncatedText;
-                readMoreLink.innerText = 'Read More';
-                testimonial.classList.remove('expanded');
-            } else {
-                // Expand
-                textElement.innerText = fullText;
-                readMoreLink.innerText = 'Read Less';
-                testimonial.classList.add('expanded');
-            }
-        });
-    } else {
-        // If 3 sentences or less, hide the 'Read More' link
-        readMoreLink.style.display = 'none';
+    // Set the href attribute for the mailto link
+    const emailLink = document.getElementById('email-link');
+    if (emailLink) {
+        emailLink.setAttribute('href', `mailto:${email}`);
     }
+
+    // Set the visible email address
+    const emailAddress = document.getElementById('email-address');
+    if (emailAddress) {
+        emailAddress.textContent = email;
+    }
+
+    // 'Read More' functionality for testimonials
+    const testimonials = document.querySelectorAll('.testimonial');
+
+    testimonials.forEach(testimonial => {
+        const textElement = testimonial.querySelector('.testimonial-text');
+        const readMoreLink = testimonial.querySelector('.read-more-link');
+
+        // Get the full text
+        const fullText = textElement.innerText;
+
+        // Split into sentences
+        const sentences = fullText.match(/[^\.!\?]+[\.!\?]+/g);
+
+        if (sentences && sentences.length > 3) {
+            // Get the first 3 sentences
+            const truncatedText = sentences.slice(0, 3).join(' ');
+
+            // Store the full text in a data attribute
+            textElement.dataset.fullText = fullText;
+
+            // Set the text to the truncated version
+            textElement.innerText = truncatedText;
+
+            // Add event listener to the 'Read More' link
+            readMoreLink.addEventListener('click', () => {
+                const isExpanded = testimonial.classList.contains('expanded');
+
+                if (isExpanded) {
+                    // Collapse
+                    textElement.innerText = truncatedText;
+                    readMoreLink.innerText = 'Read More';
+                    testimonial.classList.remove('expanded');
+                } else {
+                    // Expand
+                    textElement.innerText = fullText;
+                    readMoreLink.innerText = 'Read Less';
+                    testimonial.classList.add('expanded');
+                }
+            });
+        } else {
+            // If 3 sentences or less, hide the 'Read More' link
+            readMoreLink.style.display = 'none';
+        }
+    });
 });
