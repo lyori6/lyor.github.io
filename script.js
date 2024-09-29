@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact Form Functionality
     const contactForm = document.getElementById('contact-form');
-    const emailInput = document.getElementById('contact-email'); // Updated ID
+    const emailInput = document.getElementById('email-address'); // Updated ID
     const emailError = document.getElementById('email-error');
     const formFeedback = document.getElementById('form-feedback');
     const submitButton = contactForm.querySelector('button[type="submit"]');
